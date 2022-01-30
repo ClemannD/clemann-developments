@@ -1,0 +1,58 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.weekControls {
+    display: flex;
+}
+
+.courtsRow {
+    gap: 0 40px;
+
+    @include respond-to('medium') {
+        gap: 0 20px;
+    }
+}
+
+.courtBox {
+    height: 10rem;
+    padding: 2rem;
+    cursor: default;
+    box-shadow: $shadow-card;
+
+    &:hover {
+        box-shadow: $shadow-card;
+    }
+
+    &.noCourtBox {
+        background-color: transparent;
+        box-shadow: none;
+        cursor: default;
+        text-align: center;
+        font-size: 2.4rem;
+    }
+
+    &.noCourtBox,
+    &.addCourtBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        color: $gray-darker;
+
+        svg {
+            color: $gray-darker;
+            height: 2rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &.addCourtBox {
+        opacity: 0.6;
+        transition: opacity $ease-out-quart-slow;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

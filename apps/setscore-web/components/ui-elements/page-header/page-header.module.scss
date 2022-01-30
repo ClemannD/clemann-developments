@@ -1,0 +1,50 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.pageHeader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    // align-items: center;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+
+    &.hasBackButton {
+        padding-top: 2rem;
+    }
+
+    @include respond-to('medium') {
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .headerLeft {
+        margin-right: auto;
+        @include respond-to('medium') {
+            display: flex;
+            align-items: center;
+        }
+
+        .backButton {
+            align-self: flex-start;
+            height: 4rem;
+            padding-right: 1rem;
+        }
+
+        .header {
+            padding-right: 2rem;
+            h2 {
+                // margin-bottom: 2rem;
+
+                @include respond-to('medium') {
+                    // margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .actionButton {
+        padding-top: 0.5rem;
+    }
+}

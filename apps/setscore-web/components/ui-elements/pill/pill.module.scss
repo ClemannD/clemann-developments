@@ -1,0 +1,62 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.pill {
+    height: 1.8rem;
+    line-height: 1.8rem;
+    padding: 0rem 0.8rem;
+
+    border-radius: 5px;
+
+    width: fit-content;
+    color: $black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.small {
+        height: 1.6rem;
+        line-height: 1.6rem;
+        font-size: 1rem;
+        padding: 0rem 0.6rem;
+    }
+    &.block {
+        width: 100%;
+        text-align: center;
+    }
+
+    &.lightFont {
+        color: $white;
+    }
+
+    // &.Black {
+    //     background-color: $black;
+    // }
+
+    &.Black {
+        background-color: $almost-black2;
+    }
+
+    &.White {
+        background-color: $white;
+    }
+
+    &.OffWhite {
+        background-color: $gray-super-light;
+        // background-color: $alice-blue;
+    }
+
+    &.Green {
+        background-color: $green;
+    }
+
+    &.Blue {
+        background-color: $blue;
+    }
+
+    &.Yellow {
+        background-color: $yellow;
+    }
+}

@@ -1,0 +1,11 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.courtRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+}

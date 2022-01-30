@@ -1,0 +1,12 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.formWrapper {
+    z-index: $z-index-foreground;
+    max-width: 40rem;
+    width: 100%;
+}
+
+.leagueButton {
+    margin-bottom: 1.5rem;
+}

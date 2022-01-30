@@ -1,0 +1,75 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.draggablePlayer {
+    margin-bottom: 1rem;
+    transition: width 2s ease-in-out;
+
+    .playerBox {
+        flex-grow: 1;
+        background-color: $white;
+        border: 1px solid $gray-lighter;
+        // border: 3px solid $white;
+        border-radius: 3px;
+        // box-shadow: $shadow-spread-smaller;
+        min-height: 5rem;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        transition: width 2s ease-in-out;
+
+        &.extra {
+            background-color: $red-highlight;
+        }
+
+        &:hover {
+            svg {
+                opacity: 0.5;
+            }
+        }
+
+        .player {
+            width: fit-content;
+            // background-color: $gray-super-light;
+            // padding: 0.3rem 1rem;
+            // border-radius: 4px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            color: $almost-black;
+
+            @include respond-to('medium') {
+                font-size: 1.4rem;
+                padding: 0.2rem 1rem;
+            }
+        }
+
+        svg {
+            color: $gray-darker;
+            height: 1.5rem;
+            opacity: 0;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: opacity $ease-out-quart;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .substitute {
+            width: fit-content;
+            background-color: $almost-black;
+            color: $gray-super-light;
+            padding: 0.2rem 1rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-weight: 500;
+
+            @include respond-to('medium') {
+                font-size: 1rem;
+                padding: 0.2rem 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.noSelectedSeasonWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+    .noSelectedSeasonBox {
+        border: 1px solid $gray;
+        border-radius: 3px;
+        color: $gray-dark;
+
+        padding: 4rem;
+    }
+}
+
+.weeksViewport {
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    padding: 2rem 1rem;
+
+    .weekRow {
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0 1rem 0 2rem;
+
+        &.noWeeksRow {
+            background-color: transparent;
+            box-shadow: none;
+            cursor: default;
+            text-align: center;
+        }
+
+        &.noWeeksRow,
+        &.addWeekRow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $gray-darker;
+
+            svg {
+                color: $gray-darker;
+                height: 2rem;
+                margin-left: 1rem;
+            }
+        }
+    }
+}

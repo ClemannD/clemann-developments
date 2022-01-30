@@ -1,0 +1,18 @@
+@import 'styles/theme.scss';
+
+.labelWrapper {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    .label {
+        font-weight: 600;
+        line-height: 2rem;
+    }
+
+    .subLabel {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $gray-darkest;
+        line-height: 1.8rem;
+    }
+}

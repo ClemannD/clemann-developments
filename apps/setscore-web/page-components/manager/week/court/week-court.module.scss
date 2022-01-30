@@ -1,0 +1,33 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.weekCourt {
+    margin-bottom: 3rem;
+    position: relative;
+
+    @include respond-to('small') {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    .courtName {
+        cursor: pointer;
+        transition: color $ease-out-quart;
+        margin-bottom: 1rem;
+
+        svg {
+            height: 1.5rem;
+            margin-left: 0.5rem;
+            opacity: 0;
+            transition: opacity $ease-out-quart;
+        }
+
+        &:hover {
+            color: $gray-darkest;
+
+            svg {
+                opacity: 1;
+            }
+        }
+    }
+}

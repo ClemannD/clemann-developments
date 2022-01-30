@@ -1,0 +1,9 @@
+@import 'styles/theme.scss';
+
+.dataBox {
+    width: 100%;
+    padding: 1.5rem;
+
+    border: 1px solid $gray;
+    background-color: $gray-super-light;
+}

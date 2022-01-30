@@ -1,0 +1,37 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.managerLayout {
+    background: $gradient-white-lightblue;
+
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+
+    @include respond-to('medium') {
+        flex-direction: column;
+    }
+
+    .viewport {
+        height: 100%;
+        flex: 1;
+        padding: 0rem 15rem;
+        width: 0;
+        overflow-y: scroll;
+
+        @include respond-to('extra-extra-large') {
+            padding: 0rem 10rem;
+        }
+        @include respond-to('extra-large') {
+            padding: 0rem 5rem;
+        }
+        @include respond-to('medium') {
+            width: auto;
+            padding: 0rem 5rem;
+        }
+        @include respond-to('small') {
+            padding: 0rem 2rem;
+        }
+    }
+}

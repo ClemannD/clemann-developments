@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Galada&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import 'styles/containers.scss';
+
+h1 {
+    font-size: 3.8rem;
+    line-height: 5.9rem;
+    font-weight: 400;
+    margin: 0;
+
+    @include respond-to('medium') {
+        font-size: 2.8rem;
+        line-height: 3.5rem;
+    }
+}
+
+h2 {
+    font-size: 3.2rem;
+    line-height: 3.9rem;
+    font-weight: 600;
+    margin: 0;
+
+    @include respond-to('medium') {
+        font-size: 2.2rem;
+        line-height: 2.9rem;
+    }
+}
+
+h3 {
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+h4 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+h5 {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+h6 {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    font-weight: 600;
+    color: $gray-darkest;
+}
+
+p,
+.p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+
+    &.larger {
+        font-size: 1.6rem;
+        font-weight: 600;
+
+        @include respond-to('small') {
+            font-size: 1.4rem;
+        }
+    }
+
+    &.body {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $gray-darkest;
+    }
+
+    &.smaller {
+        font-size: 1rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+}
+
+.spaced {
+    letter-spacing: 0.5px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.key-display {
+    font-size: 1rem;
+    color: $gray-darker;
+}
+
+.grayDarkest {
+    color: $gray-darkest;
+}
+.grayDarker {
+    color: $gray-darker;
+}
+
+.lineBreaks {
+    white-space: pre-wrap;
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+    // font-weight: 500;
+    transition: $ease-out-quart;
+
+    &:hover {
+        color: darken($blue, 10);
+    }
+}

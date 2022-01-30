@@ -1,0 +1,120 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+$base-color: $gray-lightest;
+$shine-color: $gray-lighter;
+$animation-duration: 1.6s;
+
+@mixin background-gradient {
+    background-image: linear-gradient(
+        90deg,
+        $base-color 0px,
+        $shine-color 40px,
+        $base-color 80px
+    );
+    background-size: 600px;
+}
+
+.pageHeaderData {
+    display: flex;
+    justify-content: flex-end;
+
+    &.justifyLeft {
+        justify-content: flex-start;
+    }
+
+    &.notCompact {
+        @include respond-to('large') {
+            margin-top: 1.5rem;
+        }
+        .pageHeaderDataItem {
+            margin-right: 3rem;
+
+            // @include respond-to('large') {
+            //     margin-right: 1.5rem;
+            // }
+
+            .dataLabel {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+
+                @include respond-to('large') {
+                    font-size: 1.1rem;
+                }
+
+                svg {
+                    height: 1.2rem;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .data {
+                font-size: 2.4rem;
+                font-weight: 800;
+                margin-bottom: 0.5rem;
+                white-space: nowrap;
+
+                @include respond-to('large') {
+                    font-size: 2rem;
+                }
+
+                .placeholder {
+                    height: 2.3rem;
+                    border-radius: 5px;
+                    @include background-gradient;
+                    animation: shine-lines $animation-duration infinite linear;
+                }
+            }
+        }
+    }
+
+    &.compact {
+        .pageHeaderDataItem {
+            margin-right: 2rem;
+
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+
+            .dataLabel {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                margin-right: 0.5rem;
+
+                @include respond-to('large') {
+                    font-size: 1rem;
+                }
+
+                svg {
+                    height: 1.2rem;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .data {
+                font-size: 1.2rem;
+                font-weight: 800;
+
+                // margin-bottom: 0.5rem;
+                white-space: nowrap;
+
+                // @include respond-to('large') {
+                //     font-size: 2rem;
+                // }
+            }
+        }
+    }
+}
+
+@keyframes shine-lines {
+    0% {
+        background-position: -100px;
+    }
+
+    40%,
+    100% {
+        background-position: 140px;
+    }
+}

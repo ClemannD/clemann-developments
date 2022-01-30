@@ -1,0 +1,83 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.court {
+    width: 100%;
+    height: 20.6rem;
+
+    background-color: $green;
+    border: 3px solid $white;
+    border-radius: $court-border-radius;
+    box-shadow: $shadow-card;
+    position: relative;
+    z-index: 100;
+
+    .alley {
+        height: 2rem;
+        width: 100%;
+
+        &.top {
+            border-bottom: 3px solid $white;
+        }
+        &.bottom {
+            border-top: 3px solid $white;
+        }
+    }
+
+    .net {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        background-color: $white;
+        width: 3px;
+        height: 100%;
+    }
+
+    .centerLine {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: $white;
+        width: 100%;
+        height: 3px;
+    }
+
+    .playerRow {
+        position: relative;
+
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.switchViewBar {
+    width: 100%;
+    margin-top: -2rem;
+    height: 6rem;
+    background-color: $white;
+    border-bottom-right-radius: $court-border-radius;
+    border-bottom-left-radius: $court-border-radius;
+    box-shadow: $shadow-card;
+    z-index: 99;
+    transition: box-shadow $ease-out-quart;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1.2rem;
+    letter-spacing: 1px;
+    color: $gray-darkest;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &:not(.disabled) {
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: $shadow-card-hover;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $z-index-modal-overlay;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding: 6rem 1rem;
+
+    @include respond-to('medium') {
+        justify-content: flex-end;
+    }
+
+    .modalContainer {
+        background-color: $white;
+        border-radius: 3px;
+        padding: 3rem;
+        width: 60rem;
+
+        @include respond-to('medium') {
+            padding: 2rem;
+            width: 100vw;
+            max-height: 100vh;
+            overflow-y: scroll;
+        }
+    }
+}

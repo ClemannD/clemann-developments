@@ -1,0 +1,49 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: font-weight $ease-out-quart-quick;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &:not(.disabled) {
+        cursor: pointer;
+    }
+
+    .toggleButton {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 1px solid $gray-darker;
+        transition: border-color $ease-out-quart-quick;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            color: $white;
+        }
+
+        &.isChecked {
+            background-color: $green;
+            border: none;
+        }
+    }
+
+    &:hover:not(.disabled) {
+        font-weight: 500;
+
+        .toggleButton {
+            border-color: $gray-darkest;
+        }
+    }
+
+    .toggleLabel {
+        margin-left: 1rem;
+    }
+}

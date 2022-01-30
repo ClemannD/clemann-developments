@@ -1,0 +1,10 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.filtersForm {
+    display: flex;
+
+    @include respond-to('medium') {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,11 @@
+@import 'styles/theme.scss';
+
+.courtsWrapper {
+    max-height: calc(100vh - 25rem);
+    overflow-x: auto;
+
+    &.isSubmitting {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

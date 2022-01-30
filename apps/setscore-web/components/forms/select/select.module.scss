@@ -1,0 +1,57 @@
+@import 'styles/theme.scss';
+
+@import 'styles/theme.scss';
+
+.selectWrapper {
+    margin-bottom: 2.5rem;
+
+    &.error {
+        margin-bottom: 0.7rem;
+    }
+
+    select {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .selectBox {
+        position: relative;
+
+        .select {
+            height: 4rem;
+            width: 100%;
+            padding: 0 1.2rem;
+            font-size: 1.6rem;
+            border-radius: 3px;
+            border: 1px solid $gray-dark;
+
+            &:focus {
+                border-color: $primary-color;
+                outline: none !important;
+            }
+        }
+
+        // &:focus {
+        //     border-color: $primary-color;
+        //     outline: none !important;
+        // }
+
+        &.error {
+            border-color: $red;
+        }
+
+        .chevron {
+            position: absolute;
+            right: 1.2rem;
+            top: 0.9rem;
+            pointer-events: none;
+        }
+    }
+
+    .errorMessage {
+        margin-top: 0.4rem;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        color: $red;
+    }
+}

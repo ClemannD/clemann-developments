@@ -1,0 +1,15 @@
+.cardBox {
+    width: 100%;
+    box-shadow: $shadow-card;
+    background-color: $white;
+    border: 1px solid $gray;
+    border-radius: 3px;
+
+    &.actionable {
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: $shadow-card-hover;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.dropdownButtonWrapper {
+    position: relative;
+
+    .dropdownButton {
+        margin-left: auto;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: -2rem;
+        right: -2rem;
+        padding: 2rem;
+        background: $white;
+        box-shadow: $shadow-spread-small;
+        border-radius: 0.3rem;
+        z-index: $z-index-modal;
+
+        @include respond-to('large') {
+            flex-direction: column-reverse;
+        }
+
+        .dropdownContent {
+            @include respond-to('large') {
+                width: 100%;
+                padding: 1rem 0rem 0 0;
+            }
+        }
+    }
+}

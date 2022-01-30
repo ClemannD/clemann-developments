@@ -1,0 +1,68 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.seasonsViewport {
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+
+    .seasonCard {
+        min-height: 17rem;
+        min-width: 25rem;
+        max-width: 25rem;
+        box-shadow: $shadow-card;
+        background-color: $white;
+        border: 1px solid $gray;
+        border-radius: 3px;
+        padding: 2rem;
+        margin-right: 2rem;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: $shadow-card-hover;
+        }
+
+        &.selected {
+            border: 1px solid $green;
+        }
+
+        &.addSeason,
+        &.noSeasons {
+            margin-right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: $gray-darker;
+            text-align: center;
+            opacity: 0.8;
+            transition: opacity $ease-out-quart-slow;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            svg {
+                color: $gray-darker;
+                margin-top: 1rem;
+                height: 3rem;
+            }
+        }
+
+        &.noSeasons {
+            background-color: transparent;
+            margin-right: 2rem;
+            box-shadow: none;
+            cursor: default;
+            color: $gray-dark;
+            opacity: 1;
+        }
+
+        .summaryDataRow {
+            // display: flex;
+        }
+    }
+}

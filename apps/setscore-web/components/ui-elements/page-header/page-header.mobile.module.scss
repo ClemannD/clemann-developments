@@ -1,0 +1,46 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.overlay {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    height: calc(100vh - 6rem);
+    width: 100vw;
+    background-color: $overlay-color;
+    z-index: $z-index-mobile-page-header-overlay;
+}
+
+.pageHeaderMobile {
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    width: 100vw;
+    padding: 0rem 2rem 1.5rem;
+    background-color: $white;
+    box-shadow: $shadow-spread-smaller;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: $z-index-mobile-page-header;
+    transition: height $ease-out-quart-slow;
+    overflow: hidden;
+
+    // &.active {
+    //     z-index: $z-index-mobile-page-header-active;
+    // }
+
+    &.collapsed {
+        padding-bottom: 1rem;
+    }
+
+    &.clickable {
+        cursor: pointer;
+    }
+
+    h2,
+    p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 77 105" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Players-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login-/-Desktop" transform="translate(-473.000000, -423.000000)" fill="#57A773">
+            <g id="Header" transform="translate(150.000000, 423.000000)">
+                <g id="TennisCourt" transform="translate(323.000000, 0.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="77" height="3"></rect>
+                    <rect id="Rectangle-Copy-3" x="3.01960784" y="51" width="70.9607843" height="3"></rect>
+                    <rect id="Rectangle-Copy" x="0" y="102" width="77" height="3"></rect>
+                    <rect id="Rectangle" x="0" y="3" width="3.01960784" height="99"></rect>
+                    <rect id="Rectangle-Copy-2" x="73.9803922" y="3" width="3.01960784" height="99"></rect>
+                    <rect id="Rectangle-Copy-4" x="61.9019608" y="3" width="3.01960784" height="99"></rect>
+                    <rect id="Rectangle-Copy-5" x="12.0784314" y="3" width="3.01960784" height="99"></rect>
+                    <rect id="Rectangle" x="12.0784314" y="27" width="51.3333333" height="1.5"></rect>
+                    <rect id="Rectangle-Copy-6" x="12.0784314" y="76.5" width="51.3333333" height="1.5"></rect>
+                    <rect id="Rectangle" x="37.745098" y="54" width="1.50980392" height="22.5"></rect>
+                    <rect id="Rectangle-Copy-7" x="37.745098" y="28.5" width="1.50980392" height="22.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

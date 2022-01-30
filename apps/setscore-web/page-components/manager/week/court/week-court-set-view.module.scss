@@ -1,0 +1,44 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.setsView {
+    width: 100%;
+    height: 20.6rem;
+
+    background-color: $white;
+    border-radius: $court-border-radius;
+    box-shadow: $shadow-card;
+    z-index: 100;
+
+    padding: 1rem;
+    cursor: pointer;
+
+    .scorePlaceholder {
+        color: $gray-darker;
+    }
+}
+
+.switchViewBar {
+    width: 100%;
+    margin-bottom: -2rem;
+    height: 6rem;
+    background-color: $green;
+    border: 3px solid $white;
+
+    border-top-right-radius: $court-border-radius;
+    border-top-left-radius: $court-border-radius;
+    box-shadow: $shadow-card;
+    z-index: 99;
+    cursor: pointer;
+    transition: box-shadow $ease-out-quart;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.2rem;
+    letter-spacing: 1px;
+    color: $white;
+
+    &:hover {
+        box-shadow: $shadow-card-hover;
+    }
+}

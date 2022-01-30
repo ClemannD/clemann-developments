@@ -1,0 +1,78 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.sideNav {
+    min-width: 22rem;
+    width: 22rem;
+    height: 100vh;
+    background-color: $white;
+    border-right: 1px solid $gray-lighter;
+    z-index: 1001;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+
+    // @include respond-to('small') {
+    //     display: none;
+    // }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .userIcon {
+            height: 2rem;
+            color: $gray;
+        }
+    }
+
+    .navItems {
+        width: 100%;
+        padding-top: 5rem;
+    }
+
+    .navFooter {
+        margin-top: auto;
+
+        .navFooterButton {
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid $gray-light;
+            transition: all $ease-out-quart;
+            font-size: 1.4rem;
+            color: $gray-dark;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+
+            &:last-of-type {
+                border-bottom: 1px solid $gray-light;
+            }
+
+            &:hover {
+                background-color: $gray-super-light;
+                border-color: $gray;
+                color: $gray-darkest;
+            }
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            font-weight: 300;
+            font-size: 1rem;
+            color: $gray;
+            margin: 2rem 0;
+        }
+    }
+}

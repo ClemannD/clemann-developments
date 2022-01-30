@@ -1,0 +1,166 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 3.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: background-color, opacity $ease-out-quart;
+
+    // @include respond-to('medium') {
+    //     height: 3.5rem;
+    // }
+
+    &.auto {
+        padding: 0 2rem;
+    }
+    &.block {
+        width: 100%;
+    }
+    &.small {
+        width: 10rem;
+    }
+    &.medium {
+        width: 15rem;
+    }
+    &.large {
+        width: 40rem;
+    }
+
+    &.primary {
+        background-color: $primary-color;
+        color: $white;
+        box-shadow: $shadow-button;
+
+        &:hover {
+            background-color: darken($color: $primary-color, $amount: 10);
+        }
+
+        &.disabled {
+            background-color: lighten($color: $primary-color, $amount: 20);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+    &.secondary {
+        background-color: $white;
+        border: 1px solid $gray-darker;
+        color: $black;
+        box-shadow: $shadow-button;
+
+        &:hover {
+            background-color: $gray-super-light;
+        }
+        &.disabled {
+            color: $gray-dark;
+            border-color: $gray;
+            background-color: $gray-super-light;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+
+    &.jumbo,
+    &.jumboNumber {
+        background-color: $gray-super-light;
+        border-radius: 10px;
+        color: $black;
+        box-shadow: $shadow-button-dark;
+        height: 5rem;
+        font-size: 2.6rem;
+        font-weight: bold;
+
+        &:hover {
+            background-color: $white;
+            box-shadow: $shadow-button-darker;
+        }
+        // &.disabled {
+        //     color: $gray-dark;
+        //     border-color: $gray;
+        //     background-color: $gray-super-light;
+        //     cursor: not-allowed;
+        //     box-shadow: none;
+        // }
+    }
+
+    &.jumboNumber {
+        font-size: 4rem;
+        height: 6rem;
+    }
+
+    &.danger {
+        background-color: $red;
+        color: $white;
+        box-shadow: $shadow-button;
+
+        &:hover {
+            background-color: darken($color: $red, $amount: 10);
+        }
+        &.disabled {
+            background-color: lighten($color: $red, $amount: 30);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    }
+    &.icon,
+    &.transparent,
+    &.transparentWhite {
+        background-color: transparent;
+        height: auto;
+        padding: 0.5rem 0;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: $primary-color;
+
+        &:hover {
+            color: darken($color: $primary-color, $amount: 10);
+        }
+
+        &.auto {
+            padding: 0;
+            width: auto;
+        }
+    }
+    &.transparentWhite {
+        color: $white;
+
+        &:hover {
+            opacity: 0.8;
+            color: $white;
+        }
+    }
+
+    &.link {
+        font-size: 1.4rem;
+        color: $blue;
+        height: auto;
+        background-color: transparent;
+        width: auto;
+        padding: 0;
+
+        &:hover {
+            color: darken($blue, 10);
+        }
+    }
+
+    &.red {
+        color: $red;
+        &:hover {
+            color: darken($red, 10);
+        }
+    }
+
+    svg {
+        height: 1.6rem;
+    }
+}

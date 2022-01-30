@@ -1,0 +1,20 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.toggle {
+    display: flex;
+    align-items: center;
+
+    .toggleButton {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 1px solid $gray-darker;
+        transition: border-color $ease-out-quart;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $gray-darkest;
+        }
+    }
+}

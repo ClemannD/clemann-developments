@@ -1,0 +1,78 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.authLayout {
+    min-height: 100vh;
+    background: $gradient-white-lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    .logo {
+        margin-bottom: 5rem;
+    }
+
+    .authSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20rem 10rem;
+        height: 100%;
+
+        @include respond-to('extra-large') {
+            padding: 20rem 2rem;
+        }
+        @include respond-to('large') {
+            height: 100vh;
+        }
+
+        @include respond-to('medium') {
+            height: 100vh;
+            padding: 10rem 2rem;
+        }
+    }
+
+    .backgroundImageWrapper {
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+
+        @include respond-to('large') {
+            display: none;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: #000000, $alpha: 0.3);
+        }
+
+        .backgroundImage {
+            background-image: url('../../../public/assets/tennis-court-by-the-sea.jpeg');
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+        }
+    }
+
+    .tennisCourtCorner {
+        transform: rotate(90deg);
+        position: absolute;
+        z-index: $z-index-background;
+        bottom: 0;
+        left: 0;
+
+        @include respond-to('large') {
+            transform: rotate(0deg);
+            left: initial;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

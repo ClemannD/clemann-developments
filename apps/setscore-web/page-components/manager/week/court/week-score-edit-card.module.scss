@@ -1,0 +1,32 @@
+@import 'styles/theme.scss';
+@import 'styles/containers.scss';
+
+.scoreEdit {
+    width: 100%;
+    height: 20.6rem;
+    background-color: $white;
+    border: 3px solid $white;
+    border-radius: 20px;
+    box-shadow: $shadow-card;
+
+    padding: 1rem 1.5rem;
+
+    .scoreEditHeader {
+        display: flex;
+        justify-content: space-between;
+
+        svg {
+            cursor: pointer;
+            transition: color $ease-out-quart;
+
+            &:hover {
+                color: $gray-darkest;
+            }
+        }
+    }
+
+    .scoreEditBody {
+        display: flex;
+        justify-content: space-between;
+    }
+}
