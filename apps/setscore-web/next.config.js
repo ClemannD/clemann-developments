@@ -37,7 +37,9 @@ const nxConfig = {
     }
 };
 
-module.exports = withSentryConfig(
-    withPWA(withNx(nxConfig), pwaConfig),
-    SentryWebpackPluginOptions
-);
+module.exports = withPWA(withNx(nxConfig), pwaConfig);
+
+// module.exports = withSentryConfig(
+//     withPWA(withNx(nxConfig), pwaConfig),
+//     SentryWebpackPluginOptions
+// );
