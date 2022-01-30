@@ -1,4 +1,9 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "sample": "apps/sample",
+    "sample-e2e": "apps/sample-e2e",
+    "setscore-web": "apps/setscore-web",
+    "setscore-web-e2e": "apps/setscore-web-e2e"
+  }
 }
