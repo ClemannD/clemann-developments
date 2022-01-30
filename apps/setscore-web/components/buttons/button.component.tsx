@@ -57,16 +57,16 @@ export default function Button({
             style={style}
             className={`
             ${className}
-                ${styles.button} 
-                ${styles[appearance]} 
-                ${styles[size]} 
-                ${linkColor ? styles[linkColor] : ''} 
-                ${isDisabled || isSubmitting ? styles.disabled : ''} 
+                ${styles.button}
+                ${styles[appearance]}
+                ${styles[size]}
+                ${linkColor ? styles[linkColor] : ''}
+                ${isDisabled || isSubmitting ? styles.disabled : ''}
             `}
             onClick={isDisabled || isSubmitting ? () => {} : clickHandler}
         >
             {isSubmitting ? (
-                <span>{isSubmittingText || 'Loading...'}</span>
+                <span>{isSubmittingText || 'Loading..'}</span>
             ) : (
                 children
             )}
