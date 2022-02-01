@@ -27,7 +27,7 @@ export default function Login() {
                         fontWeight: 400
                     }}
                 >
-                    Click the button to be taken to the sign in portal
+                    Click the button to be taken to the sign in portall
                 </p>
                 <Button
                     id="login-button"

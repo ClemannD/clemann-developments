@@ -2,6 +2,7 @@
   "root": "apps/setscore-web",
   "sourceRoot": "apps/setscore-web",
   "projectType": "application",
+
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
