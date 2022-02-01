@@ -55,7 +55,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/setscore-web.deploy.sh"
+            "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/setscore-web.deploy.sh"
           }
         ]
       }
@@ -65,7 +65,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/setscore-web.deploy.sh"
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/setscore-web.deploy.sh"
           }
         ]
       }
