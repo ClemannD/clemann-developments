@@ -34,8 +34,11 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      - name: Build
-        run: npx nx affected --target=build --parallel --max-parallel=3
-
       - name: Deploy Development
+        run: npx nx affected --target=deploy-development --parallel --max-parallel=2
+
+      - name: Deploy Staging
+        run: npx nx affected --target=deploy-development --parallel --max-parallel=2
+
+      - name: Deploy Production
         run: npx nx affected --target=deploy-development --parallel --max-parallel=2
