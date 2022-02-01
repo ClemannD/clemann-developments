@@ -42,7 +42,7 @@ export default function LeaguePage() {
         <AdminLayout>
             <div>
                 <PageHeader
-                    subHeader="League"
+                    subHeader="League "
                     header={getLeague?.data?.league?.name}
                     backButtonText="All Leagues"
                     backButtonHandler={() => router.back()}
