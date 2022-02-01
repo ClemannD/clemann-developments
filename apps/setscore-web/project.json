@@ -35,7 +35,7 @@
       "options": {
         "commands": [
           {
-            "command": "export CYPRESS_BASE_URL='https://setscore-development.vercel.app' && doppler run --token $DOPPLER_SERVICE_TOKEN_DEV --  npx nx run setscore-web-e2e:e2e --configuration ci"
+            "command": "export CYPRESS_BASE_URL='https://setscore-development.vercel.app' && doppler run --token $DOPPLER_ACCESS_TOKEN_DEV --  npx nx run setscore-web-e2e:e2e --configuration ci"
           }
         ]
       }
