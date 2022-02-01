@@ -5,7 +5,9 @@ export default function LogoutPage() {
     const auth0 = useAuth0();
 
     useEffect(() => {
-        auth0.logout();
+        auth0.logout({
+            returnTo: window.location.origin
+        });
     }, []);
 
     return <div></div>;
