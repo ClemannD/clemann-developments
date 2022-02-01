@@ -50,7 +50,7 @@ export default function LeaguePage() {
                 {getLeague?.data?.league && !getLeague.isLoading ? (
                     <div className="row">
                         <div
-                            className="col-12 "
+                            className="col-12"
                             style={{ marginBottom: '2rem' }}
                         >
                             <Card header="League Info">
