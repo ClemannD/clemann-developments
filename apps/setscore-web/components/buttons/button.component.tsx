@@ -26,6 +26,7 @@ export type ButtonProps = {
     clickHandler?: (event) => void;
     appearance?: ButtonAppearance;
     size?: ButtonSize;
+    id?: string;
     linkColor?: string;
     isDisabled?: boolean;
     isSubmitting?: boolean;
@@ -42,6 +43,7 @@ export default function Button({
     appearance = ButtonAppearance.Primary,
     size = ButtonSize.Auto,
     linkColor,
+    id,
     isDisabled = false,
     isSubmitting = false,
     isSubmittingText,
@@ -52,6 +54,7 @@ export default function Button({
 }: ButtonProps) {
     return (
         <button
+            id={id}
             ref={ref}
             type={type}
             style={style}

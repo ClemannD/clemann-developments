@@ -1,13 +1,28 @@
-import { getGreeting } from '../support/app.po';
+import { ADMIN_E2E_USER_EMAIL, E2E_USER_PASSWORD } from '../support/constants';
 
-describe('setscore-web', () => {
-    beforeEach(() => cy.visit('/'));
+describe('SetScore - App Smoke-test', () => {
+    it('should load the app and see the login button', () => {
+        cy.clearCookies();
+        cy.visit('/logout');
+        cy.visit('/');
+        cy.get('#login-button').should('exist');
+    });
 
-    it('should display welcome message', () => {
-        // Custom command example, see `../support/commands.ts` file
-        cy.login('my-email@something.com', 'myPassword');
+    it('should be redirected to the login portal', () => {
+        cy.get('#login-button').click();
 
-        // Function helper example, see `../support/app.po.ts` file
-        getGreeting().contains('Welcome setscore-web');
+        cy.get('#username').should('exist');
+        cy.get('#password').should('exist');
+    });
+
+    it('should login to the e2e user', () => {
+        cy.get('#username').type(ADMIN_E2E_USER_EMAIL);
+        cy.get('#password').type(E2E_USER_PASSWORD);
+        cy.get('button[name="action"]').contains('Continue').click();
+
+        cy.get('h2', {
+            timeout: 10000
+        }).contains('Dashboard');
+        cy.get('h6').contains('Admin');
     });
 });

@@ -10,9 +10,27 @@
         "devServerTarget": "setscore-web:serve"
       },
       "configurations": {
+        "ci": {
+          "headed": true,
+          "devServerTarget": ""
+        },
+        "cypress-ui": {
+          "headed": true
+        },
         "production": {
           "devServerTarget": "setscore-web:serve:production"
         }
+      }
+    },
+    "e2e-headed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": " export CYPRESS_BASE_URL='https://setscore-development.vercel.app' && cypress open"
+          }
+        ],
+        "cwd": "apps/setscore-web-e2e"
       }
     },
     "lint": {

@@ -37,6 +37,9 @@ jobs:
       - name: Deploy Development
         run: npx nx affected --target=deploy-development --parallel --max-parallel=2
 
+      - name: E2E Development
+        run: npx nx affected --target=e2e-ci --parallel --max-parallel=2
+
       - name: Deploy Staging
         run: npx nx affected --target=deploy-staging --parallel --max-parallel=2
 

@@ -29,25 +29,14 @@
         }
       }
     },
-    "export": {
-      "executor": "@nrwl/next:export",
+    "e2e-ci": {
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "setscore-web:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/setscore-web"],
-      "options": {
-        "jestConfig": "apps/setscore-web/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/setscore-web/**/*.{ts,tsx,js,jsx}"]
+        "commands": [
+          {
+            "command": "export CYPRESS_BASE_URL='https://setscore-development.vercel.app' && doppler run --token $DOPPLER_SERVICE_TOKEN_DEV --  npx nx run setscore-web-e2e:e2e --configuration ci"
+          }
+        ]
       }
     },
     "deploy-development": {

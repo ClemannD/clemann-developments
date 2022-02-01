@@ -1,12 +1,15 @@
 {
+  "baseUrl": "http://localhost:3000/",
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
   "integrationFolder": "./src/integration",
   "modifyObstructiveCode": false,
   "supportFile": "./src/support/index.ts",
   "pluginsFile": false,
-  "video": true,
+  "video": false,
   "videosFolder": "../../dist/cypress/apps/setscore-web-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/setscore-web-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "viewportHeight": 900,
+  "viewportWidth": 1440
 }
