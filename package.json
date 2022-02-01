@@ -8,7 +8,6 @@
     "test": "nx test",
     "nx": "nx "
   },
-  "type": "module",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.5.0",
