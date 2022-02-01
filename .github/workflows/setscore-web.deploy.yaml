@@ -28,5 +28,4 @@ jobs:
 
       - uses: mansagroup/nrwl-nx-action@v2
         with:
-          targets: build,deploy
-          nxCloud: 'true'
+          targets: build,deploy-development
