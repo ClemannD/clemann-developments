@@ -49,6 +49,36 @@
       "options": {
         "lintFilePatterns": ["apps/setscore-web/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "deploy-development": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run --token $DOPPLER_SERVICE_TOKEN_DEV -- ./tools/deployers/setscore-web.deploy.sh"
+          }
+        ]
+      }
+    },
+    "deploy-staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run --token $DOPPLER_SERVICE_TOKEN_STAGE -- ./tools/deployers/setscore-web.deploy.sh"
+          }
+        ]
+      }
+    },
+    "deploy-production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run --token $DOPPLER_SERVICE_TOKEN_PROD -- ./tools/deployers/setscore-web.deploy.sh"
+          }
+        ]
+      }
     }
   },
   "tags": []
