@@ -9,4 +9,4 @@ echo ""
 export VERCEL_ORG_ID=$SET_SCORE_VERCEL_ORG_ID
 export VERCEL_PROJECT_ID=$SET_SCORE_VERCEL_PROJECT_ID
 
-vercel apps/setscore-web -t $VERCEL_ACCESS_TOKEN --prod
+vercel apps/setscore-web -t $VERCEL_ACCESS_TOKEN --prod -f
