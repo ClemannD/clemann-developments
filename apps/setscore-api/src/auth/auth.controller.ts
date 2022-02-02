@@ -52,8 +52,8 @@ export class AuthController {
     @Post('registerUser')
     @UseGuards(AuthGuard('jwt'), Auth0UserGuard)
     async register(
-        @Req() request,
-        @Body() registerUserRequest: RegisterUserRequest
+        @Body() registerUserRequest: RegisterUserRequest,
+        @Req() request
     ): Promise<EmptyResponse> {
         await this._authService.registerUser(
             request.userInfo.userId,

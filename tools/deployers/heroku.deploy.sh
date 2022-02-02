@@ -1,11 +1,11 @@
 #! /bin/bash
 
-echo "Deploying setscore-api"
+APP_NAME=$1
+HEROKU_PROJECT_NAME=$2
+
+echo "Deploying $APP_NAME to Heroku"
 echo "======================"
 echo ""
-
-$APP_NAME=$1
-$HEROKU_PROJECT_NAME=$2
 
 cat >~/.netrc <<EOF
 machine api.heroku.com
@@ -16,5 +16,5 @@ machine git.heroku.com
     password $HEROKU_LOGIN_PASSWORD
 EOF
 
-
-
+heroku git:remote -a $HEROKU_PROJECT_NAME
+git push --force heroku `git subtree split --prefix=apps/$APP_NAME main`:refs/heads/main

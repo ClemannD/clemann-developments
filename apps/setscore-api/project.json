@@ -51,7 +51,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run --token $CLI_ACCESS_TOKEN -c dev -- ./tools/deployers/setscore-api.deploy.sh"
+            "command": "doppler run --token -c dev $DOPPLER_ACCESS_TOKEN_DEV  -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-development"
           }
         ]
       }
@@ -61,7 +61,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/setscore-api.deploy.sh setscore-api setscore-api-development"
+            "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-staging"
           }
         ]
       }
@@ -71,7 +71,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/setscore-api.deploy.sh"
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api"
           }
         ]
       }
