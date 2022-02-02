@@ -6,7 +6,7 @@ export default function LogoutPage() {
 
     useEffect(() => {
         auth0.logout({
-            returnTo: window.location.origin
+            returnTo: process.env.NEXT_PUBLIC_BASE_WEB_URL
         });
     }, []);
 
