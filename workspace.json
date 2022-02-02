@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "setscore-api": "apps/setscore-api",
     "setscore-web": "apps/setscore-web",
     "setscore-web-e2e": "apps/setscore-web-e2e"
   }

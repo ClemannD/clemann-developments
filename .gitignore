@@ -41,3 +41,9 @@ Thumbs.db
 .vercel
 .env
 .env.local
+
+# typeorm
+**/ormconfig.json
+**/ormconfig-dev.json
+**/ormconfig-staging.json
+**/ormconfig-production.json

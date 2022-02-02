@@ -1,7 +1,5 @@
 #! /bin/bash
 
-ENVIRONMENT=$1
-
 echo "Deploying setscore-web"
 echo "======================"
 echo ""
