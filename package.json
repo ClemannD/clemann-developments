@@ -9,7 +9,7 @@
     "nx": "nx ",
     "start:setscore": "nx run-many --target=serve --projects=setscore-api,setscore-web --parallel=true"
   },
-  "heroku-run-build-script": true,
+  "heroku-run-build-script": false,
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.5.0",
