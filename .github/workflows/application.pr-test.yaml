@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - name: Cache Dependencies
         uses: actions/cache@v1
@@ -26,7 +29,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - uses: mansagroup/nrwl-nx-action@v2
-        with:
-          targets: build
-          nxCloud: 'true'
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Build Affected Applications
+        run: npx nx affected --target=build --parallel --max-parallel=2
+
+      - name: Test Affected Applications
+        run: npx nx affected --target=test --parallel --max-parallel=2

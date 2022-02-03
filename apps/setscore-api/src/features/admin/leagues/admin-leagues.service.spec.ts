@@ -1,10 +1,12 @@
-import { CreateLeagueRequest, CreateLeagueResponse } from './leagues.dto';
-import { getHeapStatistics } from 'node:v8';
 import { Repository } from 'typeorm';
-import { League } from '../entities/league.entity';
-import { UsersService } from '../users/users.service';
-import { UserToLeague } from '../entities/userToLeague.entity';
+import { League } from '../../../entities/league.entity';
+import { User } from '../../../entities/user.entity';
+import { UserToLeague } from '../../../entities/userToLeague.entity';
+import { AdminUsersService } from '../users/admin-users.service';
+
 import { AdminLeaguesService } from './admin-leagues.service';
+import { CreateLeagueRequest } from './admin-leagues.dto';
+import { PaginationAndSort } from '../../../common/pagination-and-sort';
 
 export function createMockRepository({
     findResult = [],
@@ -13,21 +15,23 @@ export function createMockRepository({
     return {
         find: jest.fn().mockReturnValue(findResult),
         findOne: jest.fn().mockReturnValue(findOneResult),
-        save: jest.fn((input) => input)
+        save: jest.fn((input) => input),
+        findAndCount: jest.fn().mockReturnValue([findResult, findResult.length])
     };
 }
 
 describe('AdminLeagueService', () => {
     const createMockUsersService = () => {
-        return ({
+        return {
             find: jest.fn(),
             findOne: jest.fn()
-        } as unknown) as UsersService;
+        } as unknown as AdminUsersService;
     };
 
     const createStubbedAdminLeaguesService = ({
         leaguesRepository = createMockRepository(),
         userToLeagueRepository = createMockRepository(),
+        userRepository = createMockRepository(),
         usersService = createMockUsersService()
     } = {}) =>
         //  = {
@@ -37,9 +41,9 @@ describe('AdminLeagueService', () => {
         // }
         {
             return new AdminLeaguesService(
-                (leaguesRepository as unknown) as Repository<League>,
-                (userToLeagueRepository as unknown) as Repository<UserToLeague>,
-                usersService
+                userRepository as unknown as Repository<User>,
+                leaguesRepository as unknown as Repository<League>,
+                userToLeagueRepository as unknown as Repository<UserToLeague>
             );
         };
 
@@ -60,10 +64,10 @@ describe('AdminLeagueService', () => {
             leaguesRepository: mockLeaguesRepository
         });
 
-        const result = await service.listLeagues();
+        const result = await service.listLeagues(new PaginationAndSort(), {});
 
-        expect(mockLeaguesRepository.find).toHaveBeenCalled();
-        expect(result).toStrictEqual([mockLeague]);
+        expect(mockLeaguesRepository.findAndCount).toHaveBeenCalled();
+        expect(result).toStrictEqual([[mockLeague], 1]);
     });
 
     it('getLeague()', async () => {
@@ -125,9 +129,12 @@ describe('AdminLeagueService', () => {
             leaguesRepository: mockLeaguesRepository
         });
 
-        const result = await service.createLeague(createLeagueRequest);
+        await service.createLeague(
+            createLeagueRequest.name,
+            createLeagueRequest.state,
+            createLeagueRequest.city
+        );
 
         expect(mockLeaguesRepository.save).toHaveBeenCalled();
-        expect(result).toHaveProperty('name', createLeagueRequest.name);
     });
 });
