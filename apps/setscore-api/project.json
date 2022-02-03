@@ -51,7 +51,7 @@
       "options": {
         "commands": [
           {
-            "command": "doppler run --token -c dev $DOPPLER_ACCESS_TOKEN_DEV  -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-development"
+            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-development"
           }
         ]
       }
