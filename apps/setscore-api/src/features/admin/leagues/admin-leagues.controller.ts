@@ -39,6 +39,18 @@ export class AdminLeaguesController {
         };
     }
 
+    @Post('getLeague')
+    @Roles(UserRole.Admin)
+    async getLeague(
+        @Body() getLeagueRequest: GetLeagueRequest
+    ): Promise<GetLeagueResponse> {
+        return {
+            league: await this._adminLeagueService.getLeague(
+                getLeagueRequest.leagueId
+            )
+        };
+    }
+
     @Post('createLeague')
     @Roles(UserRole.Admin)
     async createLeague(
@@ -75,18 +87,6 @@ export class AdminLeaguesController {
             deleteLeagueRequest.leagueId
         );
         return new EmptyResponse();
-    }
-
-    @Post('getLeague')
-    @Roles(UserRole.Admin)
-    async getLeague(
-        @Body() getLeagueRequest: GetLeagueRequest
-    ): Promise<GetLeagueResponse> {
-        return {
-            league: await this._adminLeagueService.getLeague(
-                getLeagueRequest.leagueId
-            )
-        };
     }
 
     @Post('addUserToLeague')
