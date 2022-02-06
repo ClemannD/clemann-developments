@@ -2,11 +2,14 @@ import { useRouter } from 'next/router';
 import { RedirectLoginOptions, useAuth0, User } from '@auth0/auth0-react';
 import { useEffect } from 'react';
 
-export default function useAuthGuard(authRequired = true): {
-    user: User;
+export function useAuthGuard(
+    authRequired = true,
+    loginRoute = '/login'
+): {
+    user: User | undefined;
     isAuthenticated: boolean;
     authIsLoading: boolean;
-    authError: Error;
+    authError: Error | undefined;
     loginWithRedirect: (options?: RedirectLoginOptions) => Promise<void>;
 } {
     const auth0 = useAuth0();
@@ -14,8 +17,9 @@ export default function useAuthGuard(authRequired = true): {
 
     useEffect(() => {
         if (!auth0.isLoading && !auth0.isAuthenticated && authRequired) {
-            router.push('/login');
+            router.push(loginRoute);
         } else if (!auth0.isLoading && auth0.isAuthenticated && !authRequired) {
+            // This covers case when visiting /login and already logged in
             router.push('/');
         }
     }, [auth0.isLoading, auth0.isAuthenticated]);

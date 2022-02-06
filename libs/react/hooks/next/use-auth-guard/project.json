@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/hooks/next/use-auth-guard",
+  "sourceRoot": "libs/react/hooks/next/use-auth-guard/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/hooks/next/use-auth-guard/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/hooks/next/use-auth-guard"],
+      "options": {
+        "jestConfig": "libs/react/hooks/next/use-auth-guard/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

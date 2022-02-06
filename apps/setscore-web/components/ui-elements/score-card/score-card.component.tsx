@@ -1,10 +1,11 @@
+import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
 import { useEffect, useState } from 'react';
 import useGetCurrentCourt, {
     PlayerDto
 } from '../../../api-services/player/score/getCurrentCourt.service';
 import useSetScore from '../../../api-services/player/score/setScore.service';
+import { EventBusActionTypes } from '../../../constants/event-bus-action-types';
 import useCurrentUser from '../../../hooks/useCurrentUser';
-import useEventBus, { EventBusActionTypes } from '../../../hooks/useEventBus';
 import Logo from '../../brand/logo/logo.component';
 import Button, {
     ButtonAppearance,
@@ -41,7 +42,7 @@ export default function ScoreCard() {
     const [opponentScore, setOpponentScore] = useState(null);
     const [isDisabled, setIsDisabled] = useState(true);
 
-    const eventBus = useEventBus();
+    const eventBus = useEventBus<EventBusActionTypes>();
 
     useEffect(() => {
         if (currentUser) {

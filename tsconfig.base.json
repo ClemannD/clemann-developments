@@ -13,7 +13,7 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@clemann-developments/common-endpoint": [
         "libs/common-endpoint/src/index.ts"
@@ -23,15 +23,15 @@
       ],
       "@clemann-developments/node/typeorm/find-paginated-and-sort": [
         "libs/node/typeorm/find-paginated-and-sort/src/index.ts"
+      ],
+      "@clemann-developments/react/hooks/next/use-auth-guard": [
+        "libs/react/hooks/next/use-auth-guard/src/index.ts"
+      ],
+      "@clemann-developments/react/hooks/use-event-bus": [
+        "libs/react/hooks/use-event-bus/src/index.ts"
       ]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.d.ts"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.d.ts"],
   "exclude": ["node_modules", "tmp"]
 }

@@ -4,11 +4,11 @@ export type EventBusContextType = {
     eventBusListeners: {
         [key: string]: Function[];
     };
-    setEventBusListeners: (eventBusListeners) => void;
+    setEventBusListeners: (eventBusListeners: any) => void;
 };
 
-const EventBusContext = createContext<EventBusContextType>({
+export const EventBusContext = createContext<EventBusContextType>({
     eventBusListeners: {},
     setEventBusListeners: () => {}
 });
-export default EventBusContext;
+EventBusContext;

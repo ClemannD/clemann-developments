@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/hooks/use-event-bus",
+  "sourceRoot": "libs/react/hooks/use-event-bus/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/hooks/use-event-bus/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/hooks/use-event-bus"],
+      "options": {
+        "jestConfig": "libs/react/hooks/use-event-bus/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

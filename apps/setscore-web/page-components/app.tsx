@@ -1,15 +1,17 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import {
+    useEventBus,
+    EventBusContext
+} from '@clemann-developments/react/hooks/use-event-bus';
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useGetCurrentUser from '../api-services/auth/getCurrentUser.service';
 import Overlay from '../components/modal/overlay/overlay.component';
 import CurrentLeagueContext from '../context/currentLeague.context';
-import EventBusContext from '../context/eventBus.context';
 import ModalContext from '../context/modal.context';
 import OverlayContext from '../context/overlay.context';
 import UserContext from '../context/user.context';
-import useEventBus from '../hooks/useEventBus';
 import useModal from '../hooks/useModal';
 import useOverlay from '../hooks/useOverlay';
 
