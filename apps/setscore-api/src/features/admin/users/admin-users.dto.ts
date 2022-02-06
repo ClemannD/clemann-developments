@@ -1,6 +1,7 @@
-import { ListRequest } from '../../../common/list-request';
-import { ListResponse } from '../../../common/list-response';
-import { PaginationAndSort } from '../../../common/pagination-and-sort';
+import {
+    ListRequest,
+    ListResponse
+} from '@clemann-developments/common-endpoint';
 import { User, UserRole } from '../../../entities/user.entity';
 
 export class ListUsersRequest extends ListRequest {}

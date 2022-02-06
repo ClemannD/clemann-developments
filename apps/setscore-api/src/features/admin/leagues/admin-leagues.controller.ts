@@ -17,7 +17,7 @@ import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { UserRole } from '../../../entities/user.entity';
-import { EmptyResponse } from '../../../common/empty-response';
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 
 @Controller('admin/leagues')
 @UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)

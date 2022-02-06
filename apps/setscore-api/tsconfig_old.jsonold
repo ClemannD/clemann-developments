@@ -13,7 +13,7 @@
         "baseUrl": "./",
         "incremental": true,
         "paths": {
-            "@clemann-developments/nest-auth0": ["libs/nest-auth0/src/index.ts"]
+            "@clemann-developments/nest/common-auth0": ["libs/nest-auth0/src/index.ts"]
           }
     }
 }

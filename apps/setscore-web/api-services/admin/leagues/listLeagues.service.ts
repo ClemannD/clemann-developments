@@ -1,6 +1,8 @@
+import {
+    ListRequest,
+    ListResponse
+} from '@clemann-developments/common-endpoint';
 import useApiList from '../../../hooks/useApiList';
-import { ListRequest } from '../../common/list-request';
-import { ListResponse } from '../../common/list-response';
 import { League } from '../../entities/league.entity';
 
 export class ListLeaguesRequest extends ListRequest {}

@@ -1,5 +1,7 @@
-import { ListRequest } from '../../../common/list-request';
-import { ListResponse } from '../../../common/list-response';
+import {
+    ListRequest,
+    ListResponse
+} from '@clemann-developments/common-endpoint';
 import {
     LeagueMemberType,
     UserToLeague

@@ -1,10 +1,9 @@
+import { PaginationAndSort } from '@clemann-developments/common-endpoint';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { findPaginatedAndSort } from '@clemann-developments/node/typeorm/find-paginated-and-sort';
 import { In, Repository } from 'typeorm';
-import {
-    findPaginatedAndSort,
-    PaginationAndSort
-} from '../../../common/pagination-and-sort';
+
 import { User, UserRole, UserStatus } from '../../../entities/user.entity';
 
 @Injectable()

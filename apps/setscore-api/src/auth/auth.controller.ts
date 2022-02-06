@@ -1,5 +1,6 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { AuthUserGuard } from './auth-user.guard';
 import {
     AcceptInviteCodeRequest,
@@ -8,7 +9,6 @@ import {
     SetCurrentLeagueRequest
 } from './auth.dto';
 import { AuthService } from './auth.service';
-import { EmptyResponse } from '../common/empty-response';
 
 @Controller('auth')
 export class AuthController {
@@ -17,6 +17,8 @@ export class AuthController {
     @Post('getCurrentUser')
     @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     getCurrentUser(@Req() request): GetCurrentUserResponse {
+        console.log();
+
         return {
             user: request.userInfo,
             currentLeague: request.currentLeague

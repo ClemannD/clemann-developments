@@ -1,5 +1,5 @@
 module.exports = {
-    displayName: 'nest-auth0',
+    displayName: 'common-endpoint',
     preset: '../../jest.preset.js',
     globals: {
         'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
         '^.+\\.[tj]sx?$': 'ts-jest'
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    coverageDirectory: '../../coverage/libs/nest-auth0'
+    coverageDirectory: '../../coverage/libs/common-endpoint'
 };

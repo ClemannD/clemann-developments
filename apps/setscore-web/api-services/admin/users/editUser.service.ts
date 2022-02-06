@@ -1,3 +1,4 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../../hooks/useApiMutation';
 
@@ -9,10 +10,8 @@ export class EditUserRequest {
     email: string;
 }
 
-export class EditUserResponse {}
-
-export default function useEditUser(): UseMutationResult<EditUserResponse> {
-    return useApiMutation<EditUserRequest, EditUserResponse>(
+export default function useEditUser(): UseMutationResult<EmptyResponse> {
+    return useApiMutation<EditUserRequest, EmptyResponse>(
         'admin/users/editUser'
     );
 }

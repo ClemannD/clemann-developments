@@ -1,16 +1,14 @@
+import { PaginationAndSort } from '@clemann-developments/common-endpoint';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { findPaginatedAndSort } from '@clemann-developments/node/typeorm/find-paginated-and-sort';
 import { Repository } from 'typeorm';
 import {
     LeagueNotFoundException,
     UserNotFoundException
 } from '../../../app.exceptions';
-import {
-    findPaginatedAndSort,
-    PaginationAndSort
-} from '../../../common/pagination-and-sort';
 import { League } from '../../../entities/league.entity';
-import { User, UserRole, UserStatus } from '../../../entities/user.entity';
+import { User } from '../../../entities/user.entity';
 import {
     LeagueMemberType,
     UserToLeague

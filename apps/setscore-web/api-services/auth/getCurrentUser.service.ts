@@ -2,8 +2,7 @@ import { User } from '../entities/user.entity';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../hooks/useApiMutation';
 import { League } from '../entities/league.entity';
-
-export class GetCurrentUserRequest {}
+import { EmptyRequest } from '@clemann-developments/common-endpoint';
 
 export class GetCurrentUserResponse {
     user: User;
@@ -13,9 +12,9 @@ export class GetCurrentUserResponse {
 export default function useGetCurrentUser(): UseMutationResult<
     GetCurrentUserResponse,
     any,
-    GetCurrentUserRequest
+    EmptyRequest
 > {
-    return useApiMutation<GetCurrentUserRequest, GetCurrentUserResponse>(
+    return useApiMutation<EmptyRequest, GetCurrentUserResponse>(
         'auth/getCurrentUser'
     );
 }

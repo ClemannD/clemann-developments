@@ -1,7 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "nest-auth0": "libs/nest-auth0",
+    "common-endpoint": "libs/common-endpoint",
+    "nest-common-auth0": "libs/nest/common-auth0",
+    "node-typeorm-find-paginated-and-sort": "libs/node/typeorm/find-paginated-and-sort",
     "setscore-api": "apps/setscore-api",
     "setscore-web": "apps/setscore-web",
     "setscore-web-e2e": "apps/setscore-web-e2e"

@@ -1,7 +1,6 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../../hooks/useApiMutation';
-import { EmptyResponse } from '../../common/empty-response';
-
 export class UpdateCourtNumberRequest {
     courtId: string;
     courtNumber: number;

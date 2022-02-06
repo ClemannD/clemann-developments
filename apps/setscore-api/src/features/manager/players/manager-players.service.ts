@@ -1,12 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository } from 'typeorm';
 import {
-    findPaginatedAndSort,
     PaginationAndSort,
     SortDirection,
     TakeAll
-} from '../../../common/pagination-and-sort';
+} from '@clemann-developments/common-endpoint';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { In, Repository } from 'typeorm';
+
 import { League } from '../../../entities/league.entity';
 import { User, UserRole, UserStatus } from '../../../entities/user.entity';
 import {

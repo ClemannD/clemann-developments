@@ -1,9 +1,7 @@
+import { EmptyRequest } from '@clemann-developments/common-endpoint';
 import { createContext } from 'react';
 import { UseMutationResult } from 'react-query';
-import {
-    GetCurrentUserRequest,
-    GetCurrentUserResponse
-} from '../api-services/auth/getCurrentUser.service';
+import { GetCurrentUserResponse } from '../api-services/auth/getCurrentUser.service';
 import { User } from '../api-services/entities/user.entity';
 
 export type UserContextType = {
@@ -11,7 +9,7 @@ export type UserContextType = {
     getCurrentUser: UseMutationResult<
         GetCurrentUserResponse,
         any,
-        GetCurrentUserRequest
+        EmptyRequest
     >;
 };
 
