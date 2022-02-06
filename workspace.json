@@ -4,6 +4,8 @@
     "common-endpoint": "libs/common-endpoint",
     "nest-common-auth0": "libs/nest/common-auth0",
     "node-typeorm-find-paginated-and-sort": "libs/node/typeorm/find-paginated-and-sort",
+    "react-hooks-next-use-auth-guard": "libs/react/hooks/next/use-auth-guard",
+    "react-hooks-use-event-bus": "libs/react/hooks/use-event-bus",
     "setscore-api": "apps/setscore-api",
     "setscore-web": "apps/setscore-web",
     "setscore-web-e2e": "apps/setscore-web-e2e"

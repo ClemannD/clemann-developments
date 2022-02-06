@@ -1,10 +1,10 @@
+import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import React from 'react';
 import Button, {
     ButtonAppearance,
     ButtonSize
 } from '../components/buttons/button.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
-import useAuthGuard from '../hooks/useAuthGuard';
 
 export default function Login() {
     const { loginWithRedirect, authIsLoading } = useAuthGuard(false);

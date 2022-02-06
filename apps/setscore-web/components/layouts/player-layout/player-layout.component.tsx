@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
+import React, { useState } from 'react';
 import { UserRole } from '../../../api-services/entities/user.entity';
 import ScrollContext from '../../../context/scroll.context';
-import useAuthGuard from '../../../hooks/useAuthGuard';
 import useCurrentLeagueGuard from '../../../hooks/useCurrentLeagueGuard';
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import useRegisteredGuard from '../../../hooks/useRegisteredGuard';
@@ -13,7 +13,6 @@ import NavItem from '../../navigation/nav-item/nav-item.component';
 import SideNav from '../../navigation/side-nav/side-nav.component';
 import ScoreCard from '../../ui-elements/score-card/score-card.component';
 import styles from './player-layout.module.scss';
-import PullToRefresh from 'pulltorefreshjs';
 
 export default function PlayerLayout(props) {
     const { isAuthenticated } = useAuthGuard();

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
-import EventBusContext from '../context/eventBus.context';
+import { EventBusContext } from './eventBus.context';
 
-export default function useEventBus() {
+export function useEventBus<TEventActionTypes = any>() {
     const [eventBusListenersState, setEventBusListenersState] = useState<{
         [key: string]: Function[];
     }>({});
@@ -9,10 +9,10 @@ export default function useEventBus() {
     const { setEventBusListeners } = useContext(EventBusContext);
 
     const addEventListener = (
-        eventName: EventBusActionTypes,
+        eventName: TEventActionTypes,
         callback: Function
     ) => {
-        setEventBusListeners((previousEventListeners) => {
+        setEventBusListeners((previousEventListeners: any) => {
             if (!previousEventListeners[eventName]) {
                 previousEventListeners[eventName] = [];
             }
@@ -22,10 +22,10 @@ export default function useEventBus() {
     };
 
     const removeEventListener = (
-        eventName: EventBusActionTypes,
+        eventName: TEventActionTypes,
         callback: Function
     ) => {
-        setEventBusListeners((previousEventListeners) => {
+        setEventBusListeners((previousEventListeners: any) => {
             if (previousEventListeners[eventName]) {
                 const index =
                     previousEventListeners[eventName].indexOf(callback);
@@ -37,10 +37,10 @@ export default function useEventBus() {
         });
     };
 
-    const dispatchEvent = (eventName: EventBusActionTypes, data?: any) => {
-        setEventBusListeners((previousEventListeners) => {
+    const dispatchEvent = (eventName: TEventActionTypes, data?: any) => {
+        setEventBusListeners((previousEventListeners: any) => {
             if (previousEventListeners[eventName]) {
-                previousEventListeners[eventName].forEach((callback) =>
+                previousEventListeners[eventName].forEach((callback: any) =>
                     callback(data)
                 );
             }
@@ -57,8 +57,4 @@ export default function useEventBus() {
             setEventBusListeners: setEventBusListenersState
         }
     };
-}
-
-export enum EventBusActionTypes {
-    SCORE_SUBMITTED = 'SCORE_SUBMITTED'
 }

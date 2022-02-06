@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
@@ -11,7 +12,6 @@ import Button, {
 } from '../components/buttons/button.component';
 import Input from '../components/forms/input/input.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
-import useAuthGuard from '../hooks/useAuthGuard';
 import useCurrentUser from '../hooks/useCurrentUser';
 import styles from '../styles/pages/select-league.module.scss';
 

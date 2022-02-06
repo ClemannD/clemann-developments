@@ -1,4 +1,3 @@
-import useAuthGuard from '../../../hooks/useAuthGuard';
 import LoadingScreen from '../../navigation/loading-screen/loading-screen';
 import NavItem from '../../navigation/nav-item/nav-item.component';
 import SideNav from '../../navigation/side-nav/side-nav.component';
@@ -8,6 +7,7 @@ import { UserRole } from '../../../api-services/entities/user.entity';
 import useWindowSize from '../../../hooks/useWindowDimensions';
 import MobileNav from '../../navigation/mobile-nav/mobile-nav.component';
 import useRegisteredGuard from '../../../hooks/useRegisteredGuard';
+import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 
 export default function AdminLayout(props) {
     const { isAuthenticated } = useAuthGuard();
