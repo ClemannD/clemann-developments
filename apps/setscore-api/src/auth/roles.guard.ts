@@ -22,7 +22,7 @@ export class RolesGuard implements CanActivate {
         return this._matchRoles(roles, user.role);
     }
 
-    private _matchRoles(roles: string[], userRole: UserRole) {
+    private _matchRoles(roles: UserRole[], userRole: UserRole) {
         return roles.includes(userRole);
     }
 }

@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Auth0UserGuard } from '../../../auth/auth0.guard';
+import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { UserRole } from '../../../entities/user.entity';
@@ -12,7 +12,7 @@ import {
 import { PlayerScoreService } from './player-score.service';
 
 @Controller('player/score')
-@UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+@UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
 export class PlayerScoreController {
     constructor(private playerScoreService: PlayerScoreService) {}
 

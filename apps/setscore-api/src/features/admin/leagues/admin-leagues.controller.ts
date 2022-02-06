@@ -13,14 +13,14 @@ import {
     RemoveUserFromLeagueRequest,
     UpdateLeagueRequest
 } from './admin-leagues.dto';
-import { Auth0UserGuard } from '../../../auth/auth0.guard';
+import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { UserRole } from '../../../entities/user.entity';
 import { EmptyResponse } from '../../../common/empty-response';
 
 @Controller('admin/leagues')
-@UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+@UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
 export class AdminLeaguesController {
     constructor(private _adminLeagueService: AdminLeaguesService) {}
 
@@ -115,7 +115,7 @@ export class AdminLeaguesController {
     }
 
     @Post('createUserForLeague')
-    @UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+    @UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
     @Roles(UserRole.Admin)
     async createUser(
         @Body() createUserForLeagueRequest: CreateUserForLeagueRequest

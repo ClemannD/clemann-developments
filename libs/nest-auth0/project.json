@@ -1,0 +1,23 @@
+{
+  "root": "libs/nest-auth0",
+  "sourceRoot": "libs/nest-auth0/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nest-auth0/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nest-auth0"],
+      "options": {
+        "jestConfig": "libs/nest-auth0/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
