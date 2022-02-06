@@ -1,1 +1,1 @@
-web: export NODE_TLS_REJECT_UNAUTHORIZED='0' && printenv && npm run start:prod
+web: export NODE_TLS_REJECT_UNAUTHORIZED='0' && npx nx run setscore-api:build && npx nx run setscore-api:serve

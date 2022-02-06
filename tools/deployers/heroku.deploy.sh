@@ -17,4 +17,4 @@ machine git.heroku.com
 EOF
 
 heroku git:remote -a $HEROKU_PROJECT_NAME
-git push --force heroku `git subtree split --prefix=apps/$APP_NAME main`:refs/heads/main
+git push --force heroku main
