@@ -32,13 +32,6 @@
         ],
         "cwd": "apps/setscore-web-e2e"
       }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/setscore-web-e2e/**/*.{js,ts}"]
-      }
     }
   },
   "tags": [],

@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Auth0UserGuard } from '../../../auth/auth0.guard';
+import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { EmptyResponse } from '../../../common/empty-response';
@@ -15,7 +15,7 @@ import {
 import { ManagerLineupService } from './manager-lineup.service';
 
 @Controller('manager/lineup')
-@UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+@UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
 export class ManagerLineupController {
     constructor(private _managerLineupService: ManagerLineupService) {}
 

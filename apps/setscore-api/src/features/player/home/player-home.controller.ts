@@ -1,6 +1,6 @@
 import { Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Auth0UserGuard } from '../../../auth/auth0.guard';
+import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { UserRole } from '../../../entities/user.entity';
@@ -8,7 +8,7 @@ import { GetCurrentWeekResponse } from './player-home.dtos';
 import { PlayerHomeService } from './player-home.service';
 
 @Controller('player/home')
-@UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+@UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
 export class PlayerHomeController {
     constructor(private playerHomeService: PlayerHomeService) {}
 

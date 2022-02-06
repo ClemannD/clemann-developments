@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Auth0UserGuard } from './auth0.guard';
+import { AuthUserGuard } from './auth-user.guard';
 import {
     AcceptInviteCodeRequest,
     GetCurrentUserResponse,
@@ -15,7 +15,7 @@ export class AuthController {
     constructor(private _authService: AuthService) {}
 
     @Post('getCurrentUser')
-    @UseGuards(AuthGuard('jwt'), Auth0UserGuard)
+    @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     getCurrentUser(@Req() request): GetCurrentUserResponse {
         return {
             user: request.userInfo,
@@ -24,7 +24,7 @@ export class AuthController {
     }
 
     @Post('setCurrentLeague')
-    @UseGuards(AuthGuard('jwt'), Auth0UserGuard)
+    @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     async setCurrentLeague(
         @Req() request,
         @Body() setCurrentLeagueRequest: SetCurrentLeagueRequest
@@ -37,7 +37,7 @@ export class AuthController {
     }
 
     @Post('acceptInviteCode')
-    @UseGuards(AuthGuard('jwt'), Auth0UserGuard)
+    @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     async acceptInviteCode(
         @Req() request,
         @Body() acceptInviteCodeRequest: AcceptInviteCodeRequest
@@ -50,7 +50,7 @@ export class AuthController {
     }
 
     @Post('registerUser')
-    @UseGuards(AuthGuard('jwt'), Auth0UserGuard)
+    @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     async register(
         @Body() registerUserRequest: RegisterUserRequest,
         @Req() request

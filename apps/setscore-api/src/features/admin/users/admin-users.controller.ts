@@ -1,6 +1,6 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Auth0UserGuard } from '../../../auth/auth0.guard';
+import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { RolesGuard } from '../../../auth/roles.guard';
 import { EmptyResponse } from '../../../common/empty-response';
@@ -18,7 +18,7 @@ import {
 import { AdminUsersService } from './admin-users.service';
 
 @Controller('admin/users')
-@UseGuards(AuthGuard('jwt'), Auth0UserGuard, RolesGuard)
+@UseGuards(AuthGuard('jwt'), AuthUserGuard, RolesGuard)
 export class AdminUsersController {
     constructor(private _adminUsersService: AdminUsersService) {}
 

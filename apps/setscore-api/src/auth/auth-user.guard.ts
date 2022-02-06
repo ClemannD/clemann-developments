@@ -2,7 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class Auth0UserGuard implements CanActivate {
+export class AuthUserGuard implements CanActivate {
     constructor(private _authService: AuthService) {}
 
     async canActivate(context: ExecutionContext): Promise<boolean> {
