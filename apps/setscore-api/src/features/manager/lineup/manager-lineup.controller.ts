@@ -1,9 +1,9 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthUserGuard } from '../../../auth/auth-user.guard';
 import { Roles } from '../../../auth/roles.decorator';
 import { RolesGuard } from '../../../auth/roles.guard';
-import { EmptyResponse } from '../../../common/empty-response';
 import { UserRole } from '../../../entities/user.entity';
 import {
     GetLineupRequest,

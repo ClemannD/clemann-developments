@@ -1,3 +1,4 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../hooks/useApiMutation';
 
@@ -8,14 +9,12 @@ export class RegisterUserRequest {
     phone: string;
 }
 
-export class RegisterUserResponse {}
-
 export default function useRegisterUser(): UseMutationResult<
-    RegisterUserResponse,
+    EmptyResponse,
     any,
     RegisterUserRequest
 > {
-    return useApiMutation<RegisterUserRequest, RegisterUserResponse>(
+    return useApiMutation<RegisterUserRequest, EmptyResponse>(
         'auth/registerUser'
     );
 }

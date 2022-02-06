@@ -1,6 +1,8 @@
+import {
+    ListRequest,
+    ListResponse
+} from '@clemann-developments/common-endpoint';
 import { IsNotEmpty } from 'class-validator';
-import { ListRequest } from '../../../common/list-request';
-import { ListResponse } from '../../../common/list-response';
 import { League } from '../../../entities/league.entity';
 import { LeagueMemberType } from '../../../entities/userToLeague.entity';
 

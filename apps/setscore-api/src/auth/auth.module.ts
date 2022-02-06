@@ -1,7 +1,7 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Auth0Module } from '@clemann-developments/nest-auth0';
+import { Auth0Module } from '@clemann-developments/nest/common-auth0';
 import { League } from '../entities/league.entity';
 import { Player } from '../entities/player.entity';
 import { User } from '../entities/user.entity';

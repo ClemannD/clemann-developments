@@ -1,3 +1,4 @@
+import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import {
     MinusCircleIcon,
     PencilAltIcon,
@@ -5,10 +6,6 @@ import {
 } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import React, { useContext } from 'react';
-import {
-    SortDirection,
-    TakeAll
-} from '../../../api-services/common/pagination-and-sort';
 import useListPlayers from '../../../api-services/manager/players/listPlayers.service';
 import Button, {
     ButtonAppearance

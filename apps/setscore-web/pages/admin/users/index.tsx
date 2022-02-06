@@ -1,3 +1,4 @@
+import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import {
     MinusCircleIcon,
     PencilAltIcon,
@@ -7,10 +8,6 @@ import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
 import useListUsers from '../../../api-services/admin/users/listUsers.service';
-import {
-    SortDirection,
-    TakeAll
-} from '../../../api-services/common/pagination-and-sort';
 import Button, {
     ButtonAppearance
 } from '../../../components/buttons/button.component';

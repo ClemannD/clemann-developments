@@ -1,20 +1,18 @@
 import useApiMutation from '../../../hooks/useApiMutation';
 import { UseMutationResult } from 'react-query';
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 
 export class RemoveUserFromLeagueRequest {
     userId: string;
     leagueId: string;
 }
 
-export class RemoveUserFromLeagueResponse {}
-
 export default function useRemoveUserFromLeague(): UseMutationResult<
-    RemoveUserFromLeagueResponse,
+    EmptyResponse,
     any,
     RemoveUserFromLeagueRequest
 > {
-    return useApiMutation<
-        RemoveUserFromLeagueRequest,
-        RemoveUserFromLeagueResponse
-    >('admin/leagues/removeUserFromLeague');
+    return useApiMutation<RemoveUserFromLeagueRequest, EmptyResponse>(
+        'admin/leagues/removeUserFromLeague'
+    );
 }

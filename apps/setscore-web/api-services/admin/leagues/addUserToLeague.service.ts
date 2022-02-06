@@ -1,3 +1,4 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../../hooks/useApiMutation';
 import { LeagueMemberType } from '../../entities/userToLeague.entity';
@@ -8,14 +9,12 @@ export class AddUserToLeagueRequest {
     leagueMemberType: LeagueMemberType;
 }
 
-export class AddUserToLeagueResponse {}
-
 export default function useAddUserToLeague(): UseMutationResult<
-    AddUserToLeagueResponse,
+    EmptyResponse,
     any,
     AddUserToLeagueRequest
 > {
-    return useApiMutation<AddUserToLeagueRequest, AddUserToLeagueResponse>(
+    return useApiMutation<AddUserToLeagueRequest, EmptyResponse>(
         'admin/leagues/addUserToLeague'
     );
 }

@@ -1,9 +1,9 @@
+import { SortDirection } from '@clemann-developments/common-endpoint';
 import {
     ChevronDownIcon,
     ChevronUpIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/outline';
-import { SortDirection } from '../../api-services/common/pagination-and-sort';
 import { UseApiListResults } from '../../hooks/useApiList';
 import Card from '../cards/card/card.component';
 import Loading from '../navigation/loading/loading.component';

@@ -1,20 +1,20 @@
 {
-  "root": "libs/nest-auth0",
-  "sourceRoot": "libs/nest-auth0/src",
+  "root": "libs/common-endpoint",
+  "sourceRoot": "libs/common-endpoint/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/nest-auth0/**/*.ts"]
+        "lintFilePatterns": ["libs/common-endpoint/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/nest-auth0"],
+      "outputs": ["coverage/libs/common-endpoint"],
       "options": {
-        "jestConfig": "libs/nest-auth0/jest.config.js",
+        "jestConfig": "libs/common-endpoint/jest.config.js",
         "passWithNoTests": true
       }
     }

@@ -1,3 +1,4 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../../hooks/useApiMutation';
 
@@ -5,14 +6,12 @@ export class DeleteLeagueRequest {
     leagueId: string;
 }
 
-export class DeleteLeagueResponse {}
-
 export default function useDeleteLeague(): UseMutationResult<
-    DeleteLeagueResponse,
+    EmptyResponse,
     any,
     DeleteLeagueRequest
 > {
-    return useApiMutation<DeleteLeagueRequest, DeleteLeagueResponse>(
+    return useApiMutation<DeleteLeagueRequest, EmptyResponse>(
         'admin/leagues/deleteLeague'
     );
 }

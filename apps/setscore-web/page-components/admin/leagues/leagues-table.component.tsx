@@ -1,13 +1,11 @@
+import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import { MinusCircleIcon, PencilAltIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { toast } from 'react-toastify';
 import useDeleteLeague from '../../../api-services/admin/leagues/deleteLeague.service';
 import useListLeagues from '../../../api-services/admin/leagues/listLeagues.service';
-import {
-    SortDirection,
-    TakeAll
-} from '../../../api-services/common/pagination-and-sort';
+
 import { League } from '../../../api-services/entities/league.entity';
 import Button, {
     ButtonAppearance

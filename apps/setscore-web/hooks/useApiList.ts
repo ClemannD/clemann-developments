@@ -1,13 +1,15 @@
+import {
+    ListRequest,
+    ListResponse,
+    SortDirection
+} from '@clemann-developments/common-endpoint';
 import { useEffect, useState } from 'react';
 import { UseMutationResult } from 'react-query';
-import { ListRequest } from '../api-services/common/list-request';
-import { ListResponse } from '../api-services/common/list-response';
-import { SortDirection } from '../api-services/common/pagination-and-sort';
 import useApiMutation from './useApiMutation';
 
 export type UseApiListResults<
     RequestType extends ListRequest = ListRequest,
-    ResponseType extends ListResponse = ListResponse,
+    ResponseType extends ListResponse<any> = ListResponse<any>,
     RowType = any
 > = {
     request: RequestType;
@@ -21,7 +23,7 @@ export type UseApiListResults<
 
 export default function useApiList<
     RequestType extends ListRequest = ListRequest,
-    ResponseType extends ListResponse = ListResponse,
+    ResponseType extends ListResponse<any> = ListResponse<any>,
     RowType = any
 >(
     initialRequest: RequestType,

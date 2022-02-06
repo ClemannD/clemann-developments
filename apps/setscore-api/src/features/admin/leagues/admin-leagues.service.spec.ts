@@ -3,10 +3,10 @@ import { League } from '../../../entities/league.entity';
 import { User } from '../../../entities/user.entity';
 import { UserToLeague } from '../../../entities/userToLeague.entity';
 import { AdminUsersService } from '../users/admin-users.service';
+import { PaginationAndSort } from '@clemann-developments/common-endpoint';
 
 import { AdminLeaguesService } from './admin-leagues.service';
 import { CreateLeagueRequest } from './admin-leagues.dto';
-import { PaginationAndSort } from '../../../common/pagination-and-sort';
 
 export function createMockRepository({
     findResult = [],

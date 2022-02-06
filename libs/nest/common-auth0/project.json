@@ -1,0 +1,23 @@
+{
+  "root": "libs/nest/common-auth0",
+  "sourceRoot": "libs/nest/common-auth0/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/nest/common-auth0/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nest/common-auth0"],
+      "options": {
+        "jestConfig": "libs/nest/common-auth0/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

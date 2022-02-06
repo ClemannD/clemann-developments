@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Auth0Service } from '@clemann-developments/nest-auth0';
+import { Auth0Service } from '@clemann-developments/nest/common-auth0';
 import { League } from '../entities/league.entity';
 import { Player } from '../entities/player.entity';
 import { User, UserRole, UserStatus } from '../entities/user.entity';

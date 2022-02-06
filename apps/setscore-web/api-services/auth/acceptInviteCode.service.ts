@@ -1,3 +1,4 @@
+import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import useApiMutation from '../../hooks/useApiMutation';
 
@@ -5,14 +6,12 @@ export class AcceptInviteCodeRequest {
     inviteCode: string;
 }
 
-export class AcceptInviteCodeResponse {}
-
 export default function useAcceptInviteCode(): UseMutationResult<
-    AcceptInviteCodeResponse,
+    EmptyResponse,
     any,
     AcceptInviteCodeRequest
 > {
-    return useApiMutation<AcceptInviteCodeRequest, AcceptInviteCodeResponse>(
+    return useApiMutation<AcceptInviteCodeRequest, EmptyResponse>(
         'auth/acceptInviteCode'
     );
 }
