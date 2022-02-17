@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useQuery, UseQueryResult } from 'react-query';
 import { toast } from 'react-toastify';
 
-export default function useApiQuery<TRequest = any, TResponse = any>(
+export function useApiQuery<TRequest = any, TResponse = any>(
     endpoint: string,
     request: TRequest,
     enabled: boolean = true

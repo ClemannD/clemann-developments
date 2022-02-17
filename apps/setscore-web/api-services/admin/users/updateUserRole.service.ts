@@ -1,6 +1,6 @@
 import { EmptyResponse } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
-import useApiMutation from '../../../hooks/useApiMutation';
+import { useApiMutation } from '@clemann-developments/common-endpoint';
 import { UserRole } from '../../entities/user.entity';
 
 export class UpdateUserRoleRequest {
