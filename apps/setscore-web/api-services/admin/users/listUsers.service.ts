@@ -1,8 +1,8 @@
 import {
     ListRequest,
-    ListResponse
+    ListResponse,
+    useApiList
 } from '@clemann-developments/common-endpoint';
-import useApiList from '../../../hooks/useApiList';
 import { User } from '../../entities/user.entity';
 
 export class ListUsersRequest extends ListRequest {}

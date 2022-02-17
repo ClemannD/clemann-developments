@@ -1,11 +1,11 @@
 import {
     ListRequest,
     ListResponse,
-    SortDirection
+    SortDirection,
+    useApiMutation
 } from '@clemann-developments/common-endpoint';
 import { useEffect, useState } from 'react';
 import { UseMutationResult } from 'react-query';
-import useApiMutation from './useApiMutation';
 
 export type UseApiListResults<
     RequestType extends ListRequest = ListRequest,
@@ -21,7 +21,7 @@ export type UseApiListResults<
     handleFilter: (filters: any) => void;
 };
 
-export default function useApiList<
+export function useApiList<
     RequestType extends ListRequest = ListRequest,
     ResponseType extends ListResponse<any> = ListResponse<any>,
     RowType = any

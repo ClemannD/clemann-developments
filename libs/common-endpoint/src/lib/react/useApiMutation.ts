@@ -2,10 +2,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 import * as Sentry from '@sentry/nextjs';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
-import { ApiError } from '../api-services/common/api-error';
-import { ErrorCodesWhitelist } from '../api-services/common/error-code-whitelist';
+import { ApiError } from '../models/api-error';
+import { ErrorCodesWhitelist } from '../models/error-code-whitelist';
 
-export default function useApiMutation<TRequest = any, TResponse = any>(
+export function useApiMutation<TRequest = any, TResponse = any>(
     endpoint: string
 ) {
     const { getAccessTokenSilently } = useAuth0();

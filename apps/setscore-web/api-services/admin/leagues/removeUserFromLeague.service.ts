@@ -1,4 +1,4 @@
-import useApiMutation from '../../../hooks/useApiMutation';
+import { useApiMutation } from '@clemann-developments/common-endpoint';
 import { UseMutationResult } from 'react-query';
 import { EmptyResponse } from '@clemann-developments/common-endpoint';
 

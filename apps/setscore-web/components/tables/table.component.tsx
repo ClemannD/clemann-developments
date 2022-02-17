@@ -1,10 +1,12 @@
-import { SortDirection } from '@clemann-developments/common-endpoint';
+import {
+    SortDirection,
+    UseApiListResults
+} from '@clemann-developments/common-endpoint';
 import {
     ChevronDownIcon,
     ChevronUpIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/outline';
-import { UseApiListResults } from '../../hooks/useApiList';
 import Card from '../cards/card/card.component';
 import Loading from '../navigation/loading/loading.component';
 import DropdownButton from '../ui-elements/dropdown-button/dropdown-button.component';

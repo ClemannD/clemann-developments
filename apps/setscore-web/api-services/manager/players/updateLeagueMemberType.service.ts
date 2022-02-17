@@ -1,5 +1,5 @@
 import { UseMutationResult } from 'react-query';
-import useApiMutation from '../../../hooks/useApiMutation';
+import { useApiMutation } from '@clemann-developments/common-endpoint';
 import { LeagueMemberType } from '../../entities/userToLeague.entity';
 
 export class UpdateLeagueMemberTypeRequest {
