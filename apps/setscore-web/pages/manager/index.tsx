@@ -1,15 +1,16 @@
+import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import React, { createContext, useEffect, useState } from 'react';
 import useGetSeasonsSummary, {
     SeasonSummaryDto
 } from '../../api-services/manager/dashboard/getSeasonsSummary.service';
-import Button, {
-    ButtonAppearance
-} from '../../components/buttons/button.component';
 import ManagerLayout from '../../components/layouts/manager-layout/manager-layout.component';
 import Loading from '../../components/navigation/loading/loading.component';
 import PageHeader from '../../components/ui-elements/page-header/page-header.component';
 import useCurrentUser from '../../hooks/useCurrentUser';
-import useModal from '../../hooks/useModal';
 import DashboardSeasons from '../../page-components/manager/dashboard/dashboard-seasons.component';
 import DashboardWeeks from '../../page-components/manager/dashboard/dashboard-weeks.component';
 import EditNotesModal from '../../page-components/manager/dashboard/edit-notes.modal';

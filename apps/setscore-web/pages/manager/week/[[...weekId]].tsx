@@ -1,15 +1,16 @@
+import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { format } from 'date-fns';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useGetWeek from '../../../api-services/manager/week/getWeek.service';
-import Button, {
-    ButtonAppearance
-} from '../../../components/buttons/button.component';
 import ManagerLayout from '../../../components/layouts/manager-layout/manager-layout.component';
 import Loading from '../../../components/navigation/loading/loading.component';
 import PageHeaderData from '../../../components/ui-elements/page-header/page-header-data.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
-import useModal from '../../../hooks/useModal';
 import UpdatePlayingOnDateModal from '../../../page-components/manager/week/update-playing-on-date.modal';
 import WeekCourts from '../../../page-components/manager/week/week-courts.component';
 

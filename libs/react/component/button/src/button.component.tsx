@@ -23,7 +23,7 @@ export enum ButtonSize {
 
 export type ButtonProps = {
     type?: 'button' | 'submit';
-    clickHandler?: (event) => void;
+    clickHandler?: (event: any) => void;
     appearance?: ButtonAppearance;
     size?: ButtonSize;
     id?: string;
@@ -37,7 +37,7 @@ export type ButtonProps = {
     className?: string;
 };
 
-export default function Button({
+export function Button({
     type = 'button',
     clickHandler = () => {},
     appearance = ButtonAppearance.Primary,

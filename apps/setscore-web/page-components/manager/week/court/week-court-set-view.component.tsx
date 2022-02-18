@@ -1,6 +1,6 @@
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { useContext } from 'react';
 import TeamScore from '../../../../components/ui-elements/team-score/team-score.component';
-import useModal from '../../../../hooks/useModal';
 import AdjustSetScoreModal from './adjust-set-score.modal';
 import styles from './week-court-set-view.module.scss';
 import { ManagerWeekCourtContext } from './week-court.component';

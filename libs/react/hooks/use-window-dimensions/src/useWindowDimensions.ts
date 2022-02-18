@@ -17,7 +17,7 @@ export enum WindowSize {
     Huge = 9999
 }
 
-export default function useWindowSize() {
+export function useWindowSize() {
     const [windowWidth, setWindowWidth] = useState(getWindowWidth());
     const [smallBelow, setSmallBelow] = useState(false);
     const [mediumBelow, setMediumBelow] = useState(false);

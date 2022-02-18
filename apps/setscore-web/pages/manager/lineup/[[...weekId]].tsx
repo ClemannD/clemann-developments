@@ -1,4 +1,8 @@
-import { format } from 'date-fns';
+import {
+    Button,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { useRouter } from 'next/router';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -6,15 +10,10 @@ import useGetLineup, {
     LineupDto
 } from '../../../api-services/manager/lineup/getLineup.service';
 import useUpdateLineup from '../../../api-services/manager/lineup/updateLineup.service';
-import Button, {
-    ButtonSize
-} from '../../../components/buttons/button.component';
 import ManagerLayout from '../../../components/layouts/manager-layout/manager-layout.component';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
-import PageHeaderData from '../../../components/ui-elements/page-header/page-header-data.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import CurrentLeagueContext from '../../../context/currentLeague.context';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import DraggableLineup from '../../../page-components/manager/lineup/draggable-lineup.component';
 
 export type ManagerLineupContextType = {

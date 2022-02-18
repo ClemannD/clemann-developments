@@ -2,13 +2,14 @@ import { Form, Formik } from 'formik';
 import Card from '../../../components/cards/card/card.component';
 import Input from '../../../components/forms/input/input.component';
 import * as Yup from 'yup';
-import Button, {
-    ButtonSize
-} from '../../../components/buttons/button.component';
 import { useEffect } from 'react';
 import useCreateLeague from '../../../api-services/admin/leagues/createLeague.service';
 import { League } from '../../../api-services/entities/league.entity';
 import useUpdateLeague from '../../../api-services/admin/leagues/updateLeague.service';
+import {
+    Button,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
 
 export default function LeagueForm({
     league,

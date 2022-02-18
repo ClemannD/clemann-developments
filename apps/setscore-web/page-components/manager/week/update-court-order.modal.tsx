@@ -1,11 +1,13 @@
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader
+} from '@clemann-developments/react/hooks/use-modal';
 import ordinal from 'ordinal';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { CourtDto } from '../../../api-services/manager/models';
 import useUpdateCourtOrder from '../../../api-services/manager/week/updateCourtOrder.service';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import Pill, {
     PillColor

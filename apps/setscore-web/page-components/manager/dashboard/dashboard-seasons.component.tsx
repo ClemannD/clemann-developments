@@ -1,10 +1,10 @@
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { PlusIcon } from '@heroicons/react/outline';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { SeasonSummaryDto } from '../../../api-services/manager/dashboard/getSeasonsSummary.service';
 import Pill, {
     PillColor
 } from '../../../components/ui-elements/pill/pill.component';
-import useModal from '../../../hooks/useModal';
 import { MangerDashboardSelectedSeasonContext } from '../../../pages/manager';
 import styles from './dashboard-seasons.module.scss';
 import StartNewSeasonModal from './start-new-season.modal';

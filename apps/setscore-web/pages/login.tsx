@@ -1,9 +1,10 @@
+import {
+    Button,
+    ButtonSize,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import React from 'react';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../components/buttons/button.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
 
 export default function Login() {

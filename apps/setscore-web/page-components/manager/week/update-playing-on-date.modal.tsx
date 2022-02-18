@@ -1,10 +1,12 @@
+import {
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import useUpdateWeekPlayingOnDate from '../../../api-services/manager/week/updateWeekPlayingOnDate.service';
 import { DatePickerField } from '../../../components/forms/date-picker/date-picker.component';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 

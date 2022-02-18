@@ -1,5 +1,11 @@
 import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
+import {
     MinusCircleIcon,
     PencilAltIcon,
     PlusCircleIcon
@@ -7,9 +13,6 @@ import {
 import { Form, Formik } from 'formik';
 import React, { useContext } from 'react';
 import useListPlayers from '../../../api-services/manager/players/listPlayers.service';
-import Button, {
-    ButtonAppearance
-} from '../../../components/buttons/button.component';
 import CheckboxList from '../../../components/forms/checkbox/checkbox-list.component';
 import Checkbox from '../../../components/forms/checkbox/checkbox.component';
 import OnFormChangeHandler from '../../../components/forms/on-form-change-handler.component';
@@ -21,8 +24,6 @@ import Table, {
 } from '../../../components/tables/table.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import CurrentLeagueContext from '../../../context/currentLeague.context';
-import useModal from '../../../hooks/useModal';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import CreateEditPlayerModal from '../../../page-components/manager/players/create-edit-player.modal';
 import RemoveDeactivatePlayerModal from '../../../page-components/manager/players/remove-deactivate-player.modal';
 

@@ -1,11 +1,12 @@
+import {
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import useUpdateLeagueNotes from '../../../api-services/manager/dashboard/updateLeagueNotes.service';
-import Input from '../../../components/forms/input/input.component';
 import TextArea from '../../../components/forms/text-area/text-area.component';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 
 export default function EditNotesModal({
     leagueNotes,

@@ -1,3 +1,9 @@
+import {
+    useModal,
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
@@ -8,13 +14,9 @@ import { League } from '../../../../api-services/entities/league.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
 import Select from '../../../../components/forms/select/select.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 import Loading from '../../../../components/navigation/loading/loading.component';
 import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';
-import useModal from '../../../../hooks/useModal';
 
 export default function AddUserToLeagueModal({
     league,

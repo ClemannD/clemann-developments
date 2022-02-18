@@ -1,7 +1,7 @@
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import React, { useEffect } from 'react';
 import useGetLineup from '../../../api-services/player/lineup/getLineup.service';
 import PlayerLayout from '../../../components/layouts/player-layout/player-layout.component';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import PlayerLineup from '../../../page-components/player/lineup/player-lineup.component';
 import PlayerLineupMobile from '../../../page-components/player/lineup/player-lineup.mobile.component';
 

@@ -1,13 +1,14 @@
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { PlusIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { WeekDto } from '../../../api-services/manager/week/getWeek.service';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../components/buttons/button.component';
-import useModal from '../../../hooks/useModal';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import WeekCourt from './court/week-court.component';
 import CreateCourtModal from './create-court.modal';
 import UpdateCourtOrderModal from './update-court-order.modal';

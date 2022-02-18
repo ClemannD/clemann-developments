@@ -1,16 +1,17 @@
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LineupPlayerDto } from '../../../api-services/manager/lineup/getLineup.service';
 import useListSubs from '../../../api-services/manager/lineup/listSubs.service';
 import useUpdatePlayerSub from '../../../api-services/manager/lineup/updatePlayerSub.service';
 import Select from '../../../components/forms/select/select.component';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import Loading from '../../../components/navigation/loading/loading.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
-import { ManagerLineupContext } from '../../../pages/manager/lineup/[[...weekId]]';
 
 export default function UpdatePlayerSubModal({
     player,

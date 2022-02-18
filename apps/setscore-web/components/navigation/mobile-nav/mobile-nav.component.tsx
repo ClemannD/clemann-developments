@@ -1,4 +1,9 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
 import { DotsVerticalIcon, XIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
@@ -6,10 +11,6 @@ import { LeagueMemberType } from '../../../api-services/entities/userToLeague.en
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import Logo from '../../brand/logo/logo.component';
 import TennisCourt from '../../brand/tennis-court/tennis-court.component';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../buttons/button.component';
 import styles from './mobile-nav.module.scss';
 
 export default function MobileNav(props) {

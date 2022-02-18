@@ -1,3 +1,14 @@
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader,
+    useModal
+} from '@clemann-developments/react/hooks/use-modal';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import {
@@ -6,16 +17,8 @@ import {
 } from '../../../api-services/entities/userToLeague.entity';
 import useEditPlayer from '../../../api-services/manager/players/editPlayer.service';
 import useRemovePlayer from '../../../api-services/manager/players/removePlayer.service';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../components/buttons/button.component';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
-import useModal from '../../../hooks/useModal';
 
 export default function RemoveDeactivatePlayerModal({
     userToLeague,

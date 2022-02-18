@@ -1,9 +1,10 @@
-import useModal from '../../../hooks/useModal';
-import useWindowSize from '../../../hooks/useWindowDimensions';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../buttons/button.component';
+import {
+    Button,
+    ButtonSize,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
+import { useModal } from '../useModal';
 import styles from './modal-footer.module.scss';
 
 export type ModalFooterProps = {
@@ -18,7 +19,7 @@ export type ModalFooterProps = {
     okButtonDisabled?: boolean;
 };
 
-export default function ModalFooter({
+export function ModalFooter({
     okButtonText = 'Confirm',
     cancelButtonText = 'Cancel',
     onOkClick = () => {},

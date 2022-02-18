@@ -1,5 +1,5 @@
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import React from 'react';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import TennisCourtWithLogo from '../../brand/logo-with-tennis-court/logo-with-tennis-court';
 import TennisCourtCorner from '../../brand/tennis-court-corner/tennis-court-corner.component';
 import LoadingScreen from '../../navigation/loading-screen/loading-screen';

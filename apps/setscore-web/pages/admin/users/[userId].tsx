@@ -1,3 +1,13 @@
+import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import {
+    useModal,
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { PencilAltIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
@@ -6,19 +16,12 @@ import { useEffect, useState } from 'react';
 import useGetUser from '../../../api-services/admin/users/getUser.service';
 import useUpdateUserRole from '../../../api-services/admin/users/updateUserRole.service';
 import { UserRole } from '../../../api-services/entities/user.entity';
-import Button, {
-    ButtonAppearance
-} from '../../../components/buttons/button.component';
 import Card from '../../../components/cards/card/card.component';
 import Select from '../../../components/forms/select/select.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import Loading from '../../../components/navigation/loading/loading.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
-import useModal from '../../../hooks/useModal';
 import UserLeaguesTable from '../../../page-components/admin/users/user/user-leagues-table.component';
 import styles from '../../../styles/pages/admin/users/user.module.scss';
 

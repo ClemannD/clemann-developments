@@ -1,0 +1,23 @@
+{
+  "root": "libs/react/hooks/use-modal",
+  "sourceRoot": "libs/react/hooks/use-modal/src",
+  "projectType": "library",
+  "tags": ["react"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/react/hooks/use-modal/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/hooks/use-modal"],
+      "options": {
+        "jestConfig": "libs/react/hooks/use-modal/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

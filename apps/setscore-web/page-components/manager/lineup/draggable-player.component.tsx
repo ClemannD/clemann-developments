@@ -1,3 +1,4 @@
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { UsersIcon } from '@heroicons/react/solid';
 import React, { useContext } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
@@ -5,7 +6,6 @@ import { LineupPlayerDto } from '../../../api-services/manager/lineup/getLineup.
 import Pill, {
     PillColor
 } from '../../../components/ui-elements/pill/pill.component';
-import useModal from '../../../hooks/useModal';
 import { ManagerLineupContext } from '../../../pages/manager/lineup/[[...weekId]]';
 import styles from './draggable-player.module.scss';
 import UpdatePlayerSubModal from './upadte-player-sub.modal';

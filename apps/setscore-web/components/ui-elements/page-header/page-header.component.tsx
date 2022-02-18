@@ -1,6 +1,9 @@
-import { ArrowCircleLeftIcon, ChevronLeftIcon } from '@heroicons/react/outline';
-import useWindowSize from '../../../hooks/useWindowDimensions';
-import Button, { ButtonAppearance } from '../../buttons/button.component';
+import {
+    ButtonAppearance,
+    Button
+} from '@clemann-developments/react/component/button';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
+import { ArrowCircleLeftIcon } from '@heroicons/react/outline';
 import styles from './page-header.module.scss';
 
 export type PageHeaderProps = {
