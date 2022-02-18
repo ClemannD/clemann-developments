@@ -1,18 +1,16 @@
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader,
+    useModal
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React from 'react';
-import {
-    LeagueMemberType,
-    UserToLeague
-} from '../../../../api-services/entities/userToLeague.entity';
+import { UserToLeague } from '../../../../api-services/entities/userToLeague.entity';
 import useUpdateLeagueMemberType from '../../../../api-services/manager/players/updateLeagueMemberType.service';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
-import Select from '../../../../components/forms/select/select.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';
-import useModal from '../../../../hooks/useModal';
 
 export default function UpdateMemberType({
     userToLeague,

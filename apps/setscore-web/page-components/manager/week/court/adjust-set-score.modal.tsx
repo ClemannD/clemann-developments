@@ -1,3 +1,9 @@
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader
+} from '@clemann-developments/react/hooks/use-modal';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -12,12 +18,8 @@ import useCreateOrUpdateSet from '../../../../api-services/manager/week/createOr
 import Input from '../../../../components/forms/input/input.component';
 import OnFormChangeHandler from '../../../../components/forms/on-form-change-handler.component';
 import Toggle from '../../../../components/forms/toggle/toggle.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 import Label from '../../../../components/ui-elements/label/label.component';
 import TeamScore from '../../../../components/ui-elements/team-score/team-score.component';
-import useWindowSize from '../../../../hooks/useWindowDimensions';
 
 export default function AdjustSetScoreModal({
     set,

@@ -1,5 +1,16 @@
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
+import {
+    Modal,
+    ModalFooter,
+    ModalHeader,
+    useModal
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import useAddUserToLeague from '../../../../api-services/admin/leagues/addUserToLeague.service';
@@ -7,21 +18,14 @@ import useCreateUserForLeague from '../../../../api-services/admin/leagues/creat
 import useListUsers from '../../../../api-services/admin/users/listUsers.service';
 import { League } from '../../../../api-services/entities/league.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../../components/buttons/button.component';
+
 import Input from '../../../../components/forms/input/input.component';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
 import PhoneNumberInput from '../../../../components/forms/phone-input/phone-input.component';
 import Select from '../../../../components/forms/select/select.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 import Loading from '../../../../components/navigation/loading/loading.component';
 import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';
-import useModal from '../../../../hooks/useModal';
 
 enum CreateUserModalState {
     Unselected = 1,

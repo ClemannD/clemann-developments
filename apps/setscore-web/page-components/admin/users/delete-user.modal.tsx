@@ -1,13 +1,10 @@
+import { useModal, Modal, ModalHeader, ModalFooter } from '@clemann-developments/react/hooks/use-modal';
 import React from 'react';
 import { toast } from 'react-toastify';
 import useDeleteUser from '../../../api-services/admin/users/deleteUser.service';
 import { User } from '../../../api-services/entities/user.entity';
-import ModalFooter from '../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../components/modal/modal.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
-import useModal from '../../../hooks/useModal';
 
 export default function DeleteUserModal({
     user,

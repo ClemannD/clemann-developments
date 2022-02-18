@@ -1,3 +1,8 @@
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
 import { useEffect, useState } from 'react';
 import useGetCurrentCourt, {
@@ -7,10 +12,6 @@ import useSetScore from '../../../api-services/player/score/setScore.service';
 import { EventBusActionTypes } from '../../../constants/event-bus-action-types';
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import Logo from '../../brand/logo/logo.component';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../buttons/button.component';
 import ScoreCardPreview from './score-card-preview.component';
 import styles from './score-card.module.scss';
 

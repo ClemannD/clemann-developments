@@ -1,16 +1,19 @@
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
+import {
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import { CourtDto } from '../../../../api-services/manager/models';
 import useDeleteCourt from '../../../../api-services/manager/week/deleteCourt.service';
 import useUpdateCourtNumber from '../../../../api-services/manager/week/updateCourtNumber.service';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../../components/buttons/button.component';
 import Input from '../../../../components/forms/input/input.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 
 export default function UpdateCourtNumberModal(props: {
     court: CourtDto;

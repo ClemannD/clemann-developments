@@ -1,8 +1,9 @@
+import {
+    Button,
+    ButtonSize,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
 import React, { useEffect, useState } from 'react';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../components/buttons/button.component';
 import Label from '../../../components/ui-elements/label/label.component';
 
 export default function LineupMobileWeekSelector({

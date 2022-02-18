@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/hooks/use-window-dimensions",
+  "sourceRoot": "libs/react/hooks/use-window-dimensions/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/hooks/use-window-dimensions/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/hooks/use-window-dimensions"],
+      "options": {
+        "jestConfig": "libs/react/hooks/use-window-dimensions/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

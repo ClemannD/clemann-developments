@@ -1,4 +1,5 @@
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import React, { useState } from 'react';
 import { UserRole } from '../../../api-services/entities/user.entity';
 import ScrollContext from '../../../context/scroll.context';
@@ -6,7 +7,6 @@ import useCurrentLeagueGuard from '../../../hooks/useCurrentLeagueGuard';
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import useRegisteredGuard from '../../../hooks/useRegisteredGuard';
 import useRoleGuard from '../../../hooks/useRoleGuard';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import LoadingScreen from '../../navigation/loading-screen/loading-screen';
 import MobileNav from '../../navigation/mobile-nav/mobile-nav.component';
 import NavItem from '../../navigation/nav-item/nav-item.component';

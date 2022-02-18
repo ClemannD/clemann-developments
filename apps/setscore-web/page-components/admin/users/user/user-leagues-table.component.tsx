@@ -1,3 +1,13 @@
+import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
+import {
+    useModal,
+    Modal,
+    ModalHeader,
+    ModalFooter
+} from '@clemann-developments/react/hooks/use-modal';
 import { UserRemoveIcon, XIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
@@ -7,20 +17,13 @@ import useAddUserToLeague from '../../../../api-services/admin/leagues/addUserTo
 import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/removeUserFromLeague.service';
 import { User } from '../../../../api-services/entities/user.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
-import Button, {
-    ButtonAppearance
-} from '../../../../components/buttons/button.component';
 import Card from '../../../../components/cards/card/card.component';
 import Input from '../../../../components/forms/input/input.component';
-import ModalFooter from '../../../../components/modal/modal-footer/modal-footer.component';
-import ModalHeader from '../../../../components/modal/modal-header/modal-header.component';
-import Modal from '../../../../components/modal/modal.component';
 import Table, {
     Column,
     ColumnHeader,
     TableRow
 } from '../../../../components/tables/table.component';
-import useModal from '../../../../hooks/useModal';
 import RemoveUserFromLeagueModal from '../../leagues/league/remove-user-from-league.modal';
 
 export default function UserLeaguesTable({

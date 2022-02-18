@@ -1,10 +1,11 @@
-import { AdjustmentsIcon, XIcon } from '@heroicons/react/outline';
-import React, { useEffect, useRef, useState } from 'react';
-import useWindowSize from '../../../hooks/useWindowDimensions';
-import Button, {
+import {
+    Button,
     ButtonAppearance,
     ButtonSize
-} from '../../buttons/button.component';
+} from '@clemann-developments/react/component/button';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
+import { AdjustmentsIcon, XIcon } from '@heroicons/react/outline';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './dropdown-button.module.scss';
 
 export default function DropdownButton({

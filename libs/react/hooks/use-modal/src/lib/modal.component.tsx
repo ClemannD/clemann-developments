@@ -1,6 +1,5 @@
-import useModal from '../../hooks/useModal';
-import useWindowSize from '../../hooks/useWindowDimensions';
 import styles from './modal.module.scss';
+import { useModal } from './useModal';
 
 export type ModalProps = {
     width?: string;
@@ -8,11 +7,7 @@ export type ModalProps = {
     children?: any;
 };
 
-export default function Modal({
-    width,
-    onClose = () => {},
-    children
-}: ModalProps) {
+export function Modal({ width, onClose = () => {}, children }: ModalProps) {
     const { closeModal } = useModal();
 
     return (
@@ -24,7 +19,7 @@ export default function Modal({
             }}
         >
             <div
-                style={width && { width }}
+                style={width ? { width } : {}}
                 className={styles.modalContainer}
                 onClick={(event) => {
                     event.stopPropagation();

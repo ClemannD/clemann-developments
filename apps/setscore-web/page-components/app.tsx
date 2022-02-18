@@ -3,16 +3,18 @@ import {
     useEventBus,
     EventBusContext
 } from '@clemann-developments/react/hooks/use-event-bus';
+import {
+    useModal,
+    ModalContext
+} from '@clemann-developments/react/hooks/use-modal';
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useGetCurrentUser from '../api-services/auth/getCurrentUser.service';
 import Overlay from '../components/modal/overlay/overlay.component';
 import CurrentLeagueContext from '../context/currentLeague.context';
-import ModalContext from '../context/modal.context';
 import OverlayContext from '../context/overlay.context';
 import UserContext from '../context/user.context';
-import useModal from '../hooks/useModal';
 import useOverlay from '../hooks/useOverlay';
 
 export default function App({ children }) {

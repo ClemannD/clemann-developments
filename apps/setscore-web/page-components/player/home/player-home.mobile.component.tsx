@@ -1,11 +1,12 @@
+import {
+    Button,
+    ButtonSize,
+    ButtonAppearance
+} from '@clemann-developments/react/component/button';
 import { useRouter } from 'next/router';
 import ordinal from 'ordinal';
 import React, { useContext, useEffect, useState } from 'react';
 import { CourtDto } from '../../../api-services/player/models';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../../../components/buttons/button.component';
 import Loading from '../../../components/navigation/loading/loading.component';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
 import PageHeaderMobile from '../../../components/ui-elements/page-header/page-header.mobile.component';

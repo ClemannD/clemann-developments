@@ -1,12 +1,6 @@
-import styles from './navbar.module.scss';
-import { Menu, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
-import { useRouter } from 'next/router';
 import { useAuth0 } from '@auth0/auth0-react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import NavItem from '../nav-item/nav-item.component';
-import Button, { ButtonAppearance } from '../../buttons/button.component';
+import { useRouter } from 'next/router';
+import styles from './navbar.module.scss';
 
 export default function Navbar(props) {
     const router = useRouter();

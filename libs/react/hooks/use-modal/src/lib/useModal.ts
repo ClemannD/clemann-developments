@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
-import ModalContext from '../context/modal.context';
+import { ModalContext } from './modal.context';
 
-export default function useModal() {
+export function useModal() {
     const [modalContentState, setModalContentState] =
-        useState<JSX.Element>(null);
+        useState<JSX.Element | null>(null);
 
     const { setModalContent } = useContext(ModalContext);
 

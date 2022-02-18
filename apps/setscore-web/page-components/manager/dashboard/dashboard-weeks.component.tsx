@@ -1,3 +1,5 @@
+import { useModal } from '@clemann-developments/react/hooks/use-modal';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { ChevronRightIcon, PlusIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
@@ -5,8 +7,6 @@ import Date from '../../../components/ui-elements/date/date.component';
 import Pill, {
     PillColor
 } from '../../../components/ui-elements/pill/pill.component';
-import useModal from '../../../hooks/useModal';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import { MangerDashboardSelectedSeasonContext } from '../../../pages/manager';
 import AddWeekModal from './add-week.modal';
 import styles from './dashboard-weeks.module.scss';

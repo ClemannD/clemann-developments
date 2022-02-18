@@ -1,9 +1,9 @@
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import React, { useEffect } from 'react';
 import useGetCurrentWeek from '../../api-services/player/home/getCurrentWeek.service';
 import PlayerLayout from '../../components/layouts/player-layout/player-layout.component';
 import { EventBusActionTypes } from '../../constants/event-bus-action-types';
-import useWindowSize from '../../hooks/useWindowDimensions';
 import PlayerHome from '../../page-components/player/home/player-home.component';
 import PlayerHomeMobile from '../../page-components/player/home/player-home.mobile.component';
 

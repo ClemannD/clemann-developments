@@ -4,10 +4,10 @@ import SideNav from '../../navigation/side-nav/side-nav.component';
 import styles from './admin-layout.module.scss';
 import useRoleGuard from '../../../hooks/useRoleGuard';
 import { UserRole } from '../../../api-services/entities/user.entity';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import MobileNav from '../../navigation/mobile-nav/mobile-nav.component';
 import useRegisteredGuard from '../../../hooks/useRegisteredGuard';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 
 export default function AdminLayout(props) {
     const { isAuthenticated } = useAuthGuard();

@@ -5,10 +5,10 @@ import styles from './manager-layout.module.scss';
 import useRoleGuard from '../../../hooks/useRoleGuard';
 import { UserRole } from '../../../api-services/entities/user.entity';
 import useCurrentLeagueGuard from '../../../hooks/useCurrentLeagueGuard';
-import useWindowSize from '../../../hooks/useWindowDimensions';
 import MobileNav from '../../navigation/mobile-nav/mobile-nav.component';
 import useRegisteredGuard from '../../../hooks/useRegisteredGuard';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
+import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 
 export default function ManagerLayout(props) {
     const { isAuthenticated } = useAuthGuard();

@@ -1,14 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import {
+    Button,
+    ButtonAppearance,
+    ButtonSize
+} from '@clemann-developments/react/component/button';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
 import * as Yup from 'yup';
 import useRegisterUser from '../api-services/auth/registerUser.service';
-import Button, {
-    ButtonAppearance,
-    ButtonSize
-} from '../components/buttons/button.component';
 import Input from '../components/forms/input/input.component';
 import PhoneNumberInput from '../components/forms/phone-input/phone-input.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
