@@ -1,10 +1,5 @@
-@import 'apps/setscore-web/styles/theme.scss';
-@import 'apps/setscore-web/styles/containers.scss';
+@import 'libs/theme/src/variables.scss';
 
-$z-index-modal-overlay: 2000;
-$z-index-modal: 2001;
-
-// TODO: How can we make this dynamic?
 .overlay {
     height: 100vh;
     width: 100vw;
@@ -18,7 +13,6 @@ $z-index-modal: 2001;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // padding: 6rem 1rem;
 
     @include respond-to('medium') {
         justify-content: flex-end;

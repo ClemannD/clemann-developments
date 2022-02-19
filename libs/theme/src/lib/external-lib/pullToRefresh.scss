@@ -1,3 +1,5 @@
+@import '../colors.scss';
+
 .ptr,
 .ptr__children {
     height: 100%;
@@ -20,7 +22,7 @@
 }
 
 /**
-  * Pull down transition 
+  * Pull down transition
   */
 .ptr__children,
 .ptr__pull-down {
@@ -98,4 +100,22 @@
 .ptr__loader {
     margin: 0 auto;
     text-align: center;
+}
+
+.ptr--ptr {
+    box-shadow: none !important;
+
+    .ptr--icon {
+        color: $green;
+    }
+    .ptr--text {
+        color: $gray-darker;
+        font-weight: 300;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+
+    .ptr--box {
+        padding-bottom: 0;
+    }
 }
