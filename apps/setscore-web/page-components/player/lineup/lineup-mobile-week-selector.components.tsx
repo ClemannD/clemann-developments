@@ -2,7 +2,7 @@ import {
     Button,
     ButtonSize,
     ButtonAppearance
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import React, { useEffect, useState } from 'react';
 import Label from '../../../components/ui-elements/label/label.component';
 

@@ -3,7 +3,7 @@ import {
     Button,
     ButtonAppearance,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { DotsVerticalIcon, XIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';

@@ -9,7 +9,7 @@ import useUpdateLeague from '../../../api-services/admin/leagues/updateLeague.se
 import {
     Button,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 
 export default function LeagueForm({
     league,

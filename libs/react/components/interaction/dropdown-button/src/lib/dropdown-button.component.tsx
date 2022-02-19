@@ -2,13 +2,13 @@ import {
     Button,
     ButtonAppearance,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { AdjustmentsIcon, XIcon } from '@heroicons/react/outline';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './dropdown-button.module.scss';
 
-export default function DropdownButton({
+export function DropdownButton({
     dropdownButtonText,
     style,
     disabled = false,
@@ -24,7 +24,7 @@ export default function DropdownButton({
     const { largeBelow } = useWindowSize();
 
     useEffect(() => {
-        if (open) {
+        if (showDropdown) {
             document.addEventListener('mousedown', handleClickOutside);
         } else {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -33,10 +33,10 @@ export default function DropdownButton({
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [open]);
+    }, [showDropdown]);
 
-    const handleClickOutside = (e) => {
-        if (dropdown?.current.contains(e.target)) {
+    const handleClickOutside = (e: { target: any }) => {
+        if (dropdown?.current?.contains(e.target)) {
             return;
         }
         setShowDropdown(false);

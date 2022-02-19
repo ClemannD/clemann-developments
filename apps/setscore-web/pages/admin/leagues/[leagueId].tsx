@@ -1,7 +1,7 @@
 import {
     Button,
     ButtonAppearance
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { UserRemoveIcon } from '@heroicons/react/outline';
 import Link from 'next/link';

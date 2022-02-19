@@ -2,7 +2,7 @@ import {
     Button,
     ButtonAppearance,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { PlusIcon } from '@heroicons/react/outline';

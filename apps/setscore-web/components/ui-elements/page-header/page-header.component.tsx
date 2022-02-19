@@ -1,7 +1,7 @@
 import {
     ButtonAppearance,
     Button
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { ArrowCircleLeftIcon } from '@heroicons/react/outline';
 import styles from './page-header.module.scss';

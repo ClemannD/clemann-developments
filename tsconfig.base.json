@@ -24,8 +24,11 @@
       "@clemann-developments/node/typeorm/find-paginated-and-sort": [
         "libs/node/typeorm/find-paginated-and-sort/src/index.ts"
       ],
-      "@clemann-developments/react/component/button": [
-        "libs/react/component/button/src/index.ts"
+      "@clemann-developments/react/components/interaction/button": [
+        "libs/react/components/interaction/button/src/index.ts"
+      ],
+      "@clemann-developments/react/components/interaction/dropdown-button": [
+        "libs/react/components/interaction/dropdown-button/src/index.ts"
       ],
       "@clemann-developments/react/hooks/next/use-auth-guard": [
         "libs/react/hooks/next/use-auth-guard/src/index.ts"

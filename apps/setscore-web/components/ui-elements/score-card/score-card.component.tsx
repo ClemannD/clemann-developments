@@ -2,7 +2,7 @@ import {
     Button,
     ButtonAppearance,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
 import { useEffect, useState } from 'react';
 import useGetCurrentCourt, {

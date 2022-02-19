@@ -1,7 +1,7 @@
 import {
     Button,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { useRouter } from 'next/router';
 import React, { createContext, useContext, useEffect, useState } from 'react';

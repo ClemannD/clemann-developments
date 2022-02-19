@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/components/interaction/dropdown-button",
+  "sourceRoot": "libs/react/components/interaction/dropdown-button/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/components/interaction/dropdown-button/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/components/interaction/dropdown-button"],
+      "options": {
+        "jestConfig": "libs/react/components/interaction/dropdown-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

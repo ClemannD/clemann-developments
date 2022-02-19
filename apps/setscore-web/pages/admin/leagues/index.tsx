@@ -1,7 +1,7 @@
+import { ButtonAppearance } from '@clemann-developments/react/components/interaction/button';
 import { useWindowSize } from '@clemann-developments/react/hooks/use-window-dimensions';
 import { PlusCircleIcon } from '@heroicons/react/outline';
 import { useState } from 'react';
-import { ButtonAppearance } from '../../../../../libs/react/component/button/src/button.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import LeagueForm from '../../../page-components/admin/leagues/league-form.component';

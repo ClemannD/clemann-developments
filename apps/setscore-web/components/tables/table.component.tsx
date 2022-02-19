@@ -9,8 +9,8 @@ import {
 } from '@heroicons/react/outline';
 import Card from '../cards/card/card.component';
 import Loading from '../navigation/loading/loading.component';
-import DropdownButton from '../ui-elements/dropdown-button/dropdown-button.component';
 import styles from './table.module.scss';
+import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
 
 export interface TableColumn {
     header?: string;

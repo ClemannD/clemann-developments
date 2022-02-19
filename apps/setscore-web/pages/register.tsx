@@ -3,7 +3,7 @@ import {
     Button,
     ButtonAppearance,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
