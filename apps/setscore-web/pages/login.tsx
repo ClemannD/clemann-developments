@@ -2,7 +2,7 @@ import {
     Button,
     ButtonSize,
     ButtonAppearance
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import React from 'react';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';

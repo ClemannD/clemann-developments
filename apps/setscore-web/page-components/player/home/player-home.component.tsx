@@ -2,7 +2,7 @@ import {
     Button,
     ButtonSize,
     ButtonAppearance
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 import { useRouter } from 'next/router';
 import ordinal from 'ordinal';
 import React from 'react';

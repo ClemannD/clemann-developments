@@ -13,7 +13,7 @@ import { PlayerDto } from '../../../../api-services/manager/models';
 import {
     Button,
     ButtonSize
-} from '@clemann-developments/react/component/button';
+} from '@clemann-developments/react/components/interaction/button';
 
 export default function WeekScoreEditCard({
     player,
