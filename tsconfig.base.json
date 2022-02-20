@@ -24,6 +24,12 @@
       "@clemann-developments/node/typeorm/find-paginated-and-sort": [
         "libs/node/typeorm/find-paginated-and-sort/src/index.ts"
       ],
+      "@clemann-developments/react/components/ui-elements": [
+        "libs/react/components/ui-elements/src/index.ts"
+      ],
+      "@clemann-developments/react/components/forms": [
+        "libs/react/components/forms/src/index.ts"
+      ],
       "@clemann-developments/react/components/interaction/button": [
         "libs/react/components/interaction/button/src/index.ts"
       ],

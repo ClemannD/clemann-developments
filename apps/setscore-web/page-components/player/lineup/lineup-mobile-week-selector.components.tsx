@@ -3,8 +3,8 @@ import {
     ButtonSize,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import React, { useEffect, useState } from 'react';
-import Label from '../../../components/ui-elements/label/label.component';
 
 export default function LineupMobileWeekSelector({
     initialSeasonNumber,

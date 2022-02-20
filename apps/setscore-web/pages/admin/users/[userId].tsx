@@ -1,3 +1,4 @@
+import { Select } from '@clemann-developments/react/components/forms';
 import {
     Button,
     ButtonAppearance
@@ -17,7 +18,6 @@ import useGetUser from '../../../api-services/admin/users/getUser.service';
 import useUpdateUserRole from '../../../api-services/admin/users/updateUserRole.service';
 import { UserRole } from '../../../api-services/entities/user.entity';
 import Card from '../../../components/cards/card/card.component';
-import Select from '../../../components/forms/select/select.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
 import Loading from '../../../components/navigation/loading/loading.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';

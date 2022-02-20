@@ -1,5 +1,10 @@
 import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import {
+    CheckboxList,
+    Checkbox,
+    OnFormChangeHandler
+} from '@clemann-developments/react/components/forms';
+import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
@@ -13,9 +18,6 @@ import {
 import { Form, Formik } from 'formik';
 import React, { useContext } from 'react';
 import useListPlayers from '../../../api-services/manager/players/listPlayers.service';
-import CheckboxList from '../../../components/forms/checkbox/checkbox-list.component';
-import Checkbox from '../../../components/forms/checkbox/checkbox.component';
-import OnFormChangeHandler from '../../../components/forms/on-form-change-handler.component';
 import ManagerLayout from '../../../components/layouts/manager-layout/manager-layout.component';
 import Table, {
     Column,

@@ -1,3 +1,4 @@
+import { TextArea } from '@clemann-developments/react/components/forms';
 import {
     Modal,
     ModalHeader,
@@ -6,7 +7,6 @@ import {
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import useUpdateLeagueNotes from '../../../api-services/manager/dashboard/updateLeagueNotes.service';
-import TextArea from '../../../components/forms/text-area/text-area.component';
 
 export default function EditNotesModal({
     leagueNotes,

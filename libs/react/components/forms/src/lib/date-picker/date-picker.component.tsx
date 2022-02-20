@@ -1,14 +1,14 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import dateFnsFormat from 'date-fns/format';
 import dateFnsParse from 'date-fns/parse';
 import { useField, useFormikContext } from 'formik';
 import { DateUtils } from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
-import Label from '../../ui-elements/label/label.component';
 import styles from './date-picker.module.scss';
 
 export type DatePickerProps = {
-    label?: string;
+    label: string;
     subLabel?: string;
     id?: string;
     name: string;
@@ -19,7 +19,7 @@ export type DatePickerProps = {
     errorMessage?: string;
 };
 
-function parseDate(str, format, locale) {
+function parseDate(str: string, format: string, locale: any) {
     const parsed = dateFnsParse(str, format, new Date(), { locale });
     if (DateUtils.isDate(parsed)) {
         return parsed;
@@ -27,7 +27,7 @@ function parseDate(str, format, locale) {
     return undefined;
 }
 
-function formatDate(date, format, locale) {
+function formatDate(date: number | Date, format: string, locale: any) {
     return dateFnsFormat(date, format, { locale });
 }
 
@@ -44,7 +44,7 @@ export const DatePickerField = ({
     return (
         <div
             className={`
-                ${styles.inputWrapper} 
+                ${styles.inputWrapper}
                 ${meta.touched && meta.error ? styles.error : ''}
             `}
         >

@@ -1,9 +1,13 @@
 import { useFormikContext } from 'formik';
 import { useEffect, useState } from 'react';
 
-export default function OnFormChangeHandler({ onChange }) {
+export function OnFormChangeHandler({
+    onChange
+}: {
+    onChange: (value: any) => void;
+}) {
     const { values } = useFormikContext();
-    const [previousFilters, setPreviousFilters] = useState({});
+    const [previousFilters, setPreviousFilters] = useState<any>({});
 
     useEffect(() => {
         if (values !== previousFilters) {

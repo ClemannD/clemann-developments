@@ -1,11 +1,11 @@
 import { FormikProps, useField } from 'formik';
 import React from 'react';
-import Label from '../../ui-elements/label/label.component';
 import styles from './phone-input.module.scss';
 import PhoneInput from 'react-phone-number-input/input';
+import { Label } from '@clemann-developments/react/components/ui-elements';
 
 export type PhoneNumberInputProps = {
-    label?: string;
+    label: string;
     subLabel?: string;
     id?: string;
     name: string;
@@ -14,7 +14,7 @@ export type PhoneNumberInputProps = {
     formikProps: FormikProps<any>;
 };
 
-export default function PhoneNumberInput({
+export function PhoneNumberInput({
     label,
     subLabel,
     formikProps,
@@ -25,7 +25,7 @@ export default function PhoneNumberInput({
     return (
         <div
             className={`
-                ${styles.inputWrapper} 
+                ${styles.inputWrapper}
                 ${meta.touched && meta.error ? styles.error : ''}
             `}
         >
@@ -37,7 +37,7 @@ export default function PhoneNumberInput({
             <PhoneInput
                 country="US"
                 className={`
-                    ${styles.input} 
+                    ${styles.input}
                     ${meta.touched && meta.error ? styles.error : ''}
                 `}
                 {...field}

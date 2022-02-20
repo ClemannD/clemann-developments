@@ -18,7 +18,7 @@ import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/remo
 import { User } from '../../../../api-services/entities/user.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import Card from '../../../../components/cards/card/card.component';
-import Input from '../../../../components/forms/input/input.component';
+import { Input } from '@clemann-developments/react/components/forms';
 import Table, {
     Column,
     ColumnHeader,

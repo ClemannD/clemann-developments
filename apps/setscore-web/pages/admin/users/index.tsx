@@ -1,5 +1,10 @@
 import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
 import {
+    Checkbox,
+    CheckboxList,
+    OnFormChangeHandler
+} from '@clemann-developments/react/components/forms';
+import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
@@ -14,9 +19,6 @@ import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
 import useListUsers from '../../../api-services/admin/users/listUsers.service';
-import CheckboxList from '../../../components/forms/checkbox/checkbox-list.component';
-import Checkbox from '../../../components/forms/checkbox/checkbox.component';
-import OnFormChangeHandler from '../../../components/forms/on-form-change-handler.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
 import Table, {
     Column,

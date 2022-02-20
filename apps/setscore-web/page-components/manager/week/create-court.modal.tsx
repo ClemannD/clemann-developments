@@ -1,3 +1,4 @@
+import { Input } from '@clemann-developments/react/components/forms';
 import {
     Modal,
     ModalHeader,
@@ -7,7 +8,6 @@ import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import useCreateCourtForWeek from '../../../api-services/manager/week/createCourtForWeek.service';
 import { WeekDto } from '../../../api-services/manager/week/getWeek.service';
-import Input from '../../../components/forms/input/input.component';
 
 export default function CreateCourtModal(props: {
     week: WeekDto;

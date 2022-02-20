@@ -1,9 +1,9 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import { useField } from 'formik';
-import Label from '../../ui-elements/label/label.component';
-import styles from './text-area.module.scss';
+import styles from './input.module.scss';
 
 export type InputProps = {
-    label?: string;
+    label: string;
     subLabel?: string;
     id?: string;
     name: string;
@@ -13,12 +13,12 @@ export type InputProps = {
     autoComplete?: string;
     errorMessage?: string;
     hideErrorMessage?: boolean;
-    maxlength?: number;
+    max?: number;
     min?: number;
     style?: React.CSSProperties;
 };
 
-export default function TextArea({
+export function Input({
     label,
     subLabel,
     errorMessage,
@@ -32,7 +32,7 @@ export default function TextArea({
         <div
             style={style || {}}
             className={`
-                ${styles.inputWrapper} 
+                ${styles.inputWrapper}
                 ${
                     (meta.touched && meta.error) || errorMessage
                         ? styles.error
@@ -45,9 +45,9 @@ export default function TextArea({
                 subLabel={subLabel}
                 id={props.id || props.name}
             ></Label>
-            <textarea
+            <input
                 className={`
-                    ${styles.input} 
+                    ${styles.input}
                     ${
                         (meta.touched && meta.error) || errorMessage
                             ? styles.error

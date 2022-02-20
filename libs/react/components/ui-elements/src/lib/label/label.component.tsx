@@ -1,6 +1,6 @@
 import styles from './label.module.scss';
 
-export default function Label({
+export function Label({
     id,
     label,
     subLabel,

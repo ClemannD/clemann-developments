@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { Input } from '@clemann-developments/react/components/forms';
 import {
     Button,
     ButtonAppearance,
@@ -11,7 +12,6 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 import useAcceptInviteCode from '../api-services/auth/acceptInviteCode.service';
 import useSetCurrentLeague from '../api-services/auth/setCurrentLeague.service.';
-import Input from '../components/forms/input/input.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
 import useCurrentUser from '../hooks/useCurrentUser';
 import styles from '../styles/pages/select-league.module.scss';

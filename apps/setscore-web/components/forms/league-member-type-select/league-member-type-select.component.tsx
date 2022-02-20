@@ -1,5 +1,5 @@
+import { Select } from '@clemann-developments/react/components/forms';
 import { LeagueMemberType } from '../../../api-services/entities/userToLeague.entity';
-import Select from '../select/select.component';
 
 export default function LeagueMemberTypeSelect() {
     return (

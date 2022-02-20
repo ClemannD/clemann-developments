@@ -1,3 +1,4 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import {
     Modal,
     ModalFooter,
@@ -15,10 +16,11 @@ import {
 } from '../../../../api-services/manager/models';
 import useCreateOrUpdateSet from '../../../../api-services/manager/week/createOrUpdateSet.service';
 
-import Input from '../../../../components/forms/input/input.component';
-import OnFormChangeHandler from '../../../../components/forms/on-form-change-handler.component';
-import Toggle from '../../../../components/forms/toggle/toggle.component';
-import Label from '../../../../components/ui-elements/label/label.component';
+import {
+    Input,
+    OnFormChangeHandler,
+    Toggle
+} from '@clemann-developments/react/components/forms';
 import TeamScore from '../../../../components/ui-elements/team-score/team-score.component';
 
 export default function AdjustSetScoreModal({

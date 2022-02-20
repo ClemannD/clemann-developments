@@ -1,4 +1,8 @@
 import {
+    DatePickerField,
+    Input
+} from '@clemann-developments/react/components/forms';
+import {
     useModal,
     Modal,
     ModalHeader,
@@ -8,8 +12,6 @@ import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import useStartNewSeason from '../../../api-services/manager/dashboard/startNewSeason.service';
-import { DatePickerField } from '../../../components/forms/date-picker/date-picker.component';
-import Input from '../../../components/forms/input/input.component';
 
 export default function StartNewSeasonModal({
     lastSeasonNumber,

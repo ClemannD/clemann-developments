@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 import { CourtDto } from '../../../../api-services/manager/models';
 import useDeleteCourt from '../../../../api-services/manager/week/deleteCourt.service';
 import useUpdateCourtNumber from '../../../../api-services/manager/week/updateCourtNumber.service';
-import Input from '../../../../components/forms/input/input.component';
+import { Input } from '@clemann-developments/react/components/forms';
 
 export default function UpdateCourtNumberModal(props: {
     court: CourtDto;

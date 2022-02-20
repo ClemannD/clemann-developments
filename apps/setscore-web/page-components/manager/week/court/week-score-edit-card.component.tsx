@@ -1,7 +1,7 @@
 import { XIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import React, { useContext, useState } from 'react';
-import Input from '../../../../components/forms/input/input.component';
+import { Input } from '@clemann-developments/react/components/forms';
 import Pill, {
     PillColor
 } from '../../../../components/ui-elements/pill/pill.component';

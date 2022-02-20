@@ -1,0 +1,23 @@
+{
+  "root": "libs/react/components/forms",
+  "sourceRoot": "libs/react/components/forms/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/react/components/forms/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/components/forms"],
+      "options": {
+        "jestConfig": "libs/react/components/forms/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

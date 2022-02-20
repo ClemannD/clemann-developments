@@ -1,8 +1,8 @@
-import { CheckCircleIcon, CheckIcon } from '@heroicons/react/solid';
+import { CheckIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import styles from './toggle.module.scss';
 
-export default function Toggle({
+export function Toggle({
     label,
     checked,
     onChange,

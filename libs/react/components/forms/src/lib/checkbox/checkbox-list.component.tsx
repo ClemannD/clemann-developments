@@ -1,15 +1,14 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import { CSSProperties } from 'react';
-import { StyleHTMLAttributes } from 'react';
-import Label from '../../../components/ui-elements/label/label.component';
 
 export type CheckboxListProps = {
-    label?: string;
+    label: string;
     subLabel?: string;
     style?: CSSProperties;
     children?: any;
 };
 
-export default function CheckboxList({
+export function CheckboxList({
     label,
     subLabel,
     style,

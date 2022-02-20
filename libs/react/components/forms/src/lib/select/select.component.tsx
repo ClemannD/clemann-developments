@@ -1,10 +1,10 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
 import { ChevronDownIcon } from '@heroicons/react/outline';
 import { useField } from 'formik';
-import Label from '../../ui-elements/label/label.component';
 import styles from './select.module.scss';
 
 export type SelectProps = {
-    label?: string;
+    label: string;
     subLabel?: string;
     id?: string;
     name: string;
@@ -14,13 +14,13 @@ export type SelectProps = {
     children?: any;
 };
 
-export default function Select({ label, subLabel, ...props }: SelectProps) {
+export function Select({ label, subLabel, ...props }: SelectProps) {
     const [field, meta] = useField(props);
 
     return (
         <div
             className={`
-            ${styles.selectWrapper} 
+            ${styles.selectWrapper}
             ${meta.touched && meta.error ? styles.error : ''}
         `}
         >
@@ -32,7 +32,7 @@ export default function Select({ label, subLabel, ...props }: SelectProps) {
             <div className={styles.selectBox}>
                 <select
                     className={`
-                ${styles.select} 
+                ${styles.select}
                 ${meta.touched && meta.error ? styles.error : ''}
                 `}
                     {...field}

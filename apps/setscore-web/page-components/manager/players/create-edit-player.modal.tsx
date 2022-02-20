@@ -1,4 +1,8 @@
 import {
+    Input,
+    PhoneNumberInput
+} from '@clemann-developments/react/components/forms';
+import {
     useModal,
     Modal,
     ModalHeader,
@@ -15,9 +19,7 @@ import {
 } from '../../../api-services/entities/userToLeague.entity';
 import useCreatePlayer from '../../../api-services/manager/players/createPlayer.service';
 import useEditPlayer from '../../../api-services/manager/players/editPlayer.service';
-import Input from '../../../components/forms/input/input.component';
 import LeagueMemberTypeSelect from '../../../components/forms/league-member-type-select/league-member-type-select.component';
-import PhoneNumberInput from '../../../components/forms/phone-input/phone-input.component';
 
 export default function CreateEditPlayerModal({
     onSubmit,

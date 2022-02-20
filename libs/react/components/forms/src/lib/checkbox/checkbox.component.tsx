@@ -11,7 +11,7 @@ export type CheckboxProps = {
     autoComplete?: string;
     children?: string;
 };
-export default function Checkbox({
+export function Checkbox({
     label,
     subLabel,
     children,
@@ -25,7 +25,7 @@ export default function Checkbox({
     return (
         <div
             className={`
-                ${styles.checkboxWrapper} 
+                ${styles.checkboxWrapper}
                 ${meta.touched && meta.error ? styles.error : ''}
             `}
             onClick={() => {
@@ -35,7 +35,7 @@ export default function Checkbox({
             <input
                 type="checkbox"
                 className={`
-                    ${styles.checkbox} 
+                    ${styles.checkbox}
                     ${meta.touched && meta.error ? styles.error : ''}
                 `}
                 {...field}

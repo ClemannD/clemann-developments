@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/components/ui-elements",
+  "sourceRoot": "libs/react/components/ui-elements/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/components/ui-elements/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/components/ui-elements"],
+      "options": {
+        "jestConfig": "libs/react/components/ui-elements/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
