@@ -12,6 +12,7 @@
     "react-hooks-use-window-dimensions": "libs/react/hooks/use-window-dimensions",
     "setscore-api": "apps/setscore-api",
     "setscore-web": "apps/setscore-web",
-    "setscore-web-e2e": "apps/setscore-web-e2e"
+    "setscore-web-e2e": "apps/setscore-web-e2e",
+    "theme": "libs/theme"
   }
 }

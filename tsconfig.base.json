@@ -41,7 +41,8 @@
       ],
       "@clemann-developments/react/hooks/use-window-dimensions": [
         "libs/react/hooks/use-window-dimensions/src/index.ts"
-      ]
+      ],
+      "@clemann-developments/theme": ["libs/theme/src/index.ts"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.d.ts"],

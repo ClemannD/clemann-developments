@@ -1,9 +1,4 @@
-@import 'apps/setscore-web/styles/theme.scss';
-@import 'apps/setscore-web/styles/containers.scss';
-
-$white: #ffffff;
-$shadow-spread-small: 0 3px 28px 0 rgba(0, 0, 0, 0.2);
-$z-index-modal: 2001;
+@import 'libs/theme/src/variables.scss';
 
 .dropdownButtonWrapper {
     position: relative;

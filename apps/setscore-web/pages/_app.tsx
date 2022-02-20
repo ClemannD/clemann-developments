@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import App from '../page-components/app';
-import '../styles/globals.scss';
+import '../styles/styles.scss';
 
 const queryClient = new QueryClient();
 
