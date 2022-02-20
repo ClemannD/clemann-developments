@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .noSelectedSeasonWrapper {
     display: flex;
@@ -6,9 +6,9 @@
     padding-top: 5rem;
 
     .noSelectedSeasonBox {
-        border: 1px solid $gray;
+        border: 1px solid var(--gray);
         border-radius: 3px;
-        color: $gray-dark;
+        color: var(--gray-dark);
 
         padding: 4rem;
     }
@@ -39,10 +39,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: $gray-darker;
+            color: var(--gray-darker);
 
             svg {
-                color: $gray-darker;
+                color: var(--gray-darker);
                 height: 2rem;
                 margin-left: 1rem;
             }

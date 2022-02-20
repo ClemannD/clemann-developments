@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .seasonsViewport {
     width: 100%;
@@ -12,20 +12,20 @@
         min-height: 17rem;
         min-width: 25rem;
         max-width: 25rem;
-        box-shadow: $shadow-card;
-        background-color: $white;
-        border: 1px solid $gray;
+        box-shadow: var(--shadow-card);
+        background-color: var(--white);
+        border: 1px solid var(--gray);
         border-radius: 3px;
         padding: 2rem;
         margin-right: 2rem;
         cursor: pointer;
 
         &:hover {
-            box-shadow: $shadow-card-hover;
+            box-shadow: var(--shadow-card-hover);
         }
 
         &.selected {
-            border: 1px solid $green;
+            border: 1px solid var(--green);
         }
 
         &.addSeason,
@@ -35,17 +35,17 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: $gray-darker;
+            color: var(--gray-darker);
             text-align: center;
             opacity: 0.8;
-            transition: opacity $ease-out-quart-slow;
+            transition: opacity var(--ease-out-quart-slow);
 
             &:hover {
                 opacity: 1;
             }
 
             svg {
-                color: $gray-darker;
+                color: var(--gray-darker);
                 margin-top: 1rem;
                 height: 3rem;
             }
@@ -56,7 +56,7 @@
             margin-right: 2rem;
             box-shadow: none;
             cursor: default;
-            color: $gray-dark;
+            color: var(--gray-dark);
             opacity: 1;
         }
 

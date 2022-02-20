@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .checkboxWrapper {
     margin-bottom: 1rem;
@@ -13,28 +13,28 @@
     .checkbox {
         width: 1.5rem;
         height: 1.5rem;
-        border: 1px solid $gray-dark;
+        border: 1px solid var(--gray-dark);
         border-radius: 3px;
         margin-right: 1.5rem;
-        box-shadow: $shadow-input;
-        transition: $ease-out-quart;
+        box-shadow: var(--shadow-input);
+        transition: var(--ease-out-quart);
         cursor: pointer;
 
         &:checked {
-            background-color: $primary-color;
+            background-color: var(--primary-color);
         }
 
         &:hover {
-            border-color: $black;
+            border-color: var(--black);
         }
 
         &:focus {
-            border-color: $primary-color;
+            border-color: var(--primary-color);
             outline: none !important;
         }
 
         &.error {
-            border-color: $red;
+            border-color: var(--red);
         }
     }
 
@@ -42,6 +42,6 @@
         margin-top: 0.4rem;
         font-size: 1.2rem;
         line-height: 1.4rem;
-        color: $red;
+        color: var(--red);
     }
 }

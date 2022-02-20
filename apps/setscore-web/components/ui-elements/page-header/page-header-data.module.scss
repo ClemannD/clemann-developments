@@ -1,7 +1,7 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
-$base-color: $gray-lightest;
-$shine-color: $gray-lighter;
+$base-color: var(--gray-lightest);
+$shine-color: var(--gray-lighter);
 $animation-duration: 1.6s;
 
 @mixin background-gradient {

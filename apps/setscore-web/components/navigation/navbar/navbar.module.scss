@@ -1,11 +1,8 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .navbar {
     width: 100vw;
     height: 8rem;
-    // background-color: $white;
-    // border-bottom: 1px solid $gray-lighter;
-    // box-shadow: $shadow-spread-medium;
     z-index: 1000;
 
     display: flex;
@@ -18,19 +15,19 @@
             height: 100%;
             background-color: white;
             border: none;
-            border-left: 1px solid $gray-light;
+            border-left: 1px solid var(--gray-light);
             padding: 0 3rem 0 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.3rem;
-            color: $gray-darkest;
+            color: var(--gray-darkest);
             cursor: pointer;
 
-            transition: background-color $ease-out-quart;
+            transition: background-color var(--ease-out-quart);
 
             &:hover {
-                background-color: $gray-super-light;
+                background-color: var(--gray-super-light);
             }
 
             .userMenuChevron {
@@ -46,8 +43,8 @@
             right: 1rem;
             margin-top: 1rem;
 
-            background-color: $white;
-            box-shadow: $shadow-spread-medium;
+            background-color: var(--white);
+            box-shadow: var(--shadow-spread-medium);
             border-radius: 3px;
             padding: 2rem;
         }

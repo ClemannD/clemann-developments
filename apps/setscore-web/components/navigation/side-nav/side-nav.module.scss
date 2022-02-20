@@ -1,11 +1,11 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .sideNav {
     min-width: 22rem;
     width: 22rem;
     height: 100vh;
-    background-color: $white;
-    border-right: 1px solid $gray-lighter;
+    background-color: var(--white);
+    border-right: 1px solid var(--gray-lighter);
     z-index: 1001;
     padding-top: 5rem;
     display: flex;
@@ -28,7 +28,7 @@
 
         .userIcon {
             height: 2rem;
-            color: $gray;
+            color: var(--gray);
         }
     }
 
@@ -46,22 +46,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 1px solid $gray-light;
-            transition: all $ease-out-quart;
+            border-top: 1px solid var(--gray-light);
+            transition: all var(--ease-out-quart);
             font-size: 1.4rem;
-            color: $gray-dark;
+            color: var(--gray-dark);
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
 
             &:last-of-type {
-                border-bottom: 1px solid $gray-light;
+                border-bottom: 1px solid var(--gray-light);
             }
 
             &:hover {
-                background-color: $gray-super-light;
-                border-color: $gray;
-                color: $gray-darkest;
+                background-color: var(--gray-super-light);
+                border-color: var(--gray);
+                color: var(--gray-darkest);
             }
         }
 
@@ -70,7 +70,7 @@
             text-align: center;
             font-weight: 300;
             font-size: 1rem;
-            color: $gray;
+            color: var(--gray);
             margin: 2rem 0;
         }
     }

@@ -1,11 +1,18 @@
-@import '../colors.scss';
+// Style overrides for react-toastify
+// https://www.npmjs.com/package/react-toastify
+
+:root {
+    --toast-success-background-color: var(--green);
+    --toast-info-background-color: var(--blue);
+    --toast-error-background-color: var(--red);
+}
 
 .Toastify__toast--success {
-    background-color: var(--toast-success);
+    background-color: var(--toast-success-background-color);
 }
 .Toastify__toast--info {
-    background-color: var(--toast-info);
+    background-color: var(--toast-info-background-color);
 }
 .Toastify__toast--error {
-    background-color: var(--toast-error);
+    background-color: var(--toast-error-background-color);
 }

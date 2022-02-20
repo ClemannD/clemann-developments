@@ -1,7 +1,7 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .managerLayout {
-    background: $gradient-white-lightblue;
+    background: var(--gradient-white-to-blue-super-light);
 
     height: 100vh;
     display: flex;

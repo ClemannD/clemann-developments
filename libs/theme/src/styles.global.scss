@@ -1,5 +1,14 @@
-@import './lib/globals.scss';
+@import './lib/global.scss';
 @import './lib/typography.scss';
 
+// External Libraries
 @import './lib/external-lib/toastify.scss';
 @import './lib/external-lib/pullToRefresh.scss';
+@import './lib/external-lib/dayPicker.scss';
+
+// Variables
+@import './lib/variables/colors.scss';
+@import './lib/variables/shadows.scss';
+@import './lib/variables/typography.scss';
+@import './lib/variables/animations.scss';
+@import './lib/variables/z-index.scss';

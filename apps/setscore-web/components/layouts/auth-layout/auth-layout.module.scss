@@ -1,8 +1,8 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .authLayout {
     min-height: 100vh;
-    background: $gradient-white-lightblue;
+    background: var(--gradient-white-to-blue-super-light);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +63,7 @@
     .tennisCourtCorner {
         transform: rotate(90deg);
         position: absolute;
-        z-index: $z-index-background;
+        z-index: var(--z-index-background);
         bottom: 0;
         left: 0;
 

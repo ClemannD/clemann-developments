@@ -1,17 +1,15 @@
-@import 'libs/theme/src/variables.scss';
-
 .cardBox {
     width: 100%;
-    box-shadow: $shadow-card;
-    background-color: $white;
-    border: 1px solid $gray;
+    box-shadow: var(--shadow-card);
+    background-color: var(--white);
+    border: 1px solid var(--gray);
     border-radius: 3px;
 
     &.actionable {
         cursor: pointer;
 
         &:hover {
-            box-shadow: $shadow-card-hover;
+            box-shadow: var(--shadow-card-hover);
         }
     }
 }

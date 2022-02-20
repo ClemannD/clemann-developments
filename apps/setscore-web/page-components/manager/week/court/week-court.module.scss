@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .weekCourt {
     margin-bottom: 3rem;
@@ -11,18 +11,18 @@
 
     .courtName {
         cursor: pointer;
-        transition: color $ease-out-quart;
+        transition: color var(--ease-out-quart);
         margin-bottom: 1rem;
 
         svg {
             height: 1.5rem;
             margin-left: 0.5rem;
             opacity: 0;
-            transition: opacity $ease-out-quart;
+            transition: opacity var(--ease-out-quart);
         }
 
         &:hover {
-            color: $gray-darkest;
+            color: var(--gray-darkest);
 
             svg {
                 opacity: 1;

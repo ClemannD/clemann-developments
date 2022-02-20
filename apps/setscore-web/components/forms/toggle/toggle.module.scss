@@ -1,10 +1,10 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .toggle {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    transition: font-weight $ease-out-quart-quick;
+    transition: font-weight var(--ease-out-quart-quick);
 
     &.disabled {
         opacity: 0.5;
@@ -18,18 +18,18 @@
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        border: 1px solid $gray-darker;
-        transition: border-color $ease-out-quart-quick;
+        border: 1px solid var(--gray-darker);
+        transition: border-color var(--ease-out-quart-quick);
         display: flex;
         align-items: center;
         justify-content: center;
 
         svg {
-            color: $white;
+            color: var(--white);
         }
 
         &.isChecked {
-            background-color: $green;
+            background-color: var(--green);
             border: none;
         }
     }
@@ -38,7 +38,7 @@
         font-weight: 500;
 
         .toggleButton {
-            border-color: $gray-darkest;
+            border-color: var(--gray-darkest);
         }
     }
 

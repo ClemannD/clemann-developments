@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .playerBox {
     width: 100%;
@@ -39,7 +39,7 @@
             text-align: center;
             font-size: 1.4rem;
             font-weight: 900;
-            color: $white;
+            color: var(--white);
         }
     }
 }

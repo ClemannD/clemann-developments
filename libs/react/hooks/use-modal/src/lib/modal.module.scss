@@ -1,4 +1,4 @@
-@import 'libs/theme/src/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .overlay {
     height: 100vh;
@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: $z-index-modal-overlay;
+    z-index: var(--z-index-modal-overlay);
     background-color: rgba($color: #000000, $alpha: 0.3);
 
     display: flex;

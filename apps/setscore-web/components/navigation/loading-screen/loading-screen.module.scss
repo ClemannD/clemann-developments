@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .loadingScreen {
     height: 100vh;
@@ -11,5 +11,5 @@
     justify-content: center;
     align-items: center;
 
-    background: $gradient-white-lightblue;
+    background: var(--gradient-white-to-blue-super-light);
 }

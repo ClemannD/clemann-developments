@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .pill {
     height: 1.8rem;
@@ -8,7 +8,7 @@
     border-radius: 5px;
 
     width: fit-content;
-    color: $black;
+    color: var(--black);
     font-size: 1.2rem;
     font-weight: 500;
     white-space: nowrap;
@@ -27,35 +27,35 @@
     }
 
     &.lightFont {
-        color: $white;
+        color: var(--white);
     }
 
     // &.Black {
-    //     background-color: $black;
+    //     background-color: var(--black);
     // }
 
     &.Black {
-        background-color: $almost-black2;
+        background-color: var(--black3);
     }
 
     &.White {
-        background-color: $white;
+        background-color: var(--white);
     }
 
     &.OffWhite {
-        background-color: $gray-super-light;
-        // background-color: $alice-blue;
+        background-color: var(--gray-super-light);
+        // background-color: var(--blue-super-light);
     }
 
     &.Green {
-        background-color: $green;
+        background-color: var(--green);
     }
 
     &.Blue {
-        background-color: $blue;
+        background-color: var(--blue);
     }
 
     &.Yellow {
-        background-color: $yellow;
+        background-color: var(--yellow);
     }
 }
