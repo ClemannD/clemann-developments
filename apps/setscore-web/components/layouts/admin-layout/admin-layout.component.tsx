@@ -13,6 +13,7 @@ export default function AdminLayout(props) {
     const { isAuthenticated } = useAuthGuard();
     const checked = useRoleGuard([UserRole.Admin]);
     const { mediumBelow } = useWindowSize();
+
     useRegisteredGuard();
 
     if (isAuthenticated && checked) {
