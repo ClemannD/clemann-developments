@@ -1,4 +1,4 @@
-@import 'libs/theme/src/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .button {
     display: flex;
@@ -12,7 +12,7 @@
     font-weight: 500;
     letter-spacing: 0.2px;
     cursor: pointer;
-    transition: background-color, opacity $ease-out-quart;
+    transition: background-color, opacity var(--ease-out-quart);
 
     // @include respond-to('medium') {
     //     height: 3.5rem;
@@ -35,33 +35,35 @@
     }
 
     &.primary {
-        background-color: $primary-color;
-        color: $white;
-        box-shadow: $shadow-button;
+        background-color: var(--primary-color);
+        color: var(--white);
+        box-shadow: var(--shadow-button);
 
         &:hover {
-            background-color: darken($color: $primary-color, $amount: 10);
+            background-color: var(--primary-color-dark);
         }
 
         &.disabled {
-            background-color: lighten($color: $primary-color, $amount: 20);
+            color: var(--gray-dark);
+            border: 1px solid var(--gray);
+            background-color: var(--gray-super-light);
             cursor: not-allowed;
             box-shadow: none;
         }
     }
     &.secondary {
-        background-color: $white;
-        border: 1px solid $gray-darker;
-        color: $black;
-        box-shadow: $shadow-button;
+        background-color: var(--white);
+        color: var(--black);
+        box-shadow: var(--shadow-button);
+        border: 1px solid var(--gray-darker);
 
         &:hover {
-            background-color: $gray-super-light;
+            background-color: var(--gray-super-light);
         }
         &.disabled {
-            color: $gray-dark;
-            border-color: $gray;
-            background-color: $gray-super-light;
+            color: var(--gray-dark);
+            border-color: var(--gray);
+            background-color: var(--gray-super-light);
             cursor: not-allowed;
             box-shadow: none;
         }
@@ -69,22 +71,22 @@
 
     &.jumbo,
     &.jumboNumber {
-        background-color: $gray-super-light;
+        background-color: var(--gray-super-light);
         border-radius: 10px;
-        color: $black;
-        box-shadow: $shadow-button-dark;
+        color: var(--black);
+        box-shadow: var(--shadow-button-dark);
         height: 5rem;
         font-size: 2.6rem;
         font-weight: bold;
 
         &:hover {
-            background-color: $white;
-            box-shadow: $shadow-button-darker;
+            background-color: var(--white);
+            box-shadow: var(--shadow-button-darker);
         }
         // &.disabled {
-        //     color: $gray-dark;
-        //     border-color: $gray;
-        //     background-color: $gray-super-light;
+        //     color: var(--gray-dark);
+        //     border-color: var(--gray);
+        //     background-color: var(--gray-super-light);
         //     cursor: not-allowed;
         //     box-shadow: none;
         // }
@@ -96,15 +98,15 @@
     }
 
     &.danger {
-        background-color: $red;
-        color: $white;
-        box-shadow: $shadow-button;
+        background-color: var(--red);
+        color: var(--white);
+        box-shadow: var(--shadow-button);
 
         &:hover {
-            background-color: darken($color: $red, $amount: 10);
+            background-color: var(--red-dark);
         }
         &.disabled {
-            background-color: lighten($color: $red, $amount: 30);
+            background-color: var(--red-light);
             cursor: not-allowed;
             box-shadow: none;
         }
@@ -119,10 +121,10 @@
         font-size: 1.1rem;
         letter-spacing: 1px;
         font-weight: bold;
-        color: $primary-color;
+        color: var(--primary-color);
 
         &:hover {
-            color: darken($color: $primary-color, $amount: 10);
+            color: var(--primary-color-dark);
         }
 
         &.auto {
@@ -131,31 +133,31 @@
         }
     }
     &.transparentWhite {
-        color: $white;
+        color: var(--white);
 
         &:hover {
             opacity: 0.8;
-            color: $white;
+            color: var(--white);
         }
     }
 
     &.link {
         font-size: 1.4rem;
-        color: $blue;
+        color: var(--blue);
         height: auto;
         background-color: transparent;
         width: auto;
         padding: 0;
 
         &:hover {
-            color: darken($blue, 10);
+            color: var(--blue-dark);
         }
     }
 
     &.red {
-        color: $red;
+        color: var(--red);
         &:hover {
-            color: darken($red, 10);
+            color: var(--red-dark);
         }
     }
 

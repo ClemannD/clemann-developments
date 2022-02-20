@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .draggablePlayer {
     margin-bottom: 1rem;
@@ -6,11 +6,11 @@
 
     .playerBox {
         flex-grow: 1;
-        background-color: $white;
-        border: 1px solid $gray-lighter;
-        // border: 3px solid $white;
+        background-color: var(--white);
+        border: 1px solid var(--gray-lighter);
+        // border: 3px solid var(--white);
         border-radius: 3px;
-        // box-shadow: $shadow-spread-smaller;
+        // box-shadow: var(--shadow-spread-smaller);
         min-height: 5rem;
         padding: 0.5rem 1rem;
         display: flex;
@@ -18,7 +18,7 @@
         transition: width 2s ease-in-out;
 
         &.extra {
-            background-color: $red-highlight;
+            background-color: var(--red-super-light);
         }
 
         &:hover {
@@ -29,13 +29,13 @@
 
         .player {
             width: fit-content;
-            // background-color: $gray-super-light;
+            // background-color: var(--gray-super-light);
             // padding: 0.3rem 1rem;
             // border-radius: 4px;
             font-size: 1.6rem;
             font-weight: 500;
             margin-right: 0.5rem;
-            color: $almost-black;
+            color: var(--black2);
 
             @include respond-to('medium') {
                 font-size: 1.4rem;
@@ -44,12 +44,12 @@
         }
 
         svg {
-            color: $gray-darker;
+            color: var(--gray-darker);
             height: 1.5rem;
             opacity: 0;
             cursor: pointer;
             margin-left: 0.5rem;
-            transition: opacity $ease-out-quart;
+            transition: opacity var(--ease-out-quart);
 
             &:hover {
                 opacity: 1;
@@ -58,8 +58,8 @@
 
         .substitute {
             width: fit-content;
-            background-color: $almost-black;
-            color: $gray-super-light;
+            background-color: var(--black2);
+            color: var(--gray-super-light);
             padding: 0.2rem 1rem;
             border-radius: 4px;
             font-size: 1.2rem;

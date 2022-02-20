@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .table {
     width: 100%;
@@ -33,8 +33,8 @@
             .sortIcon {
                 opacity: 0;
                 margin-left: 0.5rem;
-                color: $gray-dark;
-                transition: opacity $ease-out-quart;
+                color: var(--gray-dark);
+                transition: opacity var(--ease-out-quart);
 
                 svg {
                     vertical-align: bottom;
@@ -53,8 +53,8 @@
     tr {
         border-collapse: collapse;
         width: 100%;
-        transition: background-color $ease-out-quart;
-        border-bottom: 1px solid $gray-lightest;
+        transition: background-color var(--ease-out-quart);
+        border-bottom: 1px solid var(--gray-lightest);
 
         &.bodyRow:last-of-type {
             border-bottom: none;
@@ -64,7 +64,7 @@
     tbody {
         tr {
             &:hover {
-                background-color: $gray-super-light;
+                background-color: var(--gray-super-light);
             }
 
             &.clickable {
@@ -97,7 +97,7 @@
 
     svg {
         height: 3rem;
-        color: $gray;
+        color: var(--gray);
         margin-right: 1rem;
     }
 }

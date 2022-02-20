@@ -1,12 +1,12 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .scoreEdit {
     width: 100%;
     height: 20.6rem;
-    background-color: $white;
-    border: 3px solid $white;
+    background-color: var(--white);
+    border: 3px solid var(--white);
     border-radius: 20px;
-    box-shadow: $shadow-card;
+    box-shadow: var(--shadow-card);
 
     padding: 1rem 1.5rem;
 
@@ -16,10 +16,10 @@
 
         svg {
             cursor: pointer;
-            transition: color $ease-out-quart;
+            transition: color var(--ease-out-quart);
 
             &:hover {
-                color: $gray-darkest;
+                color: var(--gray-darkest);
             }
         }
     }

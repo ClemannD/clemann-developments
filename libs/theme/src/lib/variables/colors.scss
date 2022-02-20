@@ -1,0 +1,43 @@
+:root {
+    --black: #000;
+    --black2: #142129; // Charleston Green
+    --black3: #1b2c37; // Gunmetal
+
+    --white: #fff;
+
+    --gray-super-light: #f5f8fa;
+    --gray-lightest: #edf0f6;
+    --gray-lighter: #dde2e9;
+    --gray-light: #d5d8df;
+    --gray: #c6cdd7;
+    --gray-dark: #a3abb7;
+    --gray-darker: #8a8fa1;
+    --gray-darkest: #4d5963;
+
+    --green-light: #70c58e;
+    --green: #56ab74;
+    --green-dark: #499e67;
+
+    --yellow: #ffd449;
+
+    --red-super-light: #f7e3e5;
+    --red-light: #ffafab;
+    --red: #e5625e;
+    --red-dark: #cc4945;
+
+    --blue-super-light: #e7eff4;
+    --blue-light: #228cd3;
+    --blue: #357fd4;
+    --blue-dark: #2462a8;
+
+    --primary-color-light: var(--blue-light);
+    --primary-color: var(--blue);
+    --primary-color-dark: var(--blue-dark);
+
+    // Gradients
+    --gradient-white-to-blue-super-light: linear-gradient(
+        135deg,
+        var(--white) 0%,
+        var(--blue-super-light) 100%
+    );
+}

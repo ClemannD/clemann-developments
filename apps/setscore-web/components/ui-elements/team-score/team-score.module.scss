@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .setLabel {
     font-size: 1.2rem;
@@ -16,7 +16,7 @@
 
     &.clickable {
         cursor: pointer;
-        transition: font-size $ease-out-quart;
+        transition: font-size var(--ease-out-quart);
 
         &:hover {
             font-size: 1.8rem;
@@ -24,7 +24,7 @@
     }
 
     .scorePlaceholder {
-        color: $gray;
+        color: var(--gray);
     }
 }
 
@@ -34,15 +34,15 @@
     margin-bottom: 0.6rem;
     line-height: 3.1rem;
     border-radius: 5px;
-    background-color: $gray-super-light;
+    background-color: var(--gray-super-light);
     text-align: center;
 
     &.clickable {
         cursor: pointer;
-        transition: background-color $ease-out-quart;
+        transition: background-color var(--ease-out-quart);
 
         &:hover {
-            background-color: $alice-blue;
+            background-color: var(--blue-super-light);
         }
     }
 

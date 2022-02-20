@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .selectWrapper {
     margin-bottom: 2.5rem;
@@ -21,21 +21,21 @@
             padding: 0 1.2rem;
             font-size: 1.6rem;
             border-radius: 3px;
-            border: 1px solid $gray-dark;
+            border: 1px solid var(--gray-dark);
 
             &:focus {
-                border-color: $primary-color;
+                border-color: var(--primary-color);
                 outline: none !important;
             }
         }
 
         // &:focus {
-        //     border-color: $primary-color;
+        //     border-color: var(--primary-color);
         //     outline: none !important;
         // }
 
         &.error {
-            border-color: $red;
+            border-color: var(--red);
         }
 
         .chevron {
@@ -50,6 +50,6 @@
         margin-top: 0.4rem;
         font-size: 1.2rem;
         line-height: 1.4rem;
-        color: $red;
+        color: var(--red);
     }
 }

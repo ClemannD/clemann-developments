@@ -1,0 +1,12 @@
+.set-score-global {
+    // Colors
+    --primary-color-dark: var(--green-dark);
+    --primary-color: var(--green);
+    --primary-color-light: var(--green-light);
+
+    --green-gradient: linear-gradient(
+        to bottom,
+        var(--green) 0%,
+        var(--green-dark) 100%
+    );
+}

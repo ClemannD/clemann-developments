@@ -1,4 +1,4 @@
-@import 'libs/theme/src/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .dropdownButtonWrapper {
     position: relative;
@@ -12,10 +12,10 @@
         top: -2rem;
         right: -2rem;
         padding: 2rem;
-        background: $white;
-        box-shadow: $shadow-spread-small;
+        background: var(--white);
+        box-shadow: var(--shadow-spread-small);
         border-radius: 0.3rem;
-        z-index: $z-index-modal;
+        z-index: var(--z-index-modal);
 
         @include respond-to('large') {
             flex-direction: column-reverse;

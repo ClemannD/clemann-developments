@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .overlay {
     position: fixed;
@@ -6,8 +6,8 @@
     left: 0;
     height: calc(100vh - 6rem);
     width: 100vw;
-    background-color: $overlay-color;
-    z-index: $z-index-mobile-page-header-overlay;
+    background-color: var(--overlay-color);
+    z-index: var(--z-index-mobile-page-header-overlay);
 }
 
 .pageHeaderMobile {
@@ -16,16 +16,16 @@
     left: 0;
     width: 100vw;
     padding: 0rem 2rem 1.5rem;
-    background-color: $white;
-    box-shadow: $shadow-spread-smaller;
+    background-color: var(--white);
+    box-shadow: var(--shadow-spread-smaller);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    z-index: $z-index-mobile-page-header;
-    transition: height $ease-out-quart-slow;
+    z-index: var(--z-index-mobile-page-header);
+    transition: height var(--ease-out-quart-slow);
     overflow: hidden;
 
     // &.active {
-    //     z-index: $z-index-mobile-page-header-active;
+    //     z-index: var(--z-index-mobile-page-header)-active;
     // }
 
     &.collapsed {

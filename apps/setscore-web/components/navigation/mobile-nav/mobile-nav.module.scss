@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 $nav-height: 6rem;
 
@@ -6,48 +6,48 @@ $nav-height: 6rem;
     position: fixed;
     min-height: 6rem;
     width: 100vw;
-    // border-bottom: 1px solid $gray-lighter;
-    // box-shadow: $shadow-spread-smaller;
-    transition: height $ease-out-quart-slow;
-    z-index: $z-index-mobile-nav-header;
+    // border-bottom: 1px solid var(--gray-lighter);
+    // box-shadow: var(--shadow-spread-smaller);
+    transition: height var(--ease-out-quart-slow);
+    z-index: var(--z-index-mobile-nav-header);
 
     .navWrapper {
         width: 100%;
         height: 6rem;
-        // z-index: $z-index-mobile-nav-header;
+        // z-index: var(--z-index-mobile-nav-header);
 
         .navHeader {
             padding: 0 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: $white;
+            background-color: var(--white);
 
             width: 100%;
             min-height: 6rem;
             position: absolute;
-            z-index: $z-index-mobile-nav-header;
+            z-index: var(--z-index-mobile-nav-header);
         }
 
         .menuIcon {
             height: 2.5rem;
-            color: $black;
-            transition: color $ease-out-quart-slow;
+            color: var(--black);
+            transition: color var(--ease-out-quart-slow);
             cursor: pointer;
             margin-right: -1rem;
 
             &:hover {
-                color: $black;
+                color: var(--black);
             }
         }
 
         .navMenu {
-            transition: all $ease-out-quart-slow;
-            background-color: $white;
-            // border-bottom: 1px solid $gray-lighter;
+            transition: all var(--ease-out-quart-slow);
+            background-color: var(--white);
+            // border-bottom: 1px solid var(--gray-lighter);
             width: 100vw;
             position: fixed;
-            z-index: $z-index-mobile-nav;
+            z-index: var(--z-index-mobile-nav);
             top: -500%;
 
             padding: 1rem 2rem 2rem;
@@ -67,6 +67,6 @@ $nav-height: 6rem;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: $z-index-mobile-nav-overlay;
+    z-index: var(--z-index-mobile-nav-overlay);
     background-color: rgba($color: #000000, $alpha: 0.3);
 }

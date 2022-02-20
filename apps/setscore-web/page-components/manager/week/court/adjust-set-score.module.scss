@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .toggle {
     display: flex;
@@ -8,12 +8,12 @@
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        border: 1px solid $gray-darker;
-        transition: border-color $ease-out-quart;
+        border: 1px solid var(--gray-darker);
+        transition: border-color var(--ease-out-quart);
         cursor: pointer;
 
         &:hover {
-            border-color: $gray-darkest;
+            border-color: var(--gray-darkest);
         }
     }
 }

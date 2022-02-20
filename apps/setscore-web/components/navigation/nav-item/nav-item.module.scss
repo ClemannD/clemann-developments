@@ -1,4 +1,4 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .navItem {
     display: flex;
@@ -6,10 +6,10 @@
     padding-left: 4rem;
     height: 4rem;
     font-size: 1.4rem;
-    color: $gray-dark;
+    color: var(--gray-dark);
     border-right: 3px solid transparent;
     cursor: pointer;
-    transition: all $ease-out-quart;
+    transition: all var(--ease-out-quart);
 
     &:not(:last-of-type) {
         margin-bottom: 3rem;
@@ -17,11 +17,11 @@
 
     &:hover,
     &.active {
-        color: $black;
-        border-right: 3px solid $primary-color;
+        color: var(--black);
+        border-right: 3px solid var(--primary-color);
 
         .icon {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
 
@@ -31,13 +31,13 @@
 
         &:hover,
         &.active {
-            color: $black;
+            color: var(--black);
             border-right: 3px solid transparent;
 
-            background-color: $gray-super-light;
+            background-color: var(--gray-super-light);
 
             .icon {
-                color: $primary-color;
+                color: var(--primary-color);
             }
         }
 
@@ -47,9 +47,9 @@
     }
 
     .icon {
-        transition: all $ease-out-quart;
+        transition: all var(--ease-out-quart);
         height: 2rem;
         margin-right: 1rem;
-        color: $gray;
+        color: var(--gray);
     }
 }

@@ -44,22 +44,28 @@ export default function App({ children }) {
                         <CurrentLeagueContext.Provider
                             value={getCurrentUser.data?.currentLeague}
                         >
-                            <div
-                                style={{
-                                    overflow: modalContext.modalContent
-                                        ? 'hidden'
-                                        : 'initial'
-                                }}
-                            >
-                                {children}
+                            <div className="set-score-global">
+                                <div
+                                    style={{
+                                        overflow: modalContext.modalContent
+                                            ? 'hidden'
+                                            : 'initial'
+                                    }}
+                                >
+                                    {children}
+                                </div>
+                                <ToastContainer
+                                    autoClose={5000}
+                                ></ToastContainer>
+                                {modalContext.modalContent ? (
+                                    modalContext.modalContent
+                                ) : (
+                                    <></>
+                                )}
+                                {overlayContext.showOverlay && (
+                                    <Overlay></Overlay>
+                                )}
                             </div>
-                            <ToastContainer autoClose={5000}></ToastContainer>
-                            {modalContext.modalContent ? (
-                                modalContext.modalContent
-                            ) : (
-                                <></>
-                            )}
-                            {overlayContext.showOverlay && <Overlay></Overlay>}
                         </CurrentLeagueContext.Provider>
                     </UserContext.Provider>
                 </OverlayContext.Provider>

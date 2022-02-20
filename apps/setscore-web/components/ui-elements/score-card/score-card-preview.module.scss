@@ -1,10 +1,10 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .scoreCardPreview {
     width: 100%;
-    background-color: $white;
+    background-color: var(--white);
     border-radius: 10px;
-    box-shadow: $shadow-button-dark;
+    box-shadow: var(--shadow-button-dark);
     padding: 1.5rem;
 
     .header {
@@ -19,14 +19,14 @@
         .setDetails {
             text-align: right;
             p {
-                color: $gray-darkest;
+                color: var(--gray-darkest);
                 font-weight: bold;
             }
 
             .date {
                 font-size: 1rem;
                 font-weight: 500;
-                color: $gray-darker;
+                color: var(--gray-darker);
             }
         }
     }

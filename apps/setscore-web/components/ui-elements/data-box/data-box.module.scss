@@ -1,9 +1,9 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .dataBox {
     width: 100%;
     padding: 1.5rem;
 
-    border: 1px solid $gray;
-    background-color: $gray-super-light;
+    border: 1px solid var(--gray);
+    background-color: var(--gray-super-light);
 }

@@ -1,21 +1,21 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .card {
     width: 100%;
-    background-color: $white;
+    background-color: var(--white);
     border-radius: 3px;
-    border: 1px solid $gray-light;
+    border: 1px solid var(--gray-light);
 
     .cardHeader {
         min-height: 6rem;
-        border-bottom: 1px solid $gray-light;
+        border-bottom: 1px solid var(--gray-light);
         padding: 0 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: 1.8rem;
         font-weight: 600;
-        color: $black;
+        color: var(--black);
 
         @include respond-to('medium') {
             height: 5rem;

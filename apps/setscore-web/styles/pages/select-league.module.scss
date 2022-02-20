@@ -1,7 +1,7 @@
-@import 'apps/setscore-web/styles/variables.scss';
+@import 'libs/theme/src/mixins.scss';
 
 .formWrapper {
-    z-index: $z-index-foreground;
+    z-index: var(--z-index-foreground);
     max-width: 40rem;
     width: 100%;
 }
