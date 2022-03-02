@@ -20,6 +20,9 @@ jobs:
   #     - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
   #     - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
   pr_build:
+    executor:
+      name: node/default
+      tag: '10.4'
     steps:
       - checkout
       - run: npm ci
@@ -28,19 +31,16 @@ jobs:
       - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
 
 workflows:
-  - PR Build:
-      jobs:
-        - pr_build:
-            filters:
-              branches:
-                ignore: main
-  # - build:
-  #   jobs:
-  #     - main:
-  #         filters:
-  #           branches:
-  #             only: main
-  #     - pr:
-  #         filters:
-  #           branches:
-  #             ignore: main
+  pr:
+    jobs:
+      - pr_build:
+          filters:
+            branches:
+              ignore: main
+#   build:
+#     jobs:
+#       - main:
+#           filters:
+#             branches:
+#               only: main
+
