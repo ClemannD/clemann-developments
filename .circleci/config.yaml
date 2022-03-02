@@ -1,0 +1,46 @@
+version: 2.1
+
+commands: # a reusable command with parameters
+  install_doppler:
+    parameters:
+      to:
+        default: 'world'
+        type: string
+    steps:
+      - run: (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sudo sh -s -- --verify-signature
+
+orbs:
+  nx: nrwl/nx@1.0.0
+jobs:
+  # main:
+  #   steps:
+  #     - checkout
+  #     - run: npm install
+  #     - nx/set-shas
+  #     - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
+  #     - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
+  pr_build:
+    steps:
+      - checkout
+      - run: npm ci
+      - nx/set-shas
+      - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
+      - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
+
+workflows:
+  - PR Build:
+      jobs:
+        - pr_build:
+            filters:
+              branches:
+                ignore: main
+  # - build:
+  #   jobs:
+  #     - main:
+  #         filters:
+  #           branches:
+  #             only: main
+  #     - pr:
+  #         filters:
+  #           branches:
+  #             ignore: main
