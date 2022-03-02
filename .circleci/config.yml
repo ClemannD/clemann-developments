@@ -10,7 +10,7 @@ commands: # a reusable command with parameters
       - run: (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sudo sh -s -- --verify-signature
 
 orbs:
-  nx: nrwl/nx@1.0.0
+  nx: nrwl/nx@1.1.3
 jobs:
   # main:
   #   steps:
@@ -20,9 +20,8 @@ jobs:
   #     - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
   #     - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
   pr_build:
-    executor:
-      name: node/default
-      tag: '10.4'
+    docker:
+      - image: 'cimg/node:14.17-browsers'
     steps:
       - checkout
       - run: npm ci
