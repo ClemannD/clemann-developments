@@ -57,6 +57,8 @@ commands: # a reusable command with parameters
         description: |
           The name of the main branch in your repo, used as the target of PRs. E.g. main, master etc.
         type: string
+      application-name:
+        type: string
     steps:
       - run:
           command: |
@@ -185,7 +187,7 @@ commands: # a reusable command with parameters
                   .then(({ items }) => {
                     console.log('items', items);
 
-                    return  items.filter((item) => item.name === '<<parameters.applicationName>>-pipeline').some(item => item.status === 'success');
+                    return  items.filter((item) => item.name === '<<parameters.application-name>>-pipeline').some(item => item.status === 'success');
                   });
               }
 
@@ -245,7 +247,8 @@ jobs:
     steps:
       - checkout
       - install-dependencies
-      - set-shas
+      - set-shas:
+          application-name: << parameters.application >>
       - cancel-non-affected:
           application: << parameters.application >>
       - install_doppler
