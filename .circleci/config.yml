@@ -179,8 +179,13 @@ commands: # a reusable command with parameters
               }
 
               async function isWorkflowSuccessful(pipelineId) {
+                console.log('pipelineId', pipelineId);
                 return getJson(`https://circleci.com/api/v2/pipeline/${pipelineId}/workflow`)
-                  .then(({ items }) => items.every(item => item.status === 'success'));
+                  .then(({ items }) => {
+                    console.log('items', items);
+
+                    return  items.every(item => item.status === 'success'));
+                  }
               }
 
               async function getJson(url) {
