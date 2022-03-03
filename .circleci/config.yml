@@ -35,6 +35,7 @@ commands: # a reusable command with parameters
 
             echo "Apps with changes: "
             echo $changedApps
+
             if [[ "$changedApps" =~ $appRegex ]]; then
                echo "App has changes, not halting"
             else
