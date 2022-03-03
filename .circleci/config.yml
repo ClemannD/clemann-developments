@@ -31,15 +31,12 @@ commands: # a reusable command with parameters
       - run:
           name: Check if application has changes
           command: |
-            apiUrl="https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel"
-            echo $apiUrl
-
             changedApps=$(npx nx print-affected --select=projects)
             appRegex='( |^)<< parameters.application>>(,|$)'
             if [[ "$changedApps" =~ $appRegex ]]; then
                echo "App has changes, not halting"
             else
-               curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H 'Accept: application/json' -u '${CIRCLE_TOKEN}:'
+               curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H 'Accept: application/json' -u "${CIRCLE_TOKEN}:"
             fi
 orbs:
   nx: nrwl/nx@1.1.3
