@@ -2,44 +2,147 @@ version: 2.1
 
 commands: # a reusable command with parameters
   install_doppler:
+    description: 'Install Doppler'
+    steps:
+      - run:
+          name: 'Install Doppler'
+          command: (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sudo sh -s -- --verify-signature
+
+  install-dependencies:
+    description: 'Install Dependencies (using cache)'
+    steps:
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+  cancel-non-affected:
+    description: 'Check if application has changes'
     parameters:
-      to:
-        default: 'world'
+      application:
         type: string
     steps:
-      - run: (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sudo sh -s -- --verify-signature
-
+      - nx/set-shas
+      - run:
+          name: Check if application has changes
+          command: |
+            changedApps=$(npx nx print-affected --select=projects)
+            appRegex='( |^)<< parameters.application>>(,|$)'
+            if [[ "$changedApps" =~ $appRegex ]]; then
+               echo "App has changes, not halting"
+            else
+               curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H 'Accept: application/json' -u '${CIRCLE_TOKEN}:'
+            fi
 orbs:
   nx: nrwl/nx@1.1.3
 jobs:
-  # main:
-  #   steps:
-  #     - checkout
-  #     - run: npm install
-  #     - nx/set-shas
-  #     - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
-  #     - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
-  pr_build:
+  pr-build:
     docker:
       - image: 'cimg/node:14.17-browsers'
+    resource_class: medium
     steps:
       - checkout
-      - run: npm ci
+      - install-dependencies
       - nx/set-shas
-      - run: npx nx affected --base=$NX_BASE --target=build --parallel=3
-      - run: npx nx affected --base=$NX_BASE --target=test --parallel=2
+      - run:
+          name: Run affected builds
+          command: npx nx affected --base=$NX_BASE --target=build --parallel=3
+      - run:
+          name: Run affected tests
+          command: npx nx affected --base=$NX_BASE --target=test --parallel=2
+
+  deploy:
+    parameters:
+      application:
+        type: string
+      environment:
+        type: string
+    docker:
+      - image: 'cimg/node:14.17-browsers'
+    resource_class: medium
+    steps:
+      - checkout
+      - install-dependencies
+      - cancel-non-affected:
+          application: << parameters.application >>
+      - install_doppler
+      - run:
+          name: Deploy << parameters.environment >>
+          command: npx nx deploy-<< parameters.environment >> << parameters.application >>
 
 workflows:
   pr:
     jobs:
-      - pr_build:
+      - pr-build:
           filters:
             branches:
               ignore: main
-#   build:
-#     jobs:
-#       - main:
-#           filters:
-#             branches:
-#               only: main
 
+  setscore-web-pipeline:
+    jobs:
+      - deploy:
+          name: Deploy Development (setscore-web)
+          application: 'setscore-web'
+          environment: 'development'
+          filters:
+            branches:
+              only: main
+      - staging-approval:
+          name: Staging Approval (setscore-web)
+          type: approval
+          requires:
+            - Deploy Development (setscore-web)
+      - deploy:
+          name: Deploy Staging (setscore-web)
+          application: 'setscore-web'
+          environment: 'staging'
+          requires:
+            - Staging Approval (setscore-web)
+      - production-approval:
+          name: Production Approval (setscore-web)
+          type: approval
+          requires:
+            - Deploy Staging (setscore-web)
+      - deploy:
+          name: Deploy Production (setscore-web)
+          application: 'setscore-web'
+          environment: 'production'
+          requires:
+            - Production Approval (setscore-web)
+
+  setscore-api-pipeline:
+    jobs:
+      - deploy:
+          name: Deploy Development (setscore-api)
+          application: 'setscore-api'
+          environment: 'development'
+          filters:
+            branches:
+              only: main
+      - staging-approval:
+          name: Staging Approval (setscore-api)
+          type: approval
+          requires:
+            - Deploy Development (setscore-api)
+      - deploy:
+          name: Deploy Staging (setscore-api)
+          application: 'setscore-api'
+          environment: 'staging'
+          requires:
+            - Staging Approval (setscore-api)
+      - production-approval:
+          name: Production Approval (setscore-api)
+          type: approval
+          requires:
+            - Deploy Staging (setscore-api)
+      - deploy:
+          name: Deploy Production (setscore-api)
+          application: 'setscore-api'
+          environment: 'production'
+          requires:
+            - Production Approval (setscore-api)
