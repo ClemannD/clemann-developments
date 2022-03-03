@@ -184,8 +184,8 @@ commands: # a reusable command with parameters
                   .then(({ items }) => {
                     console.log('items', items);
 
-                    return  items.every(item => item.status === 'success'));
-                  }
+                    return  items.every(item => item.status === 'success');
+                  });
               }
 
               async function getJson(url) {
