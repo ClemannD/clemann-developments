@@ -31,6 +31,9 @@ commands: # a reusable command with parameters
       - run:
           name: Check if application has changes
           command: |
+            apiUrl="https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel"
+            echo $apiUrl
+
             changedApps=$(npx nx print-affected --select=projects)
             appRegex='( |^)<< parameters.application>>(,|$)'
             if [[ "$changedApps" =~ $appRegex ]]; then
