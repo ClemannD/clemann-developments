@@ -143,8 +143,6 @@ commands: # a reusable command with parameters
                   const { next_page_token, sha } = await getJson(fullUrl)
                     .then(async ({ next_page_token, items }) => {
                       const pipeline = await findSuccessfulPipeline(items);
-                      console.log('pipeline', pipeline);
-
                       return {
                         next_page_token,
                         sha: pipeline ? pipeline.vcs.revision : void 0
@@ -173,8 +171,6 @@ commands: # a reusable command with parameters
                 console.log('commitSha', commitSha);
                 try {
                   execSync(`git cat-file -e ${commitSha} 2> /dev/null`);
-
-                  console.log('commit did exist: ', commitSha);
                   return true;
                 } catch {
                   return false;
@@ -185,9 +181,7 @@ commands: # a reusable command with parameters
                 console.log('pipelineId', pipelineId);
                 return getJson(`https://circleci.com/api/v2/pipeline/${pipelineId}/workflow`)
                   .then(({ items }) => {
-                    console.log('items', items);
-
-                    return  items.filter((item) => item.name === '<<parameters.application-name>>-pipeline').some(item => item.status === 'success');
+                    return items.filter((item) => item.name === '<<parameters.application-name>>-pipeline').some(item => item.status === 'success');
                   });
               }
 
