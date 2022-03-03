@@ -27,7 +27,6 @@ commands: # a reusable command with parameters
       application:
         type: string
     steps:
-      - nx/set-shas
       - run:
           name: Check if application has changes
           command: |
@@ -71,6 +70,7 @@ jobs:
     steps:
       - checkout
       - install-dependencies
+      - nx/set-shas
       - cancel-non-affected:
           application: << parameters.application >>
       - install_doppler
