@@ -87,6 +87,7 @@ commands: # a reusable command with parameters
               const branchName = process.argv[3];
               const mainBranchName = process.argv[4];
               const errorOnNoSuccessfulWorkflow = process.argv[5];
+
               const circleToken = process.env.CIRCLE_API_TOKEN;
 
               let BASE_SHA;
@@ -184,7 +185,7 @@ commands: # a reusable command with parameters
                   .then(({ items }) => {
                     console.log('items', items);
 
-                    return  items.every(item => item.status === 'success');
+                    return  items.filter((item) => item.name === '<<parameters.applicationName>>-pipeline').some(item => item.status === 'success');
                   });
               }
 
