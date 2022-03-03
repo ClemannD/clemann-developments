@@ -33,6 +33,9 @@ commands: # a reusable command with parameters
           command: |
             changedApps=$(npx nx print-affected --select=projects)
             appRegex='( |^)<< parameters.application>>(,|$)'
+
+            echo "Apps with changes: "
+            echo $changedApps
             if [[ "$changedApps" =~ $appRegex ]]; then
                echo "App has changes, not halting"
             else
