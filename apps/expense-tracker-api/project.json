@@ -1,0 +1,82 @@
+{
+  "root": "apps/expense-tracker-api",
+  "sourceRoot": "apps/expense-tracker-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/expense-tracker-api",
+        "main": "apps/expense-tracker-api/src/main.ts",
+        "tsConfig": "apps/expense-tracker-api/tsconfig.app.json",
+        "assets": ["apps/expense-tracker-api/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/expense-tracker-api/src/environments/environment.ts",
+              "with": "apps/expense-tracker-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "expense-tracker-api:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/expense-tracker-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/expense-tracker-api"],
+      "options": {
+        "jestConfig": "apps/expense-tracker-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "deploy-development": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-dev"
+          }
+        ]
+      }
+    },
+    "deploy-staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "echo 'No Staging environment'"
+          }
+        ]
+      }
+    },
+    "deploy-production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-prod"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}
