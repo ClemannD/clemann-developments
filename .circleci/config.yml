@@ -321,3 +321,67 @@ workflows:
           environment: 'production'
           requires:
             - Production Approval (setscore-api)
+
+  expense-tracker-web-pipeline:
+    jobs:
+      - deploy:
+          name: Deploy Development (expense-tracker-web)
+          application: 'expense-tracker-web'
+          environment: 'development'
+          filters:
+            branches:
+              only: main
+      - staging-approval:
+          name: Staging Approval (expense-tracker-web)
+          type: approval
+          requires:
+            - Deploy Development (expense-tracker-web)
+      - deploy:
+          name: Deploy Staging (expense-tracker-web)
+          application: 'expense-tracker-web'
+          environment: 'staging'
+          requires:
+            - Staging Approval (expense-tracker-web)
+      - production-approval:
+          name: Production Approval (expense-tracker-web)
+          type: approval
+          requires:
+            - Deploy Staging (expense-tracker-web)
+      - deploy:
+          name: Deploy Production (expense-tracker-web)
+          application: 'expense-tracker-web'
+          environment: 'production'
+          requires:
+            - Production Approval (expense-tracker-web)
+
+  expense-tracker-api-pipeline:
+    jobs:
+      - deploy:
+          name: Deploy Development (expense-tracker-api)
+          application: 'expense-tracker-api'
+          environment: 'development'
+          filters:
+            branches:
+              only: main
+      - staging-approval:
+          name: Staging Approval (expense-tracker-api)
+          type: approval
+          requires:
+            - Deploy Development (expense-tracker-api)
+      - deploy:
+          name: Deploy Staging (expense-tracker-api)
+          application: 'expense-tracker-api'
+          environment: 'staging'
+          requires:
+            - Staging Approval (expense-tracker-api)
+      - production-approval:
+          name: Production Approval (expense-tracker-api)
+          type: approval
+          requires:
+            - Deploy Staging (expense-tracker-api)
+      - deploy:
+          name: Deploy Production (expense-tracker-api)
+          application: 'expense-tracker-api'
+          environment: 'production'
+          requires:
+            - Production Approval (expense-tracker-api)

@@ -40,7 +40,6 @@ export class AuthService {
         const authProviderUser = await this._auth0Service.getUserInfo(
             authorization
         );
-        console.log('authProviderUser', authProviderUser);
 
         const newUser = new User();
         newUser.email = authProviderUser.email;

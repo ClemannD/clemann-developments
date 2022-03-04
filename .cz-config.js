@@ -25,11 +25,14 @@ module.exports = {
         { value: 'WIP', name: 'WIP:      Work in progress' }
     ],
     scopes: [
+        { name: '*' },
         { name: 'setscore' },
         { name: 'setscore-web' },
         { name: 'setscore-api' },
-        { name: 'libs' },
-        { name: '*' }
+        { name: 'expense-tracker' },
+        { name: 'expense-tracker-web' },
+        { name: 'expense-tracker-api' },
+        { name: 'libs' }
     ],
     allowCustomScopes: true,
     skipQuestions: ['body', 'footer', 'breaking']

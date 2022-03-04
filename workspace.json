@@ -2,6 +2,9 @@
   "version": 2,
   "projects": {
     "common-endpoint": "libs/common-endpoint",
+    "expense-tracker-api": "apps/expense-tracker-api",
+    "expense-tracker-web": "apps/expense-tracker-web",
+    "expense-tracker-web-e2e": "apps/expense-tracker-web-e2e",
     "nest-common-auth0": "libs/nest/common-auth0",
     "node-typeorm-find-paginated-and-sort": "libs/node/typeorm/find-paginated-and-sort",
     "react-component-button": "libs/react/components/interaction/button",
