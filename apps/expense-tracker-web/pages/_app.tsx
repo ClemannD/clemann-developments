@@ -6,7 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-                <title>Welcome to expense-tracker-web!</title>
+                <title>Welcome to expense-tracker-web !</title>
             </Head>
             <main className="app">
                 <Component {...pageProps} />
