@@ -48,6 +48,46 @@
       "options": {
         "lintFilePatterns": ["apps/expense-tracker-web/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "e2e-ci": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "export CYPRESS_BASE_URL='https://expense-tracker-development.vercel.app' && doppler run --token $DOPPLER_ACCESS_TOKEN_DEV -- npx nx run expense-tracker-web-e2e:e2e --configuration ci"
+          }
+        ]
+      }
+    },
+    "deploy-development": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/expense-tracker-web.deploy.sh"
+          }
+        ]
+      }
+    },
+    "deploy-staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/expense-tracker-web.deploy.sh"
+          }
+        ]
+      }
+    },
+    "deploy-production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/expense-tracker-web.deploy.sh"
+          }
+        ]
+      }
     }
   },
   "tags": []
