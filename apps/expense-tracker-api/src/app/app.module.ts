@@ -29,8 +29,8 @@ import { AuthModule } from '../features/auth/auth.module';
                 entities: [
                     User,
                     Account,
-                    Category,
                     Expense,
+                    Category,
                     Subcategory,
                     Tag,
                     RecurringExpense,
