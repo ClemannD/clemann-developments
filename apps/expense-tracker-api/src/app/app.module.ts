@@ -23,8 +23,9 @@ import { AuthModule } from '../features/auth/auth.module';
             inject: [ConfigService],
             useFactory: async (configService: ConfigService) => ({
                 url:
-                    configService.get<string>('SET_SCORE_API_DATABASE_URL') ||
-                    configService.get<string>('DATABASE_URL'),
+                    configService.get<string>(
+                        'EXPENSE_TRACKER_API_DATABASE_URL'
+                    ) || configService.get<string>('DATABASE_URL'),
                 type: 'postgres',
                 entities: [
                     User,
