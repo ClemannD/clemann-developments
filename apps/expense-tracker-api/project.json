@@ -47,10 +47,23 @@
         "passWithNoTests": true
       }
     },
+    "generate-migration": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "doppler run -c dev --token $CLI_ACCESS_TOKEN_DOPPLER -- ./tools/scripts/migrations/expense-tracker-api.generate-migration.sh {args.migrationName}"
+          }
+        ]
+      }
+    },
     "deploy-development": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
+          {
+            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
+          },
           {
             "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-dev"
           }
@@ -71,6 +84,9 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
+          {
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
+          },
           {
             "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-prod"
           }

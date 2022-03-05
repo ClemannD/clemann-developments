@@ -49,7 +49,11 @@
     "deploy-development": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
+        "parallel": false,
         "commands": [
+          {
+            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/scripts/migrations/setscore-api.run-migrations.sh"
+          },
           {
             "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-development"
           }
@@ -59,7 +63,11 @@
     "deploy-staging": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
+        "parallel": false,
         "commands": [
+          {
+            "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/scripts/migrations/setscore-api.run-migrations.sh"
+          },
           {
             "command": "doppler run -c stage --token $DOPPLER_ACCESS_TOKEN_STAGE -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api-staging"
           }
@@ -69,7 +77,11 @@
     "deploy-production": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
+        "parallel": false,
         "commands": [
+          {
+            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/scripts/migrations/setscore-api.run-migrations.sh"
+          },
           {
             "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/heroku.deploy.sh setscore-api setscore-api"
           }
