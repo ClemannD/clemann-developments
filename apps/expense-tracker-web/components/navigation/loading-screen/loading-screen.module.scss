@@ -1,0 +1,15 @@
+@import 'libs/theme/src/mixins.scss';
+
+.loadingScreen {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--gradient-white-to-blue-super-light);
+}

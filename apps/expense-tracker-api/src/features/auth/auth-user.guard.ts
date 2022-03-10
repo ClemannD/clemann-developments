@@ -12,6 +12,7 @@ export class AuthUserGuard implements CanActivate {
             request.user.sub,
             request.headers.authorization
         );
+
         request.userInfo = user;
 
         return true;

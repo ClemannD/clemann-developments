@@ -1,3 +1,4 @@
+import { Input, PhoneNumberInput } from '@clemann-developments/react/forms';
 import {
     useModal,
     Modal,
@@ -12,8 +13,6 @@ import * as Yup from 'yup';
 import useCreateUser from '../../../api-services/admin/users/createUser.service';
 import useEditUser from '../../../api-services/admin/users/editUser.service';
 import { User } from '../../../api-services/entities/user.entity';
-import MyInput from '../../../components/forms/input/input.component';
-import PhoneNumberInput from '../../../components/forms/phone-input/phone-input.component';
 
 export default function CreateEditUserModal({
     onSubmit,
@@ -78,15 +77,9 @@ export default function CreateEditUserModal({
                 render={(props) => {
                     return (
                         <Form>
-                            <MyInput
-                                name="firstName"
-                                label="First Name"
-                            ></MyInput>
-                            <MyInput
-                                name="lastName"
-                                label="Last Name"
-                            ></MyInput>
-                            <MyInput name="email" label="Email"></MyInput>
+                            <Input name="firstName" label="First Name"></Input>
+                            <Input name="lastName" label="Last Name"></Input>
+                            <Input name="email" label="Email"></Input>
 
                             <PhoneNumberInput
                                 name="phone"

@@ -2,13 +2,14 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { Input } from '@clemann-developments/react/forms';
 import {
-    useModal,
     Modal,
+    ModalFooter,
     ModalHeader,
-    ModalFooter
+    useModal
 } from '@clemann-developments/react/hooks/use-modal';
-import { UserRemoveIcon, XIcon } from '@heroicons/react/outline';
+import { UserRemoveIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -18,7 +19,6 @@ import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/remo
 import { User } from '../../../../api-services/entities/user.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import Card from '../../../../components/cards/card/card.component';
-import Input from '../../../../components/forms/input/input.component';
 import Table, {
     Column,
     ColumnHeader,

@@ -4,6 +4,11 @@ import {
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
 import {
+    Input,
+    PhoneNumberInput,
+    Select
+} from '@clemann-developments/react/forms';
+import {
     Modal,
     ModalFooter,
     ModalHeader,
@@ -18,11 +23,7 @@ import useCreateUserForLeague from '../../../../api-services/admin/leagues/creat
 import useListUsers from '../../../../api-services/admin/users/listUsers.service';
 import { League } from '../../../../api-services/entities/league.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
-
-import Input from '../../../../components/forms/input/input.component';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
-import PhoneNumberInput from '../../../../components/forms/phone-input/phone-input.component';
-import Select from '../../../../components/forms/select/select.component';
 import Loading from '../../../../components/navigation/loading/loading.component';
 import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';

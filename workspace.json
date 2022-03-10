@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "common-endpoint": "libs/common-endpoint",
+    "dtos-expense-tracker-dtos": "libs/dtos/expense-tracker-dtos",
     "expense-tracker-api": "apps/expense-tracker-api",
     "expense-tracker-web": "apps/expense-tracker-web",
     "expense-tracker-web-e2e": "apps/expense-tracker-web-e2e",
@@ -9,6 +10,8 @@
     "node-typeorm-find-paginated-and-sort": "libs/node/typeorm/find-paginated-and-sort",
     "react-component-button": "libs/react/components/interaction/button",
     "react-components-dropdown-button": "libs/react/components/interaction/dropdown-button",
+    "react-components-ui-elements": "libs/react/components/ui-elements",
+    "react-forms": "libs/react/forms",
     "react-hooks-next-use-auth-guard": "libs/react/hooks/next/use-auth-guard",
     "react-hooks-use-event-bus": "libs/react/hooks/use-event-bus",
     "react-hooks-use-modal": "libs/react/hooks/use-modal",

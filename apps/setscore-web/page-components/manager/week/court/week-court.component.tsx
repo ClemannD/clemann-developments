@@ -1,11 +1,12 @@
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { PencilAltIcon } from '@heroicons/react/outline';
 import ordinal from 'ordinal';
 import React, { createContext, useState } from 'react';
 import { CourtDto } from '../../../../api-services/manager/models';
-import Pill, {
-    PillColor
-} from '../../../../components/ui-elements/pill/pill.component';
 import UpdateCourtNumberModal from './update-court-number.modal';
 import WeekCourtPlayerView from './week-court-player-view.component';
 import WeekCourtSetView from './week-court-set-view.component';

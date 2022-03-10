@@ -1,10 +1,6 @@
 import { XIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
 import React, { useContext, useState } from 'react';
-import Input from '../../../../components/forms/input/input.component';
-import Pill, {
-    PillColor
-} from '../../../../components/ui-elements/pill/pill.component';
 import styles from './week-score-edit-card.module.scss';
 import * as Yup from 'yup';
 import { ManagerWeekCourtContext } from './week-court.component';
@@ -14,6 +10,11 @@ import {
     Button,
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
+import { Input } from '@clemann-developments/react/forms';
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 
 export default function WeekScoreEditCard({
     player,

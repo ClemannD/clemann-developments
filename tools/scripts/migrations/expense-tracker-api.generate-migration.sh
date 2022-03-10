@@ -27,7 +27,7 @@ cat >./ormconfig.json <<EOF
     }
 EOF
 
-npx typeorm migration:create -n $MIGRATION_NAME
+npm run typeorm migration:generate -- -n $MIGRATION_NAME
 
 echo ""
 echo "======================"

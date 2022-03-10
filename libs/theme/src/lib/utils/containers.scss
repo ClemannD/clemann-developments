@@ -30,48 +30,14 @@ $breakpoints: (
 .container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 1320px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: 100%;
+    max-width: 1520px;
 
-    @include respond-to('extra-extra-large') {
-        width: 1320px;
-    }
-    @include respond-to('extra-large') {
-        width: 1140px;
-    }
-    @include respond-to('large') {
-        width: 960px;
-    }
-    @include respond-to('medium') {
-        width: 720px;
-    }
     @include respond-to('small') {
-        width: 540px;
-    }
-}
-
-.container-inner {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 1100px;
-
-    @include respond-to('extra-extra-large') {
-        width: 1100px;
-    }
-    @include respond-to('extra-large') {
-        width: 920px;
-    }
-    @include respond-to('large') {
-        width: 740px;
-    }
-    @include respond-to('medium') {
-        width: 500px;
-    }
-    @include respond-to('small') {
-        width: 320px;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 

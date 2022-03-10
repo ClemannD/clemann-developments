@@ -1,0 +1,15 @@
+{
+  "root": "libs/dtos/expense-tracker-dtos",
+  "sourceRoot": "libs/dtos/expense-tracker-dtos/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/dtos/expense-tracker-dtos/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

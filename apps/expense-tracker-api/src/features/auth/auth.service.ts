@@ -2,6 +2,7 @@ import { Auth0Service } from '@clemann-developments/nest/common-auth0';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Account } from '../../entities/account.entity';
 import { User } from '../../entities/user.entity';
 
 @Injectable()
@@ -10,17 +11,19 @@ export class AuthService {
         private _auth0Service: Auth0Service,
 
         @InjectRepository(User)
-        private userRepository: Repository<User>
+        private userRepository: Repository<User>,
+        @InjectRepository(Account)
+        private accountRepository: Repository<Account>
     ) {}
 
-    async getOrCreateUserFromAuthProvider(
+    public async getOrCreateUserFromAuthProvider(
         thirdPartyId: string,
         authorization: string
-    ) {
+    ): Promise<User> {
         const user = (
             await this.userRepository.find({
                 where: { thirdPartyId },
-                relations: ['userToLeague', 'userToLeague.league']
+                relations: ['account']
             })
         )[0];
 
@@ -32,7 +35,6 @@ export class AuthService {
         const authProviderUser = await this._auth0Service.getUserInfo(
             authorization
         );
-        console.log('authProviderUser', authProviderUser);
 
         const newUser = new User();
         newUser.email = authProviderUser.email;
@@ -42,5 +44,33 @@ export class AuthService {
         newUser.thirdPartyId = thirdPartyId;
 
         return this.userRepository.save(newUser);
+    }
+
+    public async registerUser(
+        userId: string,
+        firstName: string,
+        lastName: string,
+        email: string,
+        phone: string,
+        accountName: string
+    ): Promise<void> {
+        const user = await this.userRepository.findOne(userId);
+
+        if (!user) {
+            throw new Error('User does not exist.');
+        }
+
+        const account = new Account();
+        account.accountName = accountName;
+        account.user = user;
+
+        await this.accountRepository.save(account);
+
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.email = email;
+        user.phone = phone;
+
+        this.userRepository.save(user);
     }
 }

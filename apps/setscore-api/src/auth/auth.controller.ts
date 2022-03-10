@@ -17,8 +17,6 @@ export class AuthController {
     @Post('getCurrentUser')
     @UseGuards(AuthGuard('jwt'), AuthUserGuard)
     getCurrentUser(@Req() request): GetCurrentUserResponse {
-        console.log();
-
         return {
             user: request.userInfo,
             currentLeague: request.currentLeague

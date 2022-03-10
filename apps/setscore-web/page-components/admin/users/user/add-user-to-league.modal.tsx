@@ -1,3 +1,4 @@
+import { Select } from '@clemann-developments/react/forms';
 import {
     useModal,
     Modal,
@@ -13,7 +14,6 @@ import useListUsers from '../../../../api-services/admin/users/listUsers.service
 import { League } from '../../../../api-services/entities/league.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
-import Select from '../../../../components/forms/select/select.component';
 import Loading from '../../../../components/navigation/loading/loading.component';
 import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';

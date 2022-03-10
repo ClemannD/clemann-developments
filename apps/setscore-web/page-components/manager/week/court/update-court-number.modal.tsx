@@ -3,6 +3,7 @@ import {
     ButtonAppearance,
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
+import { Input } from '@clemann-developments/react/forms';
 import {
     Modal,
     ModalHeader,
@@ -13,7 +14,6 @@ import React, { useState } from 'react';
 import { CourtDto } from '../../../../api-services/manager/models';
 import useDeleteCourt from '../../../../api-services/manager/week/deleteCourt.service';
 import useUpdateCourtNumber from '../../../../api-services/manager/week/updateCourtNumber.service';
-import Input from '../../../../components/forms/input/input.component';
 
 export default function UpdateCourtNumberModal(props: {
     court: CourtDto;
