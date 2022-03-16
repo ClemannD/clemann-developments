@@ -1,0 +1,25 @@
+.colorChipWrapper {
+    position: relative;
+
+    .colorChip {
+        width: 4.5rem;
+        height: 1.5rem;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+    }
+
+    .colorPickerDropdown {
+        position: absolute;
+        right: 0;
+        top: 3rem;
+        background-color: var(--white);
+        box-shadow: var(--shadow-spread-small);
+        border-radius: 1rem;
+        z-index: 1;
+
+        .colorPickerDropdownButton {
+            width: 100%;
+            padding: 0 1rem 1rem 1rem;
+        }
+    }
+}

@@ -11,6 +11,7 @@ import { User } from '../entities/user.entity';
 import { PaymentMethod } from '../entities/payment-method.entity';
 
 import { AuthModule } from '../features/auth/auth.module';
+import { ConfigurationModule } from '../features/configuration/configuration.module';
 
 @Module({
     imports: [
@@ -45,8 +46,9 @@ import { AuthModule } from '../features/auth/auth.module';
                 }
             })
         }),
+        HttpModule,
         AuthModule,
-        HttpModule
+        ConfigurationModule
     ]
 })
 export class AppModule {}

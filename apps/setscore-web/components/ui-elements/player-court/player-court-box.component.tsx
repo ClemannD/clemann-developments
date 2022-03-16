@@ -1,8 +1,11 @@
 import React from 'react';
-import Pill, { PillColor } from '../pill/pill.component';
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import styles from './player-court-box.module.scss';
 import { PlayerDto } from '../../../api-services/manager/models';
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 
 export function PlayerBox({
     player,

@@ -1,8 +1,9 @@
+import { Input, PhoneNumberInput } from '@clemann-developments/react/forms';
 import {
-    useModal,
     Modal,
+    ModalFooter,
     ModalHeader,
-    ModalFooter
+    useModal
 } from '@clemann-developments/react/hooks/use-modal';
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
@@ -15,9 +16,7 @@ import {
 } from '../../../api-services/entities/userToLeague.entity';
 import useCreatePlayer from '../../../api-services/manager/players/createPlayer.service';
 import useEditPlayer from '../../../api-services/manager/players/editPlayer.service';
-import Input from '../../../components/forms/input/input.component';
 import LeagueMemberTypeSelect from '../../../components/forms/league-member-type-select/league-member-type-select.component';
-import PhoneNumberInput from '../../../components/forms/phone-input/phone-input.component';
 
 export default function CreateEditPlayerModal({
     onSubmit,

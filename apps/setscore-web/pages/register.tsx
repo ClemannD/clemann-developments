@@ -4,21 +4,20 @@ import {
     ButtonAppearance,
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
+import { Input, PhoneNumberInput } from '@clemann-developments/react/forms';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
 import * as Yup from 'yup';
 import useRegisterUser from '../api-services/auth/registerUser.service';
-import Input from '../components/forms/input/input.component';
-import PhoneNumberInput from '../components/forms/phone-input/phone-input.component';
 import AuthLayout from '../components/layouts/auth-layout/auth-layout.component';
 import LoadingScreen from '../components/navigation/loading-screen/loading-screen';
 import useCurrentUser from '../hooks/useCurrentUser';
 import styles from '../styles/pages/register.module.scss';
 
 export default function RegisterPage() {
-    const authGuard = useAuthGuard();
+    useAuthGuard();
     const { currentUser, getCurrentUser } = useCurrentUser();
     const router = useRouter();
     const { logout } = useAuth0();

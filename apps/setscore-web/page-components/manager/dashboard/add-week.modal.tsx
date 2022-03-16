@@ -1,3 +1,4 @@
+import { DatePickerField } from '@clemann-developments/react/forms';
 import {
     Modal,
     ModalHeader,
@@ -7,7 +8,6 @@ import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import useAddWeek from '../../../api-services/manager/dashboard/add-week.service';
-import { DatePickerField } from '../../../components/forms/date-picker/date-picker.component';
 
 export default function AddWeekModal(props: any) {
     const [isSubmitting, setIsSubmitting] = useState(false);

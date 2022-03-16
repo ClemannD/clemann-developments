@@ -46,7 +46,6 @@ export class User {
     @UpdateDateColumn()
     updatedAt: Date;
 
-    @OneToOne(() => Account)
-    @JoinColumn()
+    @OneToOne(() => Account, (account) => account.user)
     account: Account;
 }

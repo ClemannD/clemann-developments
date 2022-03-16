@@ -1,3 +1,5 @@
+import { Label } from '@clemann-developments/react/components/ui-elements';
+import { Input, Toggle } from '@clemann-developments/react/forms';
 import {
     Modal,
     ModalFooter,
@@ -14,11 +16,7 @@ import {
     SetDto
 } from '../../../../api-services/manager/models';
 import useCreateOrUpdateSet from '../../../../api-services/manager/week/createOrUpdateSet.service';
-
-import Input from '../../../../components/forms/input/input.component';
 import OnFormChangeHandler from '../../../../components/forms/on-form-change-handler.component';
-import Toggle from '../../../../components/forms/toggle/toggle.component';
-import Label from '../../../../components/ui-elements/label/label.component';
 import TeamScore from '../../../../components/ui-elements/team-score/team-score.component';
 
 export default function AdjustSetScoreModal({
@@ -205,6 +203,9 @@ export default function AdjustSetScoreModal({
 
                     {court.players.map((player, index) => (
                         <Toggle
+                            style={{
+                                marginBottom: '1rem'
+                            }}
                             key={player.playerId}
                             label={
                                 court.players[index].firstName +

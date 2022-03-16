@@ -1,0 +1,47 @@
+@import 'libs/theme/src/mixins.scss';
+
+.toggle {
+    display: flex;
+    align-items: center;
+    transition: font-weight var(--ease-out-quart-quick);
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &:not(.disabled) {
+        cursor: pointer;
+    }
+
+    .toggleButton {
+        width: var(--toggle-diameter);
+        height: var(--toggle-diameter);
+        border-radius: 50%;
+        border: 1px solid var(--gray-darker);
+        transition: border-color var(--ease-out-quart-quick);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            color: var(--white);
+        }
+
+        &.isChecked {
+            background-color: var(--primary-color);
+            border: none;
+        }
+    }
+
+    &:hover:not(.disabled) {
+        font-weight: 500;
+
+        .toggleButton {
+            border-color: var(--gray-darkest);
+        }
+    }
+
+    .toggleLabel {
+        margin-left: 1rem;
+    }
+}

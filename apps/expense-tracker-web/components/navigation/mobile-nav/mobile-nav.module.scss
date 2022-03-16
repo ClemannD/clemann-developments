@@ -1,0 +1,74 @@
+@import 'libs/theme/src/mixins.scss';
+
+$nav-height: 6rem;
+
+.mobileNav {
+    position: fixed;
+    min-height: 6rem;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    // border-bottom: 1px solid var(--gray-lighter);
+    // box-shadow: var(--shadow-spread-smaller);
+    transition: height var(--ease-out-quart-slow);
+    z-index: var(--z-index-mobile-nav-header);
+
+    .navWrapper {
+        width: 100%;
+        height: 6rem;
+        // z-index: var(--z-index-mobile-nav-header);
+
+        .navHeader {
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--white);
+
+            width: 100%;
+            min-height: 6rem;
+            position: absolute;
+            z-index: var(--z-index-mobile-nav-header);
+        }
+
+        .menuIcon {
+            height: 2.5rem;
+            color: var(--black);
+            transition: color var(--ease-out-quart-slow);
+            cursor: pointer;
+            margin-right: -1rem;
+
+            &:hover {
+                color: var(--black);
+            }
+        }
+
+        .navMenu {
+            transition: all var(--ease-out-quart-slow);
+            background-color: var(--white);
+            // border-bottom: 1px solid var(--gray-lighter);
+            width: 100vw;
+            position: fixed;
+            z-index: var(--z-index-mobile-nav);
+            top: -500%;
+
+            padding: 1rem 2rem 2rem;
+            // opacity: 0;
+            // display: none;
+
+            &.navIsOpen {
+                top: 6rem;
+            }
+        }
+    }
+}
+
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: var(--z-index-mobile-nav-overlay);
+    background-color: rgba($color: #000000, $alpha: 0.3);
+}

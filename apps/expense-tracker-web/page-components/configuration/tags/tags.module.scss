@@ -1,0 +1,43 @@
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.tagsBox {
+    margin-top: 3rem;
+    width: 100%;
+    padding: 1rem 1rem 0;
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tagForm {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    width: 30rem;
+    margin-bottom: -2rem;
+}
+
+.tagPill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    // height: 3rem;
+
+    .tagControls {
+        position: absolute;
+        z-index: 1;
+        top: 2.5rem;
+        left: 0;
+        background-color: var(--white);
+        border-radius: 3px;
+        box-shadow: var(--shadow-spread-small);
+        width: 20rem;
+        padding: 1rem;
+    }
+}

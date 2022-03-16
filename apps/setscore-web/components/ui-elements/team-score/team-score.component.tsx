@@ -1,6 +1,9 @@
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 import React from 'react';
 import { SetDto } from '../../../api-services/manager/models';
-import Pill, { PillColor } from '../pill/pill.component';
 import styles from './team-score.module.scss';
 
 export default function TeamScore({

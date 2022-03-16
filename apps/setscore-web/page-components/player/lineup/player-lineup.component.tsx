@@ -1,4 +1,8 @@
 import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 import ordinal from 'ordinal';
 import React from 'react';
 import { UseMutationResult } from 'react-query';
@@ -8,9 +12,6 @@ import {
 } from '../../../api-services/player/lineup/getLineup.service';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
-import Pill, {
-    PillColor
-} from '../../../components/ui-elements/pill/pill.component';
 import PlayerCourt from '../../../components/ui-elements/player-court/player-court.component';
 import useCurrentUser from '../../../hooks/useCurrentUser';
 import LineupMobileWeekSelector from './lineup-mobile-week-selector.components';

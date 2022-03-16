@@ -15,6 +15,7 @@ export default function ManagerLayout(props) {
     useCurrentLeagueGuard();
     const checked = useRoleGuard([UserRole.Manager, UserRole.Admin]);
     const { mediumBelow } = useWindowSize();
+
     useRegisteredGuard();
 
     if (isAuthenticated && checked) {

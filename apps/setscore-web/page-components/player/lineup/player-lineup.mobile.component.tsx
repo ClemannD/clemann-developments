@@ -1,3 +1,7 @@
+import {
+    Pill,
+    PillColor
+} from '@clemann-developments/react/components/ui-elements';
 import ordinal from 'ordinal';
 import React, { useEffect, useState } from 'react';
 import { UseMutationResult } from 'react-query';
@@ -7,9 +11,6 @@ import {
 } from '../../../api-services/player/lineup/getLineup.service';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
 import PageHeaderMobile from '../../../components/ui-elements/page-header/page-header.mobile.component';
-import Pill, {
-    PillColor
-} from '../../../components/ui-elements/pill/pill.component';
 import PlayerCourtSkeleton from '../../../components/ui-elements/player-court/player-court-skeleton.component';
 import PlayerCourt from '../../../components/ui-elements/player-court/player-court.component';
 import PullToRefresh from '../../../components/ui-elements/pull-to-refresh/pull-to-refresh.component';
