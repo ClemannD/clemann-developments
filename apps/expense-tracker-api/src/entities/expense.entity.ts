@@ -5,6 +5,7 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn
 } from 'typeorm';
+import { Account } from './account.entity';
 import { Category } from './category.entity';
 import { Subcategory } from './subcategory.entity';
 import { Tag } from './tag.entity';
@@ -48,6 +49,9 @@ export class Expense {
 
     @ManyToOne(() => Category)
     category: Category;
+
+    @ManyToOne(() => Account)
+    account: Account;
 
     @ManyToOne(() => Subcategory)
     subcategory: Subcategory;

@@ -7,7 +7,9 @@ import {
     PrimaryGeneratedColumn
 } from 'typeorm';
 import { Category } from './category.entity';
+import { Expense } from './expense.entity';
 import { PaymentMethod } from './payment-method.entity';
+import { RecurringExpense } from './recurring-expense.entity';
 import { Tag } from './tag.entity';
 import { User } from './user.entity';
 
@@ -27,6 +29,15 @@ export class Account {
 
     @OneToMany(() => PaymentMethod, (paymentMethod) => paymentMethod.account)
     paymentMethods: PaymentMethod[];
+
+    @OneToMany(() => Expense, (expense) => expense.account)
+    expenses: Expense[];
+
+    @OneToMany(
+        () => RecurringExpense,
+        (recurringExpense) => recurringExpense.account
+    )
+    recurringExpenses: RecurringExpense[];
 
     @OneToOne(() => User, (user) => user.account)
     @JoinColumn()

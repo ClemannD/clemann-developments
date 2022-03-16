@@ -29,7 +29,7 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${
-                                        router.pathname === '/monthly'
+                                        router.pathname === '/month'
                                             ? styles.active
                                             : ''
                                     }`}
