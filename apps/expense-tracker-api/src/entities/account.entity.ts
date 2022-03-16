@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { Category } from './category.entity';
 import { Expense } from './expense.entity';
+import { Month } from './month.entity';
 import { PaymentMethod } from './payment-method.entity';
 import { RecurringExpense } from './recurring-expense.entity';
 import { Tag } from './tag.entity';
@@ -30,8 +31,8 @@ export class Account {
     @OneToMany(() => PaymentMethod, (paymentMethod) => paymentMethod.account)
     paymentMethods: PaymentMethod[];
 
-    @OneToMany(() => Expense, (expense) => expense.account)
-    expenses: Expense[];
+    @OneToMany(() => Month, (month) => month.account)
+    months: Month[];
 
     @OneToMany(
         () => RecurringExpense,
