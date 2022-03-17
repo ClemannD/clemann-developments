@@ -1,0 +1,30 @@
+.addMonthSection {
+    .addMonthBox {
+        padding: 2rem;
+        background-color: var(--white);
+        border: 1px solid var(--gray-light);
+        border-radius: 3px;
+        max-width: 50rem;
+    }
+}
+
+.monthExpensesTable {
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 3px;
+    width: 100%;
+
+    .expensesTableHeaderRow {
+        display: flex;
+
+        .expensesTableHeader {
+            margin-right: 1px solid var(--gray-light);
+
+            span {
+                font-size: 1.2rem;
+                font-weight: 800;
+                color: var(--gun-metal);
+            }
+        }
+    }
+}

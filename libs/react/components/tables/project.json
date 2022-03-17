@@ -1,0 +1,25 @@
+{
+  "root": "libs/react/components/tables",
+  "sourceRoot": "libs/react/components/tables/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/react/components/tables/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/components/tables"],
+      "options": {
+        "jestConfig": "libs/react/components/tables/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

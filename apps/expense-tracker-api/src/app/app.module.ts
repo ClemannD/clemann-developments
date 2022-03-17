@@ -12,6 +12,8 @@ import { PaymentMethod } from '../entities/payment-method.entity';
 
 import { AuthModule } from '../features/auth/auth.module';
 import { ConfigurationModule } from '../features/configuration/configuration.module';
+import { MonthModule } from '../features/month/month.module';
+import { Month } from '../entities/month.entity';
 
 @Module({
     imports: [
@@ -36,7 +38,8 @@ import { ConfigurationModule } from '../features/configuration/configuration.mod
                     Subcategory,
                     Tag,
                     RecurringExpense,
-                    PaymentMethod
+                    PaymentMethod,
+                    Month
                 ],
                 synchronize: false,
                 retryDelay: 30000,
@@ -48,7 +51,8 @@ import { ConfigurationModule } from '../features/configuration/configuration.mod
         }),
         HttpModule,
         AuthModule,
-        ConfigurationModule
+        ConfigurationModule,
+        MonthModule
     ]
 })
 export class AppModule {}

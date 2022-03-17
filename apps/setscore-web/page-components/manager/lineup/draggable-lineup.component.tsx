@@ -1,7 +1,7 @@
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 import React, { useContext } from 'react';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { LineupDto } from '../../../api-services/manager/lineup/getLineup.service';
-import Loading from '../../../components/navigation/loading/loading.component';
 import { ManagerLineupContext } from '../../../pages/manager/lineup/[[...weekId]]';
 import styles from './draggable-lineup.module.scss';
 import LineupCourt from './lineup-court.component';

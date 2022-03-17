@@ -1,11 +1,11 @@
 import {
     Column,
     Entity,
+    JoinTable,
     ManyToMany,
     ManyToOne,
     PrimaryGeneratedColumn
 } from 'typeorm';
-import { Account } from './account.entity';
 import { Category } from './category.entity';
 import { Month } from './month.entity';
 import { Subcategory } from './subcategory.entity';
@@ -57,5 +57,6 @@ export class Expense {
     subcategory: Subcategory;
 
     @ManyToMany(() => Tag)
+    @JoinTable()
     tags: Tag[];
 }

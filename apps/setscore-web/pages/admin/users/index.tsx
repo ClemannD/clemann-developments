@@ -17,11 +17,12 @@ import React from 'react';
 import useListUsers from '../../../api-services/admin/users/listUsers.service';
 import OnFormChangeHandler from '../../../components/forms/on-form-change-handler.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
-import Table, {
+import {
     Column,
     ColumnHeader,
+    Table,
     TableRow
-} from '../../../components/tables/table.component';
+} from '@clemann-developments/react/components/tables';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import CreateEditUserModal from '../../../page-components/admin/users/create-edit-user.modal';
 import DeleteUserModal from '../../../page-components/admin/users/delete-user.modal';

@@ -1,87 +1,52 @@
-import { SortDirection, TakeAll } from '@clemann-developments/common-endpoint';
-import {
-    Button,
-    ButtonAppearance
-} from '@clemann-developments/react/components/interaction/button';
-import {
-    useModal,
-    Modal,
-    ModalHeader,
-    ModalFooter
-} from '@clemann-developments/react/hooks/use-modal';
-import { MinusCircleIcon, PencilAltIcon } from '@heroicons/react/outline';
-import {
-    Column,
-    ColumnHeader,
-    Table,
-    TableRow
-} from '@clemann-developments/react/components/tables';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { toast } from 'react-toastify';
-import useDeleteLeague from '../../../api-services/admin/leagues/deleteLeague.service';
-import useListLeagues from '../../../api-services/admin/leagues/listLeagues.service';
+import { MonthDto } from '@clemann-developments/dtos/expense-tracker-dtos';
+import useListMonthExpenses from '../../api-services/month/listMonthExpenses.service';
+import styles from './month.module.scss';
 
-import { League } from '../../../api-services/entities/league.entity';
-
-export default function LeaguesTable({
-    setShowLeagueForm
+export default function MonthExpensesSection({
+    monthDto
 }: {
-    setShowLeagueForm: React.Dispatch<React.SetStateAction<League>>;
+    monthDto: MonthDto;
 }) {
-    const router = useRouter();
-    const { showModal, closeModal } = useModal();
-    const listLeagues = useListLeagues({
-        paginationAndSort: {
-            skip: 0,
-            take: TakeAll,
-            sortColumn: 'name',
-            sortDirection: SortDirection.Asc
-        }
+    const listMonthExpenses = useListMonthExpenses({
+        monthId: monthDto.monthId
     });
-    const deleteLeague = useDeleteLeague();
-
-    const DeleteLeagueModal = ({ row }: { row: League }) => {
-        return (
-            <Modal>
-                <ModalHeader>Delete League</ModalHeader>
-                <p>
-                    Are you sure you want to delete <b>{row.name}</b>?
-                </p>
-                <ModalFooter
-                    okButtonText="Delete"
-                    onOkClick={async () => {
-                        try {
-                            await deleteLeague.mutateAsync({
-                                leagueId: row.leagueId
-                            });
-                            closeModal();
-                            listLeagues.dispatch();
-                            toast.success('League successfully deleted');
-                        } catch {}
-                    }}
-                    isDangerButton
-                ></ModalFooter>
-            </Modal>
-        );
-    };
 
     return (
-        <Table
-            isLoading={listLeagues.apiService.isLoading}
+        <div className={styles.monthExpensesTable}>
+            <div className={styles.expensesTableHeaderRow}>
+                <div
+                    className={styles.expensesTableHeader}
+                    style={{
+                        width: '3rem'
+                    }}
+                ></div>
+                <div
+                    className={styles.expensesTableHeader}
+                    style={{
+                        width: '6rem'
+                    }}
+                >
+                    Date
+                </div>
+            </div>
+            {/* <Table
+            isLoading={listMonthExpenses.apiService.isLoading}
             headers={
                 <>
                     <ColumnHeader
-                        width="35%"
-                        header="Name"
-                        sortKey="name"
-                        listService={listLeagues}
+                        width="3rem"
+                    ></ColumnHeader>
+                    <ColumnHeader
+                        width="6rem"
+                        header="Date"
+                        sortKey="day"
+                        listService={listMonthExpenses}
                     ></ColumnHeader>
                     <ColumnHeader
                         width="30%"
-                        header="Location"
-                        sortKey="city"
-                        listService={listLeagues}
+                        header="Item"
+                        sortKey="name"
+                        listService={listMonthExpenses}
                     ></ColumnHeader>
                     <ColumnHeader width="10%" header="Players"></ColumnHeader>
                     <ColumnHeader width="10%" header="Actions"></ColumnHeader>
@@ -148,6 +113,7 @@ export default function LeaguesTable({
                     ))}
                 </>
             }
-        ></Table>
+        ></Table> */}
+        </div>
     );
 }

@@ -2,6 +2,7 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { UserRemoveIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
@@ -10,12 +11,12 @@ import React, { useEffect } from 'react';
 import useGetLeague from '../../../api-services/admin/leagues/getLeague.service';
 import Card from '../../../components/cards/card/card.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
-import Loading from '../../../components/navigation/loading/loading.component';
-import Table, {
+import {
     Column,
     ColumnHeader,
+    Table,
     TableRow
-} from '../../../components/tables/table.component';
+} from '@clemann-developments/react/components/tables';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import AddUserToLeagueModal from '../../../page-components/admin/leagues/league/add-user-to-league.modal';

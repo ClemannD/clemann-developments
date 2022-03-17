@@ -1,3 +1,4 @@
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 import { Select } from '@clemann-developments/react/forms';
 import {
     Modal,
@@ -9,7 +10,6 @@ import React, { useEffect, useState } from 'react';
 import { LineupPlayerDto } from '../../../api-services/manager/lineup/getLineup.service';
 import useListSubs from '../../../api-services/manager/lineup/listSubs.service';
 import useUpdatePlayerSub from '../../../api-services/manager/lineup/updatePlayerSub.service';
-import Loading from '../../../components/navigation/loading/loading.component';
 import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 

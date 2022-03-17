@@ -2,6 +2,7 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 import { Select } from '@clemann-developments/react/forms';
 import {
     useModal,
@@ -19,7 +20,6 @@ import useUpdateUserRole from '../../../api-services/admin/users/updateUserRole.
 import { UserRole } from '../../../api-services/entities/user.entity';
 import Card from '../../../components/cards/card/card.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
-import Loading from '../../../components/navigation/loading/loading.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import UserLeaguesTable from '../../../page-components/admin/users/user/user-leagues-table.component';

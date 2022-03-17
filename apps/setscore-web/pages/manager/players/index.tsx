@@ -16,11 +16,12 @@ import React, { useContext } from 'react';
 import useListPlayers from '../../../api-services/manager/players/listPlayers.service';
 import OnFormChangeHandler from '../../../components/forms/on-form-change-handler.component';
 import ManagerLayout from '../../../components/layouts/manager-layout/manager-layout.component';
-import Table, {
+import {
     Column,
     ColumnHeader,
+    Table,
     TableRow
-} from '../../../components/tables/table.component';
+} from '@clemann-developments/react/components/tables';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import CurrentLeagueContext from '../../../context/currentLeague.context';
 import CreateEditPlayerModal from '../../../page-components/manager/players/create-edit-player.modal';

@@ -33,6 +33,9 @@
       "@clemann-developments/react/components/interaction/dropdown-button": [
         "libs/react/components/interaction/dropdown-button/src/index.ts"
       ],
+      "@clemann-developments/react/components/tables": [
+        "libs/react/components/tables/src/index.ts"
+      ],
       "@clemann-developments/react/components/ui-elements": [
         "libs/react/components/ui-elements/src/index.ts"
       ],

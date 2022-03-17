@@ -2,6 +2,12 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import {
+    Column,
+    ColumnHeader,
+    Table,
+    TableRow
+} from '@clemann-developments/react/components/tables';
 import { Input } from '@clemann-developments/react/forms';
 import {
     Modal,
@@ -19,11 +25,7 @@ import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/remo
 import { User } from '../../../../api-services/entities/user.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import Card from '../../../../components/cards/card/card.component';
-import Table, {
-    Column,
-    ColumnHeader,
-    TableRow
-} from '../../../../components/tables/table.component';
+
 import RemoveUserFromLeagueModal from '../../leagues/league/remove-user-from-league.modal';
 
 export default function UserLeaguesTable({

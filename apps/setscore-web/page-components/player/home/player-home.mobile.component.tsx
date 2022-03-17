@@ -4,6 +4,7 @@ import {
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
 import {
+    Loading,
     Pill,
     PillColor
 } from '@clemann-developments/react/components/ui-elements';
@@ -11,7 +12,6 @@ import { useRouter } from 'next/router';
 import ordinal from 'ordinal';
 import React, { useContext, useEffect, useState } from 'react';
 import { CourtDto } from '../../../api-services/player/models';
-import Loading from '../../../components/navigation/loading/loading.component';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
 import PageHeaderMobile from '../../../components/ui-elements/page-header/page-header.mobile.component';
 import PlayerCourt from '../../../components/ui-elements/player-court/player-court.component';

@@ -2,13 +2,13 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import React, { createContext, useEffect, useState } from 'react';
 import useGetSeasonsSummary, {
     SeasonSummaryDto
 } from '../../api-services/manager/dashboard/getSeasonsSummary.service';
 import ManagerLayout from '../../components/layouts/manager-layout/manager-layout.component';
-import Loading from '../../components/navigation/loading/loading.component';
 import PageHeader from '../../components/ui-elements/page-header/page-header.component';
 import useCurrentUser from '../../hooks/useCurrentUser';
 import DashboardSeasons from '../../page-components/manager/dashboard/dashboard-seasons.component';

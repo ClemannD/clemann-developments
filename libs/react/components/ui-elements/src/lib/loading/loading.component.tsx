@@ -1,6 +1,6 @@
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
-export default function Loading() {
+export function Loading() {
     return (
         <div
             style={{

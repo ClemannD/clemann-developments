@@ -34,7 +34,7 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                                             : ''
                                     }`}
                                 >
-                                    <Link href={'/monthly'}>Monthly</Link>
+                                    <Link href={'/month'}>Monthly</Link>
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${

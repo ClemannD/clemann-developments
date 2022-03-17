@@ -7,10 +7,10 @@ import {
     ChevronUpIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/outline';
-import Card from '../cards/card/card.component';
-import Loading from '../navigation/loading/loading.component';
+import Card from '../../../../../../apps/setscore-web/components/cards/card/card.component';
 import styles from './table.module.scss';
 import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
+import { Loading } from '@clemann-developments/react/components/ui-elements';
 
 export interface TableColumn {
     header?: string;
@@ -27,7 +27,7 @@ export type TableProps = {
     showCard?: boolean;
 };
 
-export default function Table({
+export function Table({
     headers,
     rows,
     filters,
@@ -129,14 +129,14 @@ export const ColumnHeader = ({
             onClick={() => {
                 if (sortKey) {
                     if (
-                        listService?.request?.paginationAndSort.sortColumn ===
+                        listService?.request?.paginationAndSort?.sortColumn ===
                             sortKey &&
                         listService?.request?.paginationAndSort
                             .sortDirection === SortDirection.Asc
                     ) {
                         listService.handleSort(SortDirection.Desc, sortKey);
                     } else if (
-                        listService?.request?.paginationAndSort.sortColumn ===
+                        listService?.request?.paginationAndSort?.sortColumn ===
                             sortKey &&
                         listService?.request?.paginationAndSort
                             .sortDirection === SortDirection.Desc
@@ -152,7 +152,7 @@ export const ColumnHeader = ({
             {sortKey && (
                 <span className={styles.sortIcon}>
                     {sortKey &&
-                    listService?.request?.paginationAndSort.sortColumn ===
+                    listService?.request?.paginationAndSort?.sortColumn ===
                         sortKey &&
                     listService?.request?.paginationAndSort.sortDirection ===
                         SortDirection.Desc ? (

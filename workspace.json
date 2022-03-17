@@ -10,6 +10,7 @@
     "node-typeorm-find-paginated-and-sort": "libs/node/typeorm/find-paginated-and-sort",
     "react-component-button": "libs/react/components/interaction/button",
     "react-components-dropdown-button": "libs/react/components/interaction/dropdown-button",
+    "react-components-tables": "libs/react/components/tables",
     "react-components-ui-elements": "libs/react/components/ui-elements",
     "react-forms": "libs/react/forms",
     "react-hooks-next-use-auth-guard": "libs/react/hooks/next/use-auth-guard",

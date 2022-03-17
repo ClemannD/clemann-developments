@@ -1,0 +1,10 @@
+import { MonthDto } from '@clemann-developments/dtos/expense-tracker-dtos';
+import styles from './month.module.scss';
+
+export default function MonthSummarySection({
+    monthDto
+}: {
+    monthDto: MonthDto;
+}) {
+    return <div></div>;
+}
