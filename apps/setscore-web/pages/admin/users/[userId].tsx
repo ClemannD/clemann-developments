@@ -2,7 +2,10 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
-import { Loading } from '@clemann-developments/react/components/ui-elements';
+import {
+    Card,
+    Loading
+} from '@clemann-developments/react/components/ui-elements';
 import { Select } from '@clemann-developments/react/forms';
 import {
     useModal,
@@ -18,7 +21,6 @@ import { useEffect, useState } from 'react';
 import useGetUser from '../../../api-services/admin/users/getUser.service';
 import useUpdateUserRole from '../../../api-services/admin/users/updateUserRole.service';
 import { UserRole } from '../../../api-services/entities/user.entity';
-import Card from '../../../components/cards/card/card.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';

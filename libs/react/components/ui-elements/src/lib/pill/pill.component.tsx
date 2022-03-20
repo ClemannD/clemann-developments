@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styles from './pill.module.scss';
 
 export enum PillColor {
@@ -12,6 +13,7 @@ export enum PillColor {
 }
 
 export type PillProps = {
+    id?: string;
     children: any;
     color?: PillColor;
     colorHex?: string;
@@ -19,11 +21,16 @@ export type PillProps = {
     blockSize?: boolean;
     style?: React.CSSProperties;
     small?: boolean;
+    className?: string;
     ref?: React.Ref<any>;
+    tabindex?: number;
     clickHandler?: () => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+    onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
 };
 
 export function Pill({
+    id,
     children,
     color,
     colorHex,
@@ -31,9 +38,15 @@ export function Pill({
     blockSize,
     style,
     small,
+    className = '',
     ref,
-    clickHandler
+    tabindex,
+    clickHandler,
+    onKeyDown,
+    onBlur
 }: PillProps) {
+    const [forceLightFont, setForceLightFont] = useState(false);
+
     let styleObject: React.CSSProperties = {};
 
     if (style) {
@@ -44,18 +57,38 @@ export function Pill({
         styleObject.backgroundColor = colorHex;
     }
 
+    useEffect(() => {
+        if (colorHex) {
+            let red = parseInt(colorHex.substring(1, 3), 16);
+            let green = parseInt(colorHex.substring(3, 5), 16);
+            let blue = parseInt(colorHex.substring(5, 7), 16);
+            let brightness = red * 0.299 + green * 0.587 + blue * 0.114;
+
+            if (brightness <= 190) {
+                setForceLightFont(true);
+            }
+        }
+    }, [colorHex]);
+
     return (
         <div
+            id={id}
             ref={ref}
+            tabIndex={tabindex}
             className={`
+                ${className}
                 ${styles.pill}
-                ${lightFont ? styles.lightFont : ''}
+                ${lightFont || forceLightFont ? styles.lightFont : ''}
                 ${blockSize ? styles.block : ''}
                 ${clickHandler ? styles.clickable : ''}
-                ${small ? styles.small : ''} ${styles[color || PillColor.White]}
+                ${small ? styles.small : ''} ${
+                !colorHex ? styles[color || PillColor.White] : ''
+            }
             `}
-            style={style}
+            style={styleObject}
             onClick={() => clickHandler && clickHandler()}
+            onKeyDown={onKeyDown}
+            onBlur={onBlur}
         >
             {children}
         </div>

@@ -1,5 +1,4 @@
 import { Form, Formik } from 'formik';
-import Card from '../../../components/cards/card/card.component';
 import * as Yup from 'yup';
 import { useEffect } from 'react';
 import useCreateLeague from '../../../api-services/admin/leagues/createLeague.service';
@@ -10,6 +9,7 @@ import {
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
 import { Input } from '@clemann-developments/react/forms';
+import { Card } from '@clemann-developments/react/components/ui-elements';
 
 export default function LeagueForm({
     league,

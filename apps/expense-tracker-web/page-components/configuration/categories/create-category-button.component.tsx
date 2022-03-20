@@ -30,7 +30,7 @@ export default function CreateCategoryButton({
     return (
         <DropdownButton
             dropdownButtonText={'Add Category'}
-            buttonSize={ButtonSize.Medium}
+            buttonSize={ButtonSize.Auto}
             buttonAppearance={ButtonAppearance.Primary}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
@@ -82,7 +82,7 @@ export default function CreateCategoryButton({
                             )}
                             <Button
                                 type="submit"
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Auto}
                                 isSubmitting={isSubmitting}
                             >
                                 Add

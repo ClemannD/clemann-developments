@@ -35,6 +35,8 @@ export type ButtonProps = {
     children?: any;
     ref?: MutableRefObject<any>;
     className?: string;
+    onFocus?: (event: any) => void;
+    onBlur?: (event: any) => void;
 };
 
 export function Button({
@@ -50,7 +52,9 @@ export function Button({
     style = {},
     ref,
     className = '',
-    children
+    children,
+    onFocus,
+    onBlur
 }: ButtonProps) {
     return (
         <button
@@ -67,6 +71,16 @@ export function Button({
                 ${isDisabled || isSubmitting ? styles.disabled : ''}
             `}
             onClick={isDisabled || isSubmitting ? () => {} : clickHandler}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onKeyDown={(event: any) => {
+                if (event.key === 'Enter') {
+                    console.log('ButtonENter');
+
+                    clickHandler(event);
+                    event.stopPropagation();
+                }
+            }}
         >
             {isSubmitting ? (
                 <span>{isSubmittingText || 'Loading..'}</span>

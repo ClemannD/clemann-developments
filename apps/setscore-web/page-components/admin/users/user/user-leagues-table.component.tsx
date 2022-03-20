@@ -8,6 +8,7 @@ import {
     Table,
     TableRow
 } from '@clemann-developments/react/components/tables';
+import { Card } from '@clemann-developments/react/components/ui-elements';
 import { Input } from '@clemann-developments/react/forms';
 import {
     Modal,
@@ -24,7 +25,6 @@ import useAddUserToLeague from '../../../../api-services/admin/leagues/addUserTo
 import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/removeUserFromLeague.service';
 import { User } from '../../../../api-services/entities/user.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
-import Card from '../../../../components/cards/card/card.component';
 
 import RemoveUserFromLeagueModal from '../../leagues/league/remove-user-from-league.modal';
 

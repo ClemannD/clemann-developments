@@ -64,7 +64,8 @@ export default function SubcategoryPill({
                 color={PillColor.GrayLight}
                 style={{
                     opacity: subcategoryDto.active ? 1 : 0.5,
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    cursor: 'pointer'
                 }}
             >
                 {subcategoryDto.name}

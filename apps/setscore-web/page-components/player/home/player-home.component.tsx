@@ -4,6 +4,7 @@ import {
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
 import {
+    Card,
     Loading,
     Pill,
     PillColor
@@ -12,7 +13,6 @@ import { useRouter } from 'next/router';
 import ordinal from 'ordinal';
 import React from 'react';
 import { CourtDto } from '../../../api-services/player/models';
-import Card from '../../../components/cards/card/card.component';
 import LineupMetaData from '../../../components/ui-elements/lineup-meta-data/lineup-meta-data.component';
 import PageHeader from '../../../components/ui-elements/page-header/page-header.component';
 import PlayerCourt from '../../../components/ui-elements/player-court/player-court.component';

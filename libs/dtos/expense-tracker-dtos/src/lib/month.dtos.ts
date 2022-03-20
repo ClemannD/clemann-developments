@@ -3,6 +3,11 @@ import {
     ListResponse
 } from '@clemann-developments/common-endpoint';
 
+export class ExpensePaymentMethodDto {
+    public paymentMethodId: string;
+    public name: string;
+}
+
 export class ExpenseSubcategoryDto {
     public subcategoryId: string;
     public name: string;
@@ -28,8 +33,9 @@ export class ExpenseDto {
     public splitPaid: boolean;
     public notes: string;
     public isRecurring: boolean;
+    public paymentMethod: ExpensePaymentMethodDto;
     public category: ExpenseCategoryDto;
-    public subcategories: ExpenseSubcategoryDto[];
+    public subcategory: ExpenseSubcategoryDto;
     public tags: ExpenseTagDto[];
 }
 
@@ -58,3 +64,16 @@ export class ListMonthExpensesRequest extends ListRequest {
 }
 
 export class ListMonthExpensesResponse extends ListResponse<ExpenseDto> {}
+
+export class CreateOrUpdateExpenseRequest {
+    expense: ExpenseDto;
+    monthId: string;
+}
+
+export class CreateOrUpdateExpenseResponse {
+    expenseId: string;
+}
+
+export class DeleteExpenseRequest {
+    expenseId: string;
+}

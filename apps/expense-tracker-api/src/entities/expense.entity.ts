@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { Category } from './category.entity';
 import { Month } from './month.entity';
+import { PaymentMethod } from './payment-method.entity';
 import { Subcategory } from './subcategory.entity';
 import { Tag } from './tag.entity';
 
@@ -49,6 +50,9 @@ export class Expense {
 
     @ManyToOne(() => Category)
     category: Category;
+
+    @ManyToOne(() => PaymentMethod)
+    paymentMethod: PaymentMethod;
 
     @ManyToOne(() => Month)
     month: Month;

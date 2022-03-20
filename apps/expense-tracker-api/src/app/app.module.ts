@@ -14,6 +14,7 @@ import { AuthModule } from '../features/auth/auth.module';
 import { ConfigurationModule } from '../features/configuration/configuration.module';
 import { MonthModule } from '../features/month/month.module';
 import { Month } from '../entities/month.entity';
+import { ActiveCategoriesModule } from '../features/active-options/active-options.module';
 
 @Module({
     imports: [
@@ -52,7 +53,8 @@ import { Month } from '../entities/month.entity';
         HttpModule,
         AuthModule,
         ConfigurationModule,
-        MonthModule
+        MonthModule,
+        ActiveCategoriesModule
     ]
 })
 export class AppModule {}

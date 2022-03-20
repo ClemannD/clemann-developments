@@ -24,7 +24,7 @@ export default function CreateTagButton({
     return (
         <DropdownButton
             dropdownButtonText={'Add Tag'}
-            buttonSize={ButtonSize.Medium}
+            buttonSize={ButtonSize.Auto}
             buttonAppearance={ButtonAppearance.Primary}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
@@ -64,7 +64,7 @@ export default function CreateTagButton({
                             ></Input>
                             <Button
                                 type="submit"
-                                size={ButtonSize.Small}
+                                size={ButtonSize.Auto}
                                 isSubmitting={isSubmitting}
                             >
                                 Add

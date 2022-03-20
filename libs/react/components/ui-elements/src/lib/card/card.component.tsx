@@ -1,6 +1,6 @@
 import styles from './card.module.scss';
 
-export default function Card(props) {
+export function Card(props: any) {
     return (
         <div
             className={`${styles.card} ${props.className}`}

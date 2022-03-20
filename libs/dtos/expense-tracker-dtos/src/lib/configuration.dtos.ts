@@ -62,3 +62,23 @@ export class UpdateTagRequest {
     name: string;
     active: boolean;
 }
+
+export class PaymentMethodDto {
+    paymentMethodId: string;
+    name: string;
+    active: boolean;
+}
+
+export class GetPaymentMethodsResponse {
+    paymentMethods: PaymentMethodDto[];
+}
+
+export class CreatePaymentMethodRequest {
+    name: string;
+}
+
+export class UpdatePaymentMethodRequest {
+    paymentMethodId: string;
+    name: string;
+    active: boolean;
+}

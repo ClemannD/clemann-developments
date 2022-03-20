@@ -11,4 +11,3 @@ export const EventBusContext = createContext<EventBusContextType>({
     eventBusListeners: {},
     setEventBusListeners: () => {}
 });
-EventBusContext;

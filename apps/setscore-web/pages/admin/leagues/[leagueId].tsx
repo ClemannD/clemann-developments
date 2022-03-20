@@ -2,14 +2,16 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
-import { Loading } from '@clemann-developments/react/components/ui-elements';
+import {
+    Card,
+    Loading
+} from '@clemann-developments/react/components/ui-elements';
 import { useModal } from '@clemann-developments/react/hooks/use-modal';
 import { UserRemoveIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useGetLeague from '../../../api-services/admin/leagues/getLeague.service';
-import Card from '../../../components/cards/card/card.component';
 import AdminLayout from '../../../components/layouts/admin-layout/admin-layout.component';
 import {
     Column,

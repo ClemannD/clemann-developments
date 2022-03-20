@@ -7,10 +7,16 @@ import {
     ChevronUpIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/outline';
-import Card from '../../../../../../apps/setscore-web/components/cards/card/card.component';
 import styles from './table.module.scss';
 import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
 import { Loading } from '@clemann-developments/react/components/ui-elements';
+import { Card } from '@clemann-developments/react/components/ui-elements';
+import {
+    MouseEventHandler,
+    ReactChild,
+    ReactFragment,
+    ReactPortal
+} from 'react';
 
 export interface TableColumn {
     header?: string;
@@ -24,7 +30,10 @@ export type TableProps = {
     filters?: any;
     isLoading?: boolean;
     noData?: boolean;
+    className?: string;
+    horizontalScroll?: boolean;
     showCard?: boolean;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLTableElement>) => void;
 };
 
 export function Table({
@@ -33,10 +42,13 @@ export function Table({
     filters,
     isLoading = false,
     noData = false,
-    showCard = true
+    className = '',
+    horizontalScroll = false,
+    showCard = true,
+    onKeyDown
 }: TableProps) {
     const table = (
-        <table className={styles.table}>
+        <table className={`${styles.table} ${className}`} onKeyDown={onKeyDown}>
             <thead className={styles.thead}>
                 <tr>{headers}</tr>
             </thead>
@@ -65,7 +77,7 @@ export function Table({
             >
                 <div
                     style={{
-                        overflowX: 'auto'
+                        overflowX: horizontalScroll ? 'auto' : 'visible'
                     }}
                 >
                     {noData && !isLoading ? (
@@ -110,52 +122,64 @@ export const ColumnHeader = ({
     width = 'auto',
     sortKey,
     listService,
+    border = false,
+    customSort,
     children
 }: {
     header?: string;
     width?: string;
     sortKey?: string;
     listService?: UseApiListResults;
+    border?: boolean;
+    customSort?: (sortDirection: SortDirection, sortKey: string) => number;
     children?: any;
 }) => {
+    const isSortedAsc = () =>
+        listService?.request?.paginationAndSort?.sortColumn === sortKey &&
+        listService?.request?.paginationAndSort?.sortDirection ===
+            SortDirection.Asc;
+    const isSortedDesc = () =>
+        listService?.request?.paginationAndSort?.sortColumn === sortKey &&
+        listService?.request?.paginationAndSort?.sortDirection ===
+            SortDirection.Desc;
+
     return (
         <th
-            style={{ width }}
-            className={`${sortKey ? styles.sortable : ''} ${
-                listService?.request?.paginationAndSort?.sortColumn === sortKey
-                    ? styles.sorted
-                    : ''
-            }`}
+            style={{ width, minWidth: width }}
+            className={`
+                ${sortKey ? styles.sortable : ''}
+                ${
+                    listService?.request?.paginationAndSort?.sortColumn ===
+                    sortKey
+                        ? styles.sorted
+                        : ''
+                }
+                ${border ? styles.border : ''}
+            `}
             onClick={() => {
                 if (sortKey) {
-                    if (
-                        listService?.request?.paginationAndSort?.sortColumn ===
-                            sortKey &&
-                        listService?.request?.paginationAndSort
-                            .sortDirection === SortDirection.Asc
-                    ) {
-                        listService.handleSort(SortDirection.Desc, sortKey);
-                    } else if (
-                        listService?.request?.paginationAndSort?.sortColumn ===
-                            sortKey &&
-                        listService?.request?.paginationAndSort
-                            .sortDirection === SortDirection.Desc
-                    ) {
-                        listService?.handleSort(SortDirection.Asc, sortKey);
+                    if (isSortedAsc()) {
+                        customSort
+                            ? customSort(SortDirection.Desc, sortKey)
+                            : listService?.handleSort(
+                                  SortDirection.Desc,
+                                  sortKey
+                              );
                     } else {
-                        listService?.handleSort(SortDirection.Asc, sortKey);
+                        customSort
+                            ? customSort(SortDirection.Asc, sortKey)
+                            : listService?.handleSort(
+                                  SortDirection.Asc,
+                                  sortKey
+                              );
                     }
                 }
             }}
         >
-            {children || header}{' '}
+            {children || header}
             {sortKey && (
                 <span className={styles.sortIcon}>
-                    {sortKey &&
-                    listService?.request?.paginationAndSort?.sortColumn ===
-                        sortKey &&
-                    listService?.request?.paginationAndSort.sortDirection ===
-                        SortDirection.Desc ? (
+                    {isSortedDesc() ? (
                         <ChevronUpIcon height="1.4rem"></ChevronUpIcon>
                     ) : (
                         <ChevronDownIcon height="1.4rem"></ChevronDownIcon>
@@ -166,7 +190,10 @@ export const ColumnHeader = ({
     );
 };
 
-export const TableRow = (props) => (
+export const TableRow = (props: {
+    clickHandler: MouseEventHandler<HTMLTableRowElement> | undefined;
+    children: any;
+}) => (
     <tr
         className={`${props.clickHandler ? styles.clickable : ''} ${
             styles.bodyRow

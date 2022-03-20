@@ -30,6 +30,15 @@
                 cursor: pointer;
             }
 
+            &.border {
+                border-right: 1px solid var(--gray-light);
+                padding-left: 1rem;
+
+                &:last-of-type {
+                    border-right: none;
+                }
+            }
+
             .sortIcon {
                 opacity: 0;
                 margin-left: 0.5rem;
