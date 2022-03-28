@@ -1,7 +1,15 @@
 @import 'libs/theme/src/styles.global.scss';
 @import './variables/colors.scss';
 @import './variables/typography.scss';
-@import './variables/components/button.scss';
 @import './variables/forms/forms.scss';
 
+@import './variables/components/button.scss';
+@import './variables/components/skeleton-loader.scss';
+
 @import './header.scss';
+
+.css-0 {
+    span {
+        background-color: var(--primary-color);
+    }
+}

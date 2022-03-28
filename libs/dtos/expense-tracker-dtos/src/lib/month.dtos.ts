@@ -77,3 +77,39 @@ export class CreateOrUpdateExpenseResponse {
 export class DeleteExpenseRequest {
     expenseId: string;
 }
+
+export class TagSummaryDto {
+    public tagId: string;
+    public name: string;
+    public totalCents: number;
+}
+
+export class SubcategorySummaryDto {
+    public subcategoryId: string;
+    public name: string;
+    public totalCents: number;
+}
+
+export class CategorySummaryDto {
+    public categoryId: string;
+    public name: string;
+    public color: string;
+    public totalCents: number;
+    public subcategorySummaries?: SubcategorySummaryDto[];
+}
+
+export class MonthSummaryDto {
+    public thisMonthTotalCents: number;
+    public lastMonthTotalCents?: number;
+    public avgMonthTotalCents?: number;
+    public categorySummaries: CategorySummaryDto[];
+    public tagSummaries: TagSummaryDto[];
+}
+
+export class GetMonthSummaryRequest {
+    public monthId: string;
+}
+
+export class GetMonthSummaryResponse {
+    public monthSummary: MonthSummaryDto;
+}

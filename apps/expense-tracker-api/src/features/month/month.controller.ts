@@ -8,17 +8,23 @@ import {
     ExpenseDto,
     GetMonthRequest,
     GetMonthResponse,
+    GetMonthSummaryRequest,
+    GetMonthSummaryResponse,
     ListMonthExpensesRequest,
     ListMonthExpensesResponse
 } from '@clemann-developments/dtos/expense-tracker-dtos';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthUserGuard } from '../auth/auth-user.guard';
 import { EmptyResponse } from '@clemann-developments/common-endpoint';
+import { MonthSummaryService } from './month-summary.service';
 
 @Controller('month')
 @UseGuards(AuthGuard('jwt'), AuthUserGuard)
 export class MonthController {
-    constructor(private _monthService: MonthService) {}
+    constructor(
+        private _monthService: MonthService,
+        private _monthSummaryService: MonthSummaryService
+    ) {}
 
     @Post('getMonth')
     public async getMonth(
@@ -31,6 +37,21 @@ export class MonthController {
                 getMonthRequest.year,
                 getMonthRequest.month
             )
+        };
+    }
+
+    @Post('getMonthSummary')
+    public async getMonthSummary(
+        @Body() getMonthSummaryRequest: GetMonthSummaryRequest,
+        @Req() request: any
+    ): Promise<GetMonthSummaryResponse> {
+        const monthSummary = await this._monthSummaryService.getMonthSummary(
+            request.userInfo.account.accountId,
+            getMonthSummaryRequest.monthId
+        );
+
+        return {
+            monthSummary
         };
     }
 

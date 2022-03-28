@@ -1,7 +1,8 @@
 import { PaginationAndSort } from '@clemann-developments/common-endpoint';
 import {
     ExpenseDto,
-    MonthDto
+    MonthDto,
+    MonthSummaryDto
 } from '@clemann-developments/dtos/expense-tracker-dtos';
 import { findPaginatedAndSort } from '@clemann-developments/node/typeorm/find-paginated-and-sort';
 import { Injectable } from '@nestjs/common';

@@ -2,28 +2,25 @@ import {
     Button,
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import useCreateMonth from '../../api-services/month/createMonth.service';
+import { MonthPageContext } from './month-page.context';
 import styles from './month.module.scss';
 
-export default function AddMonthSection({
-    year,
-    month,
-    fetchMonth
-}: {
-    year: number;
-    month: number;
-    fetchMonth: (month: number, year: number) => void;
-}) {
-    const createMonth = useCreateMonth();
+export default function AddMonthSection() {
+    const createMonthService = useCreateMonth();
 
+    const { monthDto, fetchMonth } = useContext(MonthPageContext);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const addMonth = async () => {
         setIsSubmitting(true);
         try {
-            await createMonth.mutateAsync({ year, month });
-            fetchMonth(month, year);
+            await createMonthService.mutateAsync({
+                year: monthDto.year,
+                month: monthDto.month
+            });
+            fetchMonth(monthDto.year, monthDto.month);
         } catch {}
         setIsSubmitting(false);
     };

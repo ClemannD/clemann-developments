@@ -5,15 +5,10 @@ import {
 } from '@clemann-developments/common-endpoint';
 import { ExpenseDto } from '@clemann-developments/dtos/expense-tracker-dtos';
 import {
-    Button,
-    ButtonAppearance
-} from '@clemann-developments/react/components/interaction/button';
-import {
     ColumnHeader,
     Table
 } from '@clemann-developments/react/components/tables';
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
-import { CheckCircleIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 import { EventBusActionTypes } from '../../../constants/event-bus-action-types';
 import { useExpenseTableKeyHandler } from './expense-table-key-handler.hook';
@@ -24,6 +19,8 @@ import styles from './expenses-table.module.scss';
 export default function ExpensesTable({
     listExpensesService,
     month,
+    cachedExpenses,
+    setCachedExpenses,
     saveExpense,
     deleteExpense
 }: {
@@ -32,11 +29,12 @@ export default function ExpensesTable({
         ListResponse<ExpenseDto>
     >;
     month: number;
+    cachedExpenses: ExpenseDto[];
+    setCachedExpenses: any;
     saveExpense: (expense: ExpenseDto) => Promise<void>;
     deleteExpense: (expenseId: string) => Promise<void>;
 }) {
     const eventBus = useEventBus();
-    const [cachedRows, setCachedRows] = useState<ExpenseDto[]>([]);
     const [newExpense, setNewExpense] = useState<ExpenseDto>(new ExpenseDto());
 
     const {
@@ -46,11 +44,11 @@ export default function ExpensesTable({
         setFocusedRowIndex,
         handleKeyDownTable,
         focusCell
-    } = useExpenseTableKeyHandler(cachedRows.length);
+    } = useExpenseTableKeyHandler(cachedExpenses.length);
 
     useEffect(() => {
         if (listExpensesService?.rows) {
-            setCachedRows(listExpensesService.rows);
+            setCachedExpenses(listExpensesService.rows);
         }
     }, [listExpensesService?.rows]);
 
@@ -59,11 +57,11 @@ export default function ExpensesTable({
     };
 
     const addNewRowToCachedRows = (newRow: ExpenseDto) => {
-        setCachedRows((prevRows) => [...prevRows, newRow]);
+        setCachedExpenses((prevRows: ExpenseDto[]) => [...prevRows, newRow]);
     };
 
     const saveExistingRowToCacheAndPropagate = async (expense: ExpenseDto) => {
-        setCachedRows((prevRows) =>
+        setCachedExpenses((prevRows) =>
             prevRows.map((row) =>
                 row.expenseId === expense.expenseId ? expense : row
             )
@@ -78,12 +76,12 @@ export default function ExpensesTable({
         setNewExpense(new ExpenseDto());
         saveExpense(newExpense);
         document
-            .getElementById(`expense-table-cell-${cachedRows.length}-0`)
+            .getElementById(`expense-table-cell-${cachedExpenses.length}-0`)
             ?.focus();
     };
 
     const deleteExpenseFromCacheAndPropagate = async (expenseId: string) => {
-        setCachedRows((prevRows) =>
+        setCachedExpenses((prevRows) =>
             prevRows.filter((row) => row.expenseId !== expenseId)
         );
         await deleteExpense(expenseId);
@@ -101,6 +99,7 @@ export default function ExpensesTable({
         >
             <Table
                 className={styles.expensesTable}
+                isLoading={listExpensesService.apiService.isLoading}
                 onKeyDown={handleKeyDownTable}
                 headers={
                     <>
@@ -159,33 +158,39 @@ export default function ExpensesTable({
                     </>
                 }
                 rows={
-                    <>
-                        {cachedRows.map((expense: ExpenseDto, rowIndex) => (
+                    !listExpensesService.apiService.isLoading && (
+                        <>
+                            {cachedExpenses.map(
+                                (expense: ExpenseDto, rowIndex) => (
+                                    <ExpensesTableRow
+                                        key={
+                                            expense.expenseId ||
+                                            `${rowIndex}-${expense.name}-${expense.day}-${expense.amountCents}`
+                                        }
+                                        month={month}
+                                        expense={expense}
+                                        rowIndex={rowIndex}
+                                        saveExpense={
+                                            saveExistingRowToCacheAndPropagate
+                                        }
+                                        deleteExpense={
+                                            deleteExpenseFromCacheAndPropagate
+                                        }
+                                    />
+                                )
+                            )}
                             <ExpensesTableRow
-                                key={
-                                    expense.expenseId ||
-                                    `${rowIndex}-${expense.name}-${expense.day}-${expense.amountCents}`
-                                }
+                                expense={newExpense}
                                 month={month}
-                                expense={expense}
-                                rowIndex={rowIndex}
-                                saveExpense={saveExistingRowToCacheAndPropagate}
-                                deleteExpense={
-                                    deleteExpenseFromCacheAndPropagate
-                                }
+                                focused={true}
+                                hideDelete={true}
+                                clearOnSave={true}
+                                rowIndex={cachedExpenses.length}
+                                saveExpense={saveNewExpenseToCacheAndPropagate}
+                                deleteExpense={deleteExpense}
                             />
-                        ))}
-                        <ExpensesTableRow
-                            expense={newExpense}
-                            month={month}
-                            focused={true}
-                            hideDelete={true}
-                            clearOnSave={true}
-                            rowIndex={cachedRows.length}
-                            saveExpense={saveNewExpenseToCacheAndPropagate}
-                            deleteExpense={deleteExpense}
-                        />
-                    </>
+                        </>
+                    )
                 }
             ></Table>
         </ExpenseTableContext.Provider>

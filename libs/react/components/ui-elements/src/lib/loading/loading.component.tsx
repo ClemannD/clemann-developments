@@ -1,6 +1,6 @@
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
-export function Loading() {
+export function Loading({ color = '#57a773' }: { color?: string }) {
     return (
         <div
             style={{
@@ -11,7 +11,7 @@ export function Loading() {
                 justifyContent: 'center'
             }}
         >
-            <ScaleLoader color="#57a773"></ScaleLoader>
+            <ScaleLoader color={color}></ScaleLoader>
         </div>
     );
 }

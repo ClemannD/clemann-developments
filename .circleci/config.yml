@@ -331,22 +331,11 @@ workflows:
           filters:
             branches:
               only: main
-      - staging-approval:
-          name: Staging Approval (expense-tracker-web)
-          type: approval
-          requires:
-            - Deploy Development (expense-tracker-web)
-      - deploy:
-          name: Deploy Staging (expense-tracker-web)
-          application: 'expense-tracker-web'
-          environment: 'staging'
-          requires:
-            - Staging Approval (expense-tracker-web)
       - production-approval:
           name: Production Approval (expense-tracker-web)
           type: approval
           requires:
-            - Deploy Staging (expense-tracker-web)
+            - Deploy Development (expense-tracker-web)
       - deploy:
           name: Deploy Production (expense-tracker-web)
           application: 'expense-tracker-web'
@@ -363,22 +352,11 @@ workflows:
           filters:
             branches:
               only: main
-      - staging-approval:
-          name: Staging Approval (expense-tracker-api)
-          type: approval
-          requires:
-            - Deploy Development (expense-tracker-api)
-      - deploy:
-          name: Deploy Staging (expense-tracker-api)
-          application: 'expense-tracker-api'
-          environment: 'staging'
-          requires:
-            - Staging Approval (expense-tracker-api)
       - production-approval:
           name: Production Approval (expense-tracker-api)
           type: approval
           requires:
-            - Deploy Staging (expense-tracker-api)
+            - Deploy Development (expense-tracker-api)
       - deploy:
           name: Deploy Production (expense-tracker-api)
           application: 'expense-tracker-api'
