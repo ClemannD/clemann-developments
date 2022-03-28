@@ -44,7 +44,7 @@ export default function ExpensesTable({
         setFocusedRowIndex,
         handleKeyDownTable,
         focusCell
-    } = useExpenseTableKeyHandler(cachedExpenses.length);
+    } = useExpenseTableKeyHandler(cachedExpenses?.length);
 
     useEffect(() => {
         if (listExpensesService?.rows) {
@@ -76,7 +76,7 @@ export default function ExpensesTable({
         setNewExpense(new ExpenseDto());
         saveExpense(newExpense);
         document
-            .getElementById(`expense-table-cell-${cachedExpenses.length}-0`)
+            .getElementById(`expense-table-cell-${cachedExpenses?.length}-0`)
             ?.focus();
     };
 
@@ -145,6 +145,7 @@ export default function ExpensesTable({
                         <ColumnHeader
                             width="20rem"
                             header="Amount"
+                            alignRight
                             border
                         ></ColumnHeader>
                         <ColumnHeader width="6.3rem" border>
@@ -160,7 +161,7 @@ export default function ExpensesTable({
                 rows={
                     !listExpensesService.apiService.isLoading && (
                         <>
-                            {cachedExpenses.map(
+                            {cachedExpenses?.map(
                                 (expense: ExpenseDto, rowIndex) => (
                                     <ExpensesTableRow
                                         key={
@@ -185,7 +186,7 @@ export default function ExpensesTable({
                                 focused={true}
                                 hideDelete={true}
                                 clearOnSave={true}
-                                rowIndex={cachedExpenses.length}
+                                rowIndex={cachedExpenses?.length}
                                 saveExpense={saveNewExpenseToCacheAndPropagate}
                                 deleteExpense={deleteExpense}
                             />

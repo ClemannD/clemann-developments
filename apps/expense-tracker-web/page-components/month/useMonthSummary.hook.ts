@@ -12,12 +12,17 @@ export default function useMonthSummary() {
     const [summaryExpenses, setSummaryExpenses] = useState<ExpenseDto[]>([]);
 
     useEffect(() => {
-        setMonthSummary({
-            thisMonthTotalCents: _getTotalCentsFromExpenses(summaryExpenses),
-            categorySummaries:
-                _getCategorySummariesFromExpenses(summaryExpenses),
-            tagSummaries: _getTagSummariesFromExpenses(summaryExpenses)
-        });
+        if (summaryExpenses) {
+            setMonthSummary({
+                thisMonthTotalCents:
+                    _getTotalCentsFromExpenses(summaryExpenses),
+                categorySummaries:
+                    _getCategorySummariesFromExpenses(summaryExpenses),
+                tagSummaries: _getTagSummariesFromExpenses(summaryExpenses)
+            });
+        } else {
+            setMonthSummary(null);
+        }
     }, [summaryExpenses]);
 
     return {
@@ -42,20 +47,22 @@ function _getCategorySummariesFromExpenses(
     const categorySummaries: CategorySummaryDto[] = [];
 
     expenses.forEach((expense) => {
-        const categorySummary = categorySummaries.find(
-            (categorySummary) =>
-                categorySummary.categoryId === expense.category.categoryId
-        );
+        if (expense.category) {
+            const categorySummary = categorySummaries.find(
+                (categorySummary) =>
+                    categorySummary.categoryId === expense.category.categoryId
+            );
 
-        if (categorySummary) {
-            categorySummary.totalCents += _getNetExpenseAmount(expense);
-        } else {
-            categorySummaries.push({
-                categoryId: expense.category.categoryId,
-                name: expense.category.name,
-                color: expense.category.color,
-                totalCents: _getNetExpenseAmount(expense)
-            });
+            if (categorySummary) {
+                categorySummary.totalCents += _getNetExpenseAmount(expense);
+            } else {
+                categorySummaries.push({
+                    categoryId: expense.category.categoryId,
+                    name: expense.category.name,
+                    color: expense.category.color,
+                    totalCents: _getNetExpenseAmount(expense)
+                });
+            }
         }
     });
 
@@ -67,7 +74,7 @@ function _getCategorySummariesFromExpenses(
             );
     });
 
-    return categorySummaries;
+    return categorySummaries.sort((a, b) => b.totalCents - a.totalCents);
 }
 
 function _getSubcategorySummariesFromExpensesForCategory(
@@ -77,26 +84,30 @@ function _getSubcategorySummariesFromExpensesForCategory(
     const subcategorySummaries: SubcategorySummaryDto[] = [];
 
     expenses
+        .filter((expense) => !!expense.category)
         .filter((expense) => expense.category.categoryId === categoryId)
         .forEach((expense) => {
-            const subcategorySummary = subcategorySummaries.find(
-                (subcategorySummary) =>
-                    subcategorySummary.subcategoryId ===
-                    expense.subcategory.subcategoryId
-            );
+            if (expense.subcategory) {
+                const subcategorySummary = subcategorySummaries.find(
+                    (subcategorySummary) =>
+                        subcategorySummary.subcategoryId ===
+                        expense.subcategory.subcategoryId
+                );
 
-            if (subcategorySummary) {
-                subcategorySummary.totalCents += _getNetExpenseAmount(expense);
-            } else {
-                subcategorySummaries.push({
-                    subcategoryId: expense.subcategory.subcategoryId,
-                    name: expense.subcategory.name,
-                    totalCents: _getNetExpenseAmount(expense)
-                });
+                if (subcategorySummary) {
+                    subcategorySummary.totalCents +=
+                        _getNetExpenseAmount(expense);
+                } else {
+                    subcategorySummaries.push({
+                        subcategoryId: expense.subcategory.subcategoryId,
+                        name: expense.subcategory.name,
+                        totalCents: _getNetExpenseAmount(expense)
+                    });
+                }
             }
         });
 
-    return subcategorySummaries;
+    return subcategorySummaries.sort((a, b) => b.totalCents - a.totalCents);
 }
 
 function _getTagSummariesFromExpenses(expenses: ExpenseDto[]): TagSummaryDto[] {
@@ -120,7 +131,7 @@ function _getTagSummariesFromExpenses(expenses: ExpenseDto[]): TagSummaryDto[] {
         });
     });
 
-    return tagSummaries;
+    return tagSummaries.sort((a, b) => b.totalCents - a.totalCents);
 }
 
 function _getNetExpenseAmount(expense: ExpenseDto): number {

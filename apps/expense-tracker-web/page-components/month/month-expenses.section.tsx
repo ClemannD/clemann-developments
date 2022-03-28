@@ -19,7 +19,7 @@ export default function MonthExpensesSection({}: {}) {
     const createOrUpdateExpenseService = useCreateOrUpdateExpense();
     const deleteExpenseService = useDeleteExpense();
 
-    const [cachedExpenses, setCachedExpenses] = useState<ExpenseDto[]>([]);
+    const [cachedExpenses, setCachedExpenses] = useState<ExpenseDto[]>(null);
 
     useEffect(() => {
         setSummaryExpenses(cachedExpenses);
