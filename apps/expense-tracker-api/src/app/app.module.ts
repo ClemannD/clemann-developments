@@ -33,8 +33,8 @@ import { ActiveCategoriesModule } from '../features/active-options/active-option
                 type: 'postgres',
                 entities: [
                     User,
-                    Account,
                     Expense,
+                    Account,
                     Category,
                     Subcategory,
                     Tag,
