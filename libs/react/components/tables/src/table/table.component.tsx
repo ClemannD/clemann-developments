@@ -2,21 +2,18 @@ import {
     SortDirection,
     UseApiListResults
 } from '@clemann-developments/common-endpoint';
+import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
+import {
+    Card,
+    Loading
+} from '@clemann-developments/react/components/ui-elements';
 import {
     ChevronDownIcon,
     ChevronUpIcon,
     PresentationChartBarIcon
 } from '@heroicons/react/outline';
+import { MouseEventHandler } from 'react';
 import styles from './table.module.scss';
-import { DropdownButton } from '@clemann-developments/react/components/interaction/dropdown-button';
-import { Loading } from '@clemann-developments/react/components/ui-elements';
-import { Card } from '@clemann-developments/react/components/ui-elements';
-import {
-    MouseEventHandler,
-    ReactChild,
-    ReactFragment,
-    ReactPortal
-} from 'react';
 
 export interface TableColumn {
     header?: string;
@@ -48,7 +45,14 @@ export function Table({
     onKeyDown
 }: TableProps) {
     const table = (
-        <table className={`${styles.table} ${className}`} onKeyDown={onKeyDown}>
+        <table
+            className={`
+            ${className}
+            ${styles.table}
+            ${isLoading ? styles.loading : ''}
+        `}
+            onKeyDown={onKeyDown}
+        >
             <thead className={styles.thead}>
                 <tr>{headers}</tr>
             </thead>
@@ -65,6 +69,7 @@ export function Table({
     if (showCard) {
         return (
             <Card
+                className={styles.tableCard}
                 header={
                     filters && (
                         <div style={{ width: '100%' }}>
@@ -80,12 +85,11 @@ export function Table({
                         overflowX: horizontalScroll ? 'auto' : 'visible'
                     }}
                 >
-                    {noData && !isLoading ? (
-                        noDataDisplay
-                    ) : isLoading ? (
-                        <Loading></Loading>
-                    ) : (
-                        table
+                    {noData && !isLoading ? noDataDisplay : table}
+                    {isLoading && (
+                        <div className={styles.loadingContainer}>
+                            <Loading></Loading>
+                        </div>
                     )}
                 </div>
             </Card>
@@ -191,7 +195,7 @@ export const ColumnHeader = ({
 };
 
 export const TableRow = (props: {
-    clickHandler: MouseEventHandler<HTMLTableRowElement> | undefined;
+    clickHandler?: MouseEventHandler<HTMLTableRowElement> | undefined;
     children: any;
 }) => (
     <tr

@@ -1,3 +1,17 @@
+.monthHeaderSection {
+    width: 100%;
+    margin-bottom: 5rem;
+
+    .headerActions {
+        display: flex;
+        align-items: center;
+
+        .button {
+            margin-right: 1rem;
+        }
+    }
+}
+
 .addMonthSection {
     .addMonthBox {
         padding: 2rem;
@@ -6,4 +20,7 @@
         border-radius: 3px;
         max-width: 50rem;
     }
+}
+
+.monthCategoryBreakdown {
 }

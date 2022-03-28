@@ -52,7 +52,6 @@ export default function ExpensesTableRow({
     const eventBus = useEventBus<EventBusActionTypes>();
 
     useEffect(() => {
-        console.log('expense', expense);
         if (expense) {
             setHasChanges(isExpenseChanged(expense, newExpense));
 
