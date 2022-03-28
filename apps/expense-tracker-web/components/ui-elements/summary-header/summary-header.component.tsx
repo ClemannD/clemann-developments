@@ -15,8 +15,8 @@ export default function SummaryHeader({
 }) {
     return (
         <div className={styles.summaryHeader}>
-            {dataPoints.map(({ label, value, subLabel, isLarge }) => (
-                <div className={styles.dataPoint}>
+            {dataPoints.map(({ label, value, subLabel, isLarge }, index) => (
+                <div className={styles.dataPoint} key={index}>
                     <h4>{label}</h4>
                     {value !== null ? (
                         <div

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useExpenseTableKeyHandler(rowLength) {
+export function useExpenseTableKeyHandler(rowLength = 0) {
     const [focusedColumnIndex, setFocusedColumnIndex] = useState<number>(0);
     const [focusedRowIndex, setFocusedRowIndex] = useState<number>(
         rowLength - 1

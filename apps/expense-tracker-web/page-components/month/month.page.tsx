@@ -14,9 +14,11 @@ import Layout from '../../components/layout/layout.component';
 import { EventBusActionTypes } from '../../constants/event-bus-action-types';
 import ActiveOptionsContext from '../../context/active-options.context';
 import AddMonthSection from './add-month.section';
+import MonthCategoryBreakdownSection from './month-category-breakdown.section';
 import MonthExpensesSection from './month-expenses.section';
 import MonthHeaderSection from './month-header.section';
 import { MonthPageContext } from './month-page.context';
+import MonthTagsBreakdownSection from './month-tags-breakdown.section';
 import useMonthSummary from './useMonthSummary.hook';
 
 export default function MonthPage() {
@@ -33,7 +35,7 @@ export default function MonthPage() {
 
     useEffect(() => {
         const { month, year } = router.query;
-
+        setSummaryExpenses(null);
         try {
             const parsedMonth = parseInt(month as string, 10);
             const parsedYear = parseInt(year as string, 10);
@@ -54,6 +56,12 @@ export default function MonthPage() {
     useEffect(() => {
         fetchActiveOptions();
     }, []);
+
+    useEffect(() => {
+        if (!getMonthService.data?.month) {
+            setSummaryExpenses([]);
+        }
+    }, [getMonthService.data?.month]);
 
     const fetchMonth = (month: number, year: number) => {
         getMonthService.mutateAsync({ month, year });
@@ -97,6 +105,12 @@ export default function MonthPage() {
                             <div className="row">
                                 <div className="col-12">
                                     <MonthExpensesSection></MonthExpensesSection>
+                                </div>
+                                <div className="col-3">
+                                    <MonthCategoryBreakdownSection></MonthCategoryBreakdownSection>
+                                </div>
+                                <div className="col-3">
+                                    <MonthTagsBreakdownSection></MonthTagsBreakdownSection>
                                 </div>
                             </div>
                         ) : (

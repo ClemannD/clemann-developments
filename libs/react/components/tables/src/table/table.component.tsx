@@ -127,6 +127,7 @@ export const ColumnHeader = ({
     sortKey,
     listService,
     border = false,
+    alignRight = false,
     customSort,
     children
 }: {
@@ -135,6 +136,7 @@ export const ColumnHeader = ({
     sortKey?: string;
     listService?: UseApiListResults;
     border?: boolean;
+    alignRight?: boolean;
     customSort?: (sortDirection: SortDirection, sortKey: string) => number;
     children?: any;
 }) => {
@@ -159,6 +161,7 @@ export const ColumnHeader = ({
                         : ''
                 }
                 ${border ? styles.border : ''}
+                ${alignRight ? styles.alignRight : ''}
             `}
             onClick={() => {
                 if (sortKey) {
