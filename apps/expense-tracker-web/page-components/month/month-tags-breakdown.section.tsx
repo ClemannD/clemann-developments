@@ -11,7 +11,7 @@ export default function MonthTagsBreakdownSection() {
 
     return (
         <div className={styles.monthBreakdown}>
-            <h3>Tag Summary</h3>
+            <h3>Tags</h3>
 
             <div className={styles.breakdownHeader}>
                 <div className="tableLabel">Tag</div>

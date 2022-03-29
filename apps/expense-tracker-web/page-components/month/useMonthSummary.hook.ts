@@ -2,6 +2,7 @@ import {
     CategorySummaryDto,
     ExpenseDto,
     MonthSummaryDto,
+    PaymentMethodSummaryDto,
     SplitSummaryDto,
     SubcategorySummaryDto,
     TagSummaryDto
@@ -20,7 +21,9 @@ export default function useMonthSummary() {
                 categorySummaries:
                     _getCategorySummariesFromExpenses(summaryExpenses),
                 tagSummaries: _getTagSummariesFromExpenses(summaryExpenses),
-                splitSummary: _getSplitSummaryFromExpenses(summaryExpenses)
+                splitSummary: _getSplitSummaryFromExpenses(summaryExpenses),
+                paymentMethodSummaries:
+                    _getPaymentMethodSummariesFromExpenses(summaryExpenses)
             });
         } else {
             setMonthSummary(null);
@@ -165,4 +168,33 @@ function _getSplitSummaryFromExpenses(expenses: ExpenseDto[]): SplitSummaryDto {
     };
 
     return splitSummary;
+}
+
+function _getPaymentMethodSummariesFromExpenses(
+    expenses: ExpenseDto[]
+): PaymentMethodSummaryDto[] {
+    const paymentMethodSummary: PaymentMethodSummaryDto[] = [];
+
+    expenses.forEach((expense) => {
+        if (expense.paymentMethod) {
+            const paymentMethodSummaryItem = paymentMethodSummary.find(
+                (paymentMethodSummaryItem) =>
+                    paymentMethodSummaryItem.paymentMethodId ===
+                    expense.paymentMethod.paymentMethodId
+            );
+
+            if (paymentMethodSummaryItem) {
+                paymentMethodSummaryItem.totalCents +=
+                    _getNetExpenseAmount(expense);
+            } else {
+                paymentMethodSummary.push({
+                    paymentMethodId: expense.paymentMethod.paymentMethodId,
+                    name: expense.paymentMethod.name,
+                    totalCents: _getNetExpenseAmount(expense)
+                });
+            }
+        }
+    });
+
+    return paymentMethodSummary.sort((a, b) => b.totalCents - a.totalCents);
 }

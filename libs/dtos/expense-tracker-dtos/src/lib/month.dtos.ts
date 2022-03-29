@@ -104,6 +104,12 @@ export class SplitSummaryDto {
     totalUnpaidSplitAmountCents: number;
 }
 
+export class PaymentMethodSummaryDto {
+    public paymentMethodId: string;
+    public name: string;
+    public totalCents: number;
+}
+
 export class MonthSummaryDto {
     public thisMonthTotalCents: number;
     public lastMonthTotalCents?: number;
@@ -111,6 +117,7 @@ export class MonthSummaryDto {
     public categorySummaries: CategorySummaryDto[];
     public tagSummaries: TagSummaryDto[];
     public splitSummary?: SplitSummaryDto;
+    public paymentMethodSummaries?: PaymentMethodSummaryDto[];
 }
 
 export class GetMonthSummaryRequest {

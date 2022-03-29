@@ -18,6 +18,7 @@ import MonthCategoryBreakdownSection from './month-category-breakdown.section';
 import MonthExpensesSection from './month-expenses.section';
 import MonthHeaderSection from './month-header.section';
 import { MonthPageContext } from './month-page.context';
+import MonthPaymentMethodsBreakdownSection from './month-payment-methods-breakdown.section';
 import MonthSplitBreakdownSection from './month-split-breakdown.section';
 import MonthTagsBreakdownSection from './month-tags-breakdown.section';
 import useMonthSummary from './useMonthSummary.hook';
@@ -112,6 +113,9 @@ export default function MonthPage() {
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-3">
                                     <MonthTagsBreakdownSection></MonthTagsBreakdownSection>
+                                </div>
+                                <div className="col-12 col-sm-6 col-md-3">
+                                    <MonthPaymentMethodsBreakdownSection></MonthPaymentMethodsBreakdownSection>
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-3">
                                     <MonthSplitBreakdownSection></MonthSplitBreakdownSection>
