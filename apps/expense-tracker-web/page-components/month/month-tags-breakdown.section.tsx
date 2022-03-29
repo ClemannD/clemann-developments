@@ -1,4 +1,3 @@
-import { MonthDto } from '@clemann-developments/dtos/expense-tracker-dtos';
 import {
     Pill,
     PillColor
@@ -22,7 +21,7 @@ export default function MonthTagsBreakdownSection() {
             {!!monthSummary &&
                 monthSummary.tagSummaries.map((tagSummary) => (
                     <div
-                        className={`${styles.breakdownItem} ${styles.breakdownItemTags}`}
+                        className={`${styles.breakdownItem} ${styles.breakdownItemCompact}`}
                         key={tagSummary.tagId}
                     >
                         <div className={styles.breakdownRow}>

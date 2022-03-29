@@ -20,7 +20,7 @@ export default function AddMonthSection() {
                 year: monthDto.year,
                 month: monthDto.month
             });
-            fetchMonth(monthDto.year, monthDto.month);
+            fetchMonth(monthDto.month, monthDto.year);
         } catch {}
         setIsSubmitting(false);
     };

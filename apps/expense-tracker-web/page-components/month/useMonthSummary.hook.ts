@@ -2,6 +2,7 @@ import {
     CategorySummaryDto,
     ExpenseDto,
     MonthSummaryDto,
+    SplitSummaryDto,
     SubcategorySummaryDto,
     TagSummaryDto
 } from '@clemann-developments/dtos/expense-tracker-dtos';
@@ -18,7 +19,8 @@ export default function useMonthSummary() {
                     _getTotalCentsFromExpenses(summaryExpenses),
                 categorySummaries:
                     _getCategorySummariesFromExpenses(summaryExpenses),
-                tagSummaries: _getTagSummariesFromExpenses(summaryExpenses)
+                tagSummaries: _getTagSummariesFromExpenses(summaryExpenses),
+                splitSummary: _getSplitSummaryFromExpenses(summaryExpenses)
             });
         } else {
             setMonthSummary(null);
@@ -138,4 +140,29 @@ function _getNetExpenseAmount(expense: ExpenseDto): number {
     return expense.split
         ? expense.amountCents / expense.split
         : expense.amountCents;
+}
+
+function _getSplitSummaryFromExpenses(expenses: ExpenseDto[]): SplitSummaryDto {
+    const splitSummary: SplitSummaryDto = {
+        totalSplitAmountCents: expenses
+            .filter((expense) => !!expense.split)
+            .reduce(
+                (total, expense) => total + _getNetExpenseAmount(expense),
+                0
+            ),
+        totalPaidSplitAmountCents: expenses
+            .filter((expense) => !!expense.split && expense.splitPaid)
+            .reduce(
+                (total, expense) => total + _getNetExpenseAmount(expense),
+                0
+            ),
+        totalUnpaidSplitAmountCents: expenses
+            .filter((expense) => !!expense.split && !expense.splitPaid)
+            .reduce(
+                (total, expense) => total + _getNetExpenseAmount(expense),
+                0
+            )
+    };
+
+    return splitSummary;
 }

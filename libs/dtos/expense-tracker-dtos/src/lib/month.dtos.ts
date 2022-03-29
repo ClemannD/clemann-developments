@@ -98,12 +98,19 @@ export class CategorySummaryDto {
     public subcategorySummaries?: SubcategorySummaryDto[];
 }
 
+export class SplitSummaryDto {
+    totalSplitAmountCents: number;
+    totalPaidSplitAmountCents: number;
+    totalUnpaidSplitAmountCents: number;
+}
+
 export class MonthSummaryDto {
     public thisMonthTotalCents: number;
     public lastMonthTotalCents?: number;
     public avgMonthTotalCents?: number;
     public categorySummaries: CategorySummaryDto[];
     public tagSummaries: TagSummaryDto[];
+    public splitSummary?: SplitSummaryDto;
 }
 
 export class GetMonthSummaryRequest {
