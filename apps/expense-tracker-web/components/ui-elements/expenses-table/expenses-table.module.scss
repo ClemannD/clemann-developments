@@ -1,8 +1,6 @@
+@import 'libs/theme/src/mixins.scss';
+
 .expensesTable {
-    // background-color: var(--white);
-    // border: 1px solid var(--gray-light);
-    // border-radius: 3px;
-    // overflow-x: scroll;
     thead tr {
         height: 3.5rem;
         border-bottom: 1px solid var(--gray-light);
@@ -156,6 +154,14 @@
 
         display: flex;
         flex-wrap: wrap;
+
+        @include respond-to('medium') {
+            position: fixed;
+            bottom: 0;
+            top: auto;
+
+            width: 100vw;
+        }
     }
 }
 
@@ -219,6 +225,14 @@
         .unselectedTags {
             display: flex;
             flex-wrap: wrap;
+        }
+
+        @include respond-to('medium') {
+            position: fixed;
+            bottom: 0;
+            top: auto;
+
+            width: 100vw;
         }
     }
 }
@@ -304,6 +318,14 @@
 
         display: flex;
         flex-wrap: wrap;
+
+        @include respond-to('medium') {
+            position: fixed;
+            bottom: 0;
+            top: auto;
+
+            width: 100vw;
+        }
     }
 }
 

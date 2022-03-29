@@ -61,6 +61,9 @@ export default function ExpensesTable({
     };
 
     const saveExistingRowToCacheAndPropagate = async (expense: ExpenseDto) => {
+        if (expense.amountCents === null) {
+            expense.amountCents = 0;
+        }
         setCachedExpenses((prevRows) =>
             prevRows.map((row) =>
                 row.expenseId === expense.expenseId ? expense : row
@@ -120,6 +123,8 @@ export default function ExpensesTable({
                         <ColumnHeader
                             width="10rem"
                             header="Category"
+                            sortKey="category"
+                            listService={listExpensesService}
                             border
                         ></ColumnHeader>
                         <ColumnHeader
@@ -135,16 +140,22 @@ export default function ExpensesTable({
                         <ColumnHeader
                             width="7rem"
                             header="Split"
+                            sortKey="split"
+                            listService={listExpensesService}
                             border
                         ></ColumnHeader>
                         <ColumnHeader
                             width="15rem"
                             header="Payment Method"
+                            sortKey="paymentMethod"
+                            listService={listExpensesService}
                             border
                         ></ColumnHeader>
                         <ColumnHeader
                             width="20rem"
                             header="Amount"
+                            sortKey="amountCents"
+                            listService={listExpensesService}
                             alignRight
                             border
                         ></ColumnHeader>

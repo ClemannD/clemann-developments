@@ -1,4 +1,7 @@
-import { PaginationAndSort } from '@clemann-developments/common-endpoint';
+import {
+    PaginationAndSort,
+    SortDirection
+} from '@clemann-developments/common-endpoint';
 import {
     ExpenseDto,
     MonthDto,
@@ -147,7 +150,79 @@ export class MonthService {
                 }))
         }));
 
-        return expenseDtos.sort((a, b) => a.day - b.day);
+        return expenseDtos.sort((a, b) => {
+            if (
+                paginationAndSort.sortColumn === 'day' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return a.day - b.day;
+            } else if (
+                paginationAndSort.sortColumn === 'day' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return b.day - a.day;
+            } else if (
+                paginationAndSort.sortColumn === 'amountCents' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return b.amountCents - a.amountCents;
+            } else if (
+                paginationAndSort.sortColumn === 'amountCents' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return a.amountCents - b.amountCents;
+            } else if (
+                paginationAndSort.sortColumn === 'split' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return b.split - a.split;
+            } else if (
+                paginationAndSort.sortColumn === 'split' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return a.split - b.split;
+            } else if (
+                paginationAndSort.sortColumn === 'name' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return a.name.localeCompare(b.name);
+            } else if (
+                paginationAndSort.sortColumn === 'name' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return b.name.localeCompare(a.name);
+            } else if (
+                paginationAndSort.sortColumn === 'paymentMethod' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return (
+                    a.paymentMethod?.name.localeCompare(
+                        b.paymentMethod?.name
+                    ) ?? 0
+                );
+            } else if (
+                paginationAndSort.sortColumn === 'paymentMethod' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return (
+                    b.paymentMethod?.name.localeCompare(
+                        a.paymentMethod?.name
+                    ) ?? 0
+                );
+            } else if (
+                paginationAndSort.sortColumn === 'category' &&
+                paginationAndSort.sortDirection === SortDirection.Asc
+            ) {
+                return a.category?.name.localeCompare(b.category?.name) ?? 0;
+            } else if (
+                paginationAndSort.sortColumn === 'category' &&
+                paginationAndSort.sortDirection === SortDirection.Desc
+            ) {
+                return b.category?.name.localeCompare(a.category?.name) ?? 0;
+            } else {
+                return a.day - b.day;
+            }
+        });
     }
 
     public async createOrUpdateExpense(
@@ -263,9 +338,9 @@ export class MonthService {
             expenseEntity.expenseId = expense.expenseId;
         }
 
-        expenseEntity.name = expense.name || '-';
-        expenseEntity.day = expense.day || new Date().getDate();
-        expenseEntity.amountCents = expense.amountCents || 0;
+        expenseEntity.name = expense.name ?? '-';
+        expenseEntity.day = expense.day ?? new Date().getDate();
+        expenseEntity.amountCents = expense.amountCents ?? 0;
         expenseEntity.split = expense.split;
         expenseEntity.splitPaid = expense.splitPaid;
         expenseEntity.notes = expense.notes;

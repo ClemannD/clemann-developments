@@ -3,6 +3,10 @@
 .tableCard {
     position: relative;
 
+    @include respond-to('medium') {
+        overflow: auto;
+    }
+
     .loadingContainer {
         position: absolute;
         display: flex;

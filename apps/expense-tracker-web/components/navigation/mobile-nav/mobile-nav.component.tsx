@@ -71,10 +71,10 @@ export default function MobileNav({
                                     </div>
                                     <div
                                         className={`${styles.navbarLink} ${
-                                            router.pathname === '/monthly'
+                                            router.pathname === '/month'
                                         }`}
                                     >
-                                        <Link href={'/monthly'}>Monthly</Link>
+                                        <Link href={'/month'}>Monthly</Link>
                                     </div>
                                     <div
                                         className={`${styles.navbarLink} ${

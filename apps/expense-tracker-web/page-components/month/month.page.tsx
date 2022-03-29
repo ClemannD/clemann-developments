@@ -1,17 +1,10 @@
-import {
-    ExpenseDto,
-    MonthSummaryDto
-} from '@clemann-developments/dtos/expense-tracker-dtos';
 import { Loading } from '@clemann-developments/react/components/ui-elements';
 import { useAuthGuard } from '@clemann-developments/react/hooks/next/use-auth-guard';
-import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useGetActiveOptions from '../../api-services/active-options/getActiveOptions.service';
 import useGetMonth from '../../api-services/month/getMonth.service';
-import useGetMonthSummary from '../../api-services/month/getMonthSummary.service';
 import Layout from '../../components/layout/layout.component';
-import { EventBusActionTypes } from '../../constants/event-bus-action-types';
 import ActiveOptionsContext from '../../context/active-options.context';
 import AddMonthSection from './add-month.section';
 import MonthCategoryBreakdownSection from './month-category-breakdown.section';

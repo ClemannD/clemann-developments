@@ -1,3 +1,5 @@
+@import 'libs/theme/src/mixins.scss';
+
 .monthHeaderSection {
     width: 100%;
     margin-bottom: 4rem;
@@ -8,6 +10,10 @@
 
         .button {
             margin-right: 1rem;
+        }
+
+        @include respond-to('medium') {
+            margin-top: 1rem;
         }
     }
 }

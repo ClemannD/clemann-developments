@@ -12,6 +12,10 @@
             font-weight: 400;
             font-size: 2rem;
             color: var(--accent-color);
+
+            @include respond-to('medium') {
+                font-size: 1.6rem;
+            }
         }
 
         .value {
@@ -23,6 +27,15 @@
             &.large {
                 font-size: 5rem;
             }
+
+            @include respond-to('medium') {
+                font-size: 2.4rem;
+                margin-bottom: 0.2rem;
+
+                &.large {
+                    font-size: 3rem;
+                }
+            }
         }
 
         .subLabel {
@@ -30,6 +43,10 @@
             color: var(--accent-color);
             font-size: 1.2rem;
             letter-spacing: 0.5px;
+
+            @include respond-to('medium') {
+                font-size: 1rem;
+            }
         }
     }
 

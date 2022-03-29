@@ -3,6 +3,7 @@ import {
     Button,
     ButtonAppearance
 } from '@clemann-developments/react/components/interaction/button';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import SummaryHeader, {
@@ -72,7 +73,7 @@ export default function MonthHeaderSection() {
                             }
                         }}
                     >
-                        Last Month
+                        <ChevronLeftIcon></ChevronLeftIcon>
                     </Button>
 
                     <Button
@@ -104,7 +105,7 @@ export default function MonthHeaderSection() {
                             }
                         }}
                     >
-                        Next Month
+                        <ChevronRightIcon></ChevronRightIcon>
                     </Button>
                 </div>
             </div>
