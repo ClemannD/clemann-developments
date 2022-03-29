@@ -97,7 +97,14 @@ export class MonthService {
         paginationAndSort: PaginationAndSort
     ): Promise<ExpenseDto[]> {
         const month = await this._monthRepository.findOne(monthId, {
-            relations: ['account']
+            relations: [
+                'account',
+                'expenses',
+                'expenses.category',
+                'expenses.subcategory',
+                'expenses.tags',
+                'expenses.paymentMethod'
+            ]
         });
 
         if (!month) {
@@ -108,15 +115,9 @@ export class MonthService {
             throw new Error('Month does not belong to account');
         }
 
-        const expenses = await findPaginatedAndSort<Expense>(
-            this._expenseRepository,
-            paginationAndSort,
-            null,
-            'day',
-            ['category', 'subcategory', 'tags', 'paymentMethod']
-        );
+        const expenses = month.expenses;
 
-        const expenseDtos: ExpenseDto[] = expenses[0]?.map((expense) => ({
+        const expenseDtos: ExpenseDto[] = expenses?.map((expense) => ({
             expenseId: expense.expenseId,
             name: expense.name,
             day: expense.day,
@@ -146,7 +147,7 @@ export class MonthService {
                 }))
         }));
 
-        return expenseDtos;
+        return expenseDtos.sort((a, b) => a.day - b.day);
     }
 
     public async createOrUpdateExpense(
