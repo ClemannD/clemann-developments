@@ -57,6 +57,9 @@ export default function ExpensesTable({
     };
 
     const addNewRowToCachedRows = (newRow: ExpenseDto) => {
+        if (!newRow.amountCents) {
+            newRow.amountCents = 0;
+        }
         setCachedExpenses((prevRows: ExpenseDto[]) => [...prevRows, newRow]);
     };
 

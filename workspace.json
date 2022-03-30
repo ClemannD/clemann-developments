@@ -16,6 +16,7 @@
     "react-hooks-next-use-auth-guard": "libs/react/hooks/next/use-auth-guard",
     "react-hooks-use-event-bus": "libs/react/hooks/use-event-bus",
     "react-hooks-use-modal": "libs/react/hooks/use-modal",
+    "react-hooks-use-scroll-position": "libs/react/hooks/use-scroll-position",
     "react-hooks-use-window-dimensions": "libs/react/hooks/use-window-dimensions",
     "setscore-api": "apps/setscore-api",
     "setscore-web": "apps/setscore-web",

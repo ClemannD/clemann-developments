@@ -1,6 +1,10 @@
 .navbar {
     width: 100%;
-    // background-color: var(--white);
+    transition: background-color var(--ease-out-quart-quick);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-index-nav);
 
     .navbarContent {
         width: 100%;
@@ -38,6 +42,7 @@
 
         .navbarRight {
             margin-left: auto;
+            position: relative;
 
             .settingsIcon {
                 height: 2rem;
@@ -49,6 +54,31 @@
                     color: var(--accent-color);
                 }
             }
+
+            .navbarSettings {
+                position: absolute;
+                z-index: 1;
+                top: 2.5rem;
+                right: 0;
+                background-color: var(--white);
+                border-radius: 3px;
+                box-shadow: var(--shadow-spread-small);
+                width: 20rem;
+                padding: 1rem;
+
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &.navbarCollapsed {
+        background-color: var(--white);
+        box-shadow: var(--shadow-navbar);
+
+        .navbarContent {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
     }
 }

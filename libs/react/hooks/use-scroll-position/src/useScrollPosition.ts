@@ -1,9 +1,11 @@
-import { Ref, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const useScrollPosition = (ref: Ref<HTMLElement>) => {
+export function useScrollPosition() {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
+        console.log('here');
+
         const updatePosition = () => {
             setScrollPosition(window.pageYOffset);
         };
@@ -13,6 +15,4 @@ const useScrollPosition = (ref: Ref<HTMLElement>) => {
     }, []);
 
     return scrollPosition;
-};
-
-export default useScrollPosition;
+}

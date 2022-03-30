@@ -1,14 +1,31 @@
+import { useScrollPosition } from '@clemann-developments/react/hooks/use-scroll-position';
 import { CogIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import LogoWithBackground from '../../brand/logo/logo-with-background.component';
 import styles from './navbar.module.scss';
 
 export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
     const router = useRouter();
+    const scrollPosition = useScrollPosition();
+
+    const [settingsOpen, setSettingsOpen] = useState(false);
+
+    const toggleSettingsOpen = () => {
+        setSettingsOpen(!settingsOpen);
+    };
 
     return (
-        <nav className={styles.navbar}>
+        <nav
+            className={`
+                ${styles.navbar}
+                ${scrollPosition >= 20 ? styles.navbarCollapsed : ''}
+            `}
+            style={{
+                top: scrollPosition >= 20 ? 0 : -scrollPosition
+            }}
+        >
             <div className="container">
                 <div className={styles.navbarContent}>
                     <div className={styles.navbarLogo}>
@@ -29,7 +46,7 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${
-                                        router.pathname === '/month'
+                                        router.pathname.startsWith('/month')
                                             ? styles.active
                                             : ''
                                     }`}
@@ -52,7 +69,18 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                     )}
 
                     <div className={styles.navbarRight}>
-                        <CogIcon className={styles.settingsIcon}></CogIcon>
+                        <CogIcon
+                            className={styles.settingsIcon}
+                            onClick={toggleSettingsOpen}
+                        ></CogIcon>
+
+                        {settingsOpen && (
+                            <div className={styles.navbarSettings}>
+                                <div className={styles.navbarSettingsItem}>
+                                    <Link href={'/logout'}>Logout</Link>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -53,7 +53,6 @@ export default function ExpenseAmountCell({
 
         updateNewExpense(parseInt(newValue.toFixed(0)), 'amountCents');
         setValue(value);
-        shadowInput.current.innerText = `$${value}`;
     };
 
     const handleFocus = () => {

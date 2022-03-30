@@ -99,6 +99,10 @@ export class MonthService {
         monthId: string,
         paginationAndSort: PaginationAndSort
     ): Promise<ExpenseDto[]> {
+        if (!monthId) {
+            return [];
+        }
+
         const month = await this._monthRepository.findOne(monthId, {
             relations: [
                 'account',
