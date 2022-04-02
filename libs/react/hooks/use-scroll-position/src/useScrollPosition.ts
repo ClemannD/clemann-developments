@@ -4,8 +4,6 @@ export function useScrollPosition() {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        console.log('here');
-
         const updatePosition = () => {
             setScrollPosition(window.pageYOffset);
         };

@@ -41,6 +41,7 @@ export default function MonthCategoryBreakdownSection() {
                             (subcategorySummary) => (
                                 <div
                                     className={`${styles.breakdownRow} ${styles.breakdownSubRow}`}
+                                    key={subcategorySummary.subcategoryId}
                                 >
                                     <Pill color={PillColor.GrayLight}>
                                         {subcategorySummary.name}

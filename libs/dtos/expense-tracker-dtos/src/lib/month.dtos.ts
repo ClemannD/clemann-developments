@@ -25,7 +25,7 @@ export class ExpenseTagDto {
 }
 
 export class ExpenseDto {
-    public expenseId: string;
+    public expenseId?: string;
     public name: string;
     public day: number;
     public amountCents: number;

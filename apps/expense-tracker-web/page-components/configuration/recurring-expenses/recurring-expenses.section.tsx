@@ -1,6 +1,6 @@
 import { RecurringExpenseDto } from '@clemann-developments/dtos/expense-tracker-dtos';
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useGetActiveOptions from '../../../api-services/active-options/getActiveOptions.service';
 import useCreateOrUpdateRecurringExpense from '../../../api-services/configuration/recurring-expenses/createOrUpdateRecurringExpense.service';
 import useDeleteRecurringExpense from '../../../api-services/configuration/recurring-expenses/deleteRecurringExpense.service';
@@ -21,6 +21,10 @@ export default function ConfigurationRecurringExpensesSection() {
 
     const [cachedRecurringExpenses, setCachedRecurringExpenses] =
         useState<RecurringExpenseDto[]>(null);
+
+    useEffect(() => {
+        fetchActiveOptions();
+    }, []);
 
     const saveExpense = async (recurringExpense: RecurringExpenseDto) => {
         const response =

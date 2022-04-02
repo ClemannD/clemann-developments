@@ -16,6 +16,7 @@ import { Category } from '../../entities/category.entity';
 import { Expense } from '../../entities/expense.entity';
 import { Month } from '../../entities/month.entity';
 import { PaymentMethod } from '../../entities/payment-method.entity';
+import { RecurringExpense } from '../../entities/recurring-expense.entity';
 import { Subcategory } from '../../entities/subcategory.entity';
 import { Tag } from '../../entities/tag.entity';
 import { ExpenseSortingService } from '../expense-sorting/expense-sorting.service';
@@ -37,6 +38,8 @@ export class MonthService {
         private readonly _tagRepository: Repository<Tag>,
         @InjectRepository(PaymentMethod)
         private readonly _paymentMethodRepository: Repository<PaymentMethod>,
+        @InjectRepository(RecurringExpense)
+        private _recurringExpenseRepository: Repository<RecurringExpense>,
 
         private _expenseSortingService: ExpenseSortingService
     ) {}
@@ -94,7 +97,54 @@ export class MonthService {
         monthEntity.month = month;
         monthEntity.year = year;
 
-        await this._monthRepository.save(monthEntity);
+        const createdMonth = await this._monthRepository.save(monthEntity);
+
+        const recurringExpenses = await this._recurringExpenseRepository.find({
+            where: {
+                account: {
+                    accountId
+                }
+            },
+            relations: [
+                'category',
+                'subcategory',
+                'tags',
+                'paymentMethod',
+                'account'
+            ]
+        });
+
+        for (const recurringExpense of recurringExpenses) {
+            await this.createOrUpdateExpense(accountId, createdMonth.monthId, {
+                name: recurringExpense.name,
+                day: recurringExpense.day,
+                amountCents: recurringExpense.amountCents,
+                split: recurringExpense.split,
+                splitPaid: false,
+                notes: recurringExpense.notes,
+                isRecurring: true,
+                paymentMethod: recurringExpense.paymentMethod && {
+                    paymentMethodId:
+                        recurringExpense.paymentMethod.paymentMethodId,
+                    name: recurringExpense.paymentMethod.name
+                },
+                category: recurringExpense.category && {
+                    categoryId: recurringExpense.category.categoryId,
+                    name: recurringExpense.category.name,
+                    color: recurringExpense.category.color
+                },
+                subcategory: recurringExpense.subcategory && {
+                    subcategoryId: recurringExpense.subcategory.subcategoryId,
+                    name: recurringExpense.subcategory.name
+                },
+                tags:
+                    recurringExpense.tags &&
+                    recurringExpense.tags.map((tag) => ({
+                        tagId: tag.tagId,
+                        name: tag.name
+                    }))
+            });
+        }
     }
 
     public async listMonthExpenses(
