@@ -1,6 +1,7 @@
 import {
     Column,
     Entity,
+    JoinTable,
     ManyToMany,
     ManyToOne,
     PrimaryGeneratedColumn
@@ -55,5 +56,6 @@ export class RecurringExpense {
     account: Account;
 
     @ManyToMany(() => Tag)
+    @JoinTable()
     tags: Tag[];
 }
