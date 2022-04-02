@@ -90,7 +90,9 @@ export function DropdownButton({
                 >
                     Close <XIcon style={{ marginLeft: '0.5rem' }} />
                 </Button>
-                <div className={styles.dropdownContent}>{children}</div>
+                {isOpen && (
+                    <div className={styles.dropdownContent}>{children}</div>
+                )}
             </div>
             <Button
                 className={styles.dropdownButton}

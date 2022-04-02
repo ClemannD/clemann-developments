@@ -25,7 +25,7 @@ export default function CreateCategoryButton({
 
     useEffect(() => {
         setColorHex(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-    }, []);
+    }, [isOpen]);
 
     return (
         <DropdownButton
@@ -47,7 +47,7 @@ export default function CreateCategoryButton({
                             .max(50, 'Must be 50 characters or less')
                             .required('Required')
                     })}
-                    onSubmit={async (values) => {
+                    onSubmit={async (values, { resetForm }) => {
                         try {
                             setIsSubmitting(true);
                             await createCategory.mutateAsync({
@@ -56,6 +56,8 @@ export default function CreateCategoryButton({
                             });
                             setIsOpen(false);
                             fetchCategories();
+
+                            resetForm();
                         } catch (e) {
                             console.error(e);
                         }
@@ -65,6 +67,7 @@ export default function CreateCategoryButton({
                     <Form>
                         <div className={styles.categoryForm}>
                             <Input
+                                autoFocus
                                 label="Category Name"
                                 name="categoryName"
                                 style={{ marginRight: '1.5rem' }}

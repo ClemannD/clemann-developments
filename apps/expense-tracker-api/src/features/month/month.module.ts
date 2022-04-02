@@ -9,6 +9,7 @@ import { RecurringExpense } from '../../entities/recurring-expense.entity';
 import { Subcategory } from '../../entities/subcategory.entity';
 import { Tag } from '../../entities/tag.entity';
 import { AuthModule } from '../auth/auth.module';
+import { ExpenseSortingModule } from '../expense-sorting/expense-sorting.module';
 import { MonthSummaryService } from './month-summary.service';
 import { MonthController } from './month.controller';
 import { MonthService } from './month.service';
@@ -25,7 +26,8 @@ import { MonthService } from './month.service';
             Tag,
             PaymentMethod
         ]),
-        AuthModule
+        AuthModule,
+        ExpenseSortingModule
     ],
     controllers: [MonthController],
     providers: [MonthService, MonthSummaryService]

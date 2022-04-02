@@ -10,7 +10,7 @@ import {
 import { Input, Toggle } from '@clemann-developments/react/forms';
 import { XIcon } from '@heroicons/react/outline';
 import { Form, Formik } from 'formik';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import * as Yup from 'yup';
 import useCreateSubcategory from '../../../api-services/configuration/createSubcategory.service';
 import useSetCategoryActive from '../../../api-services/configuration/setCategoryActive.service';
@@ -115,6 +115,7 @@ export default function CategoryBox({
                                 hideErrorMessage={true}
                                 name="subcategoryName"
                                 placeholder="Subcategory Name"
+                                autoFocus
                             />
                             <Button
                                 style={{

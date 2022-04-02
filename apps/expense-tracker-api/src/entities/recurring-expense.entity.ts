@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { Account } from './account.entity';
 import { Category } from './category.entity';
+import { PaymentMethod } from './payment-method.entity';
 import { Subcategory } from './subcategory.entity';
 import { Tag } from './tag.entity';
 
@@ -36,11 +37,19 @@ export class RecurringExpense {
     })
     active: boolean;
 
+    @Column({
+        nullable: true
+    })
+    notes: string;
+
     @ManyToOne(() => Category)
     category: Category;
 
     @ManyToOne(() => Subcategory)
     subcategory: Subcategory;
+
+    @ManyToOne(() => PaymentMethod)
+    paymentMethod: PaymentMethod;
 
     @ManyToOne(() => Account)
     account: Account;

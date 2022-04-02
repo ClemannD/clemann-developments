@@ -22,11 +22,12 @@ export default function SubcategoryPill({
     subcategoryDto: SubcategoryDto;
     fetchCategories: () => void;
 }) {
+    const updateSubcategoryService = useUpdateSubcategory();
+
     const [isEditingSubcategory, setIsEditingSubcategory] = useState(false);
     const [isActive, setIsActive] = useState(subcategoryDto.active);
     const dropdown = useRef(null);
     const pill = useRef(null);
-    const updateSubcategory = useUpdateSubcategory();
 
     useEffect(() => {
         if (isEditingSubcategory) {
@@ -50,6 +51,10 @@ export default function SubcategoryPill({
         setIsEditingSubcategory(false);
     };
 
+    const editCategory = () => {
+        setIsEditingSubcategory(true);
+    };
+
     return (
         <div
             key={subcategoryDto.subcategoryId}
@@ -60,7 +65,7 @@ export default function SubcategoryPill({
             ref={pill}
         >
             <Pill
-                clickHandler={() => setIsEditingSubcategory(true)}
+                clickHandler={editCategory}
                 color={PillColor.GrayLight}
                 style={{
                     opacity: subcategoryDto.active ? 1 : 0.5,
@@ -78,17 +83,19 @@ export default function SubcategoryPill({
                             name: subcategoryDto.name
                         }}
                         onSubmit={async (values) => {
-                            await updateSubcategory.mutateAsync({
+                            await updateSubcategoryService.mutateAsync({
                                 subcategoryId: subcategoryDto.subcategoryId,
                                 name: values.name,
                                 active: isActive
                             });
-                            fetchCategories();
+                            await fetchCategories();
+                            setIsEditingSubcategory(false);
                         }}
                     >
                         <Form>
                             <Input
                                 name="name"
+                                autoFocus
                                 hideErrorMessage
                                 style={{
                                     marginBottom: '1rem'
@@ -116,6 +123,9 @@ export default function SubcategoryPill({
                                     }}
                                     size={ButtonSize.Block}
                                     type="submit"
+                                    isSubmitting={
+                                        updateSubcategoryService.isLoading
+                                    }
                                     appearance={ButtonAppearance.Secondary}
                                 >
                                     Save

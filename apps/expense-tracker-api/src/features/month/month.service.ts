@@ -18,6 +18,7 @@ import { Month } from '../../entities/month.entity';
 import { PaymentMethod } from '../../entities/payment-method.entity';
 import { Subcategory } from '../../entities/subcategory.entity';
 import { Tag } from '../../entities/tag.entity';
+import { ExpenseSortingService } from '../expense-sorting/expense-sorting.service';
 
 @Injectable()
 export class MonthService {
@@ -35,7 +36,9 @@ export class MonthService {
         @InjectRepository(Tag)
         private readonly _tagRepository: Repository<Tag>,
         @InjectRepository(PaymentMethod)
-        private readonly _paymentMethodRepository: Repository<PaymentMethod>
+        private readonly _paymentMethodRepository: Repository<PaymentMethod>,
+
+        private _expenseSortingService: ExpenseSortingService
     ) {}
 
     public async getMonth(
@@ -154,7 +157,10 @@ export class MonthService {
                 }))
         }));
 
-        return this._sortExpenses(expenseDtos, paginationAndSort);
+        return this._expenseSortingService.sortExpenses(
+            expenseDtos,
+            paginationAndSort
+        ) as ExpenseDto[];
     }
 
     public async createOrUpdateExpense(
@@ -303,92 +309,5 @@ export class MonthService {
         }
 
         await this._expenseRepository.delete(expenseId);
-    }
-
-    private _sortExpenses(
-        expenses: ExpenseDto[],
-        paginationAndSort: PaginationAndSort
-    ): ExpenseDto[] {
-        return expenses.sort((a, b) => {
-            if (
-                !paginationAndSort ||
-                !paginationAndSort.sortColumn ||
-                !paginationAndSort.sortDirection
-            ) {
-                return a.day - b.day;
-            }
-
-            if (
-                paginationAndSort.sortColumn === 'day' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return a.day - b.day;
-            } else if (
-                paginationAndSort.sortColumn === 'day' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return b.day - a.day;
-            } else if (
-                paginationAndSort.sortColumn === 'amountCents' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return b.amountCents - a.amountCents;
-            } else if (
-                paginationAndSort.sortColumn === 'amountCents' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return a.amountCents - b.amountCents;
-            } else if (
-                paginationAndSort.sortColumn === 'split' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return b.split - a.split;
-            } else if (
-                paginationAndSort.sortColumn === 'split' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return a.split - b.split;
-            } else if (
-                paginationAndSort.sortColumn === 'name' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return a.name.localeCompare(b.name);
-            } else if (
-                paginationAndSort.sortColumn === 'name' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return b.name.localeCompare(a.name);
-            } else if (
-                paginationAndSort.sortColumn === 'paymentMethod' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return (
-                    a.paymentMethod?.name.localeCompare(
-                        b.paymentMethod?.name
-                    ) ?? 0
-                );
-            } else if (
-                paginationAndSort.sortColumn === 'paymentMethod' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return (
-                    b.paymentMethod?.name.localeCompare(
-                        a.paymentMethod?.name
-                    ) ?? 0
-                );
-            } else if (
-                paginationAndSort.sortColumn === 'category' &&
-                paginationAndSort.sortDirection === SortDirection.Asc
-            ) {
-                return a.category?.name.localeCompare(b.category?.name) ?? 0;
-            } else if (
-                paginationAndSort.sortColumn === 'category' &&
-                paginationAndSort.sortDirection === SortDirection.Desc
-            ) {
-                return b.category?.name.localeCompare(a.category?.name) ?? 0;
-            } else {
-                return a.day - b.day;
-            }
-        });
     }
 }
