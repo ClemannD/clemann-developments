@@ -25,15 +25,7 @@ export default function ExpenseAmountCell({
     const inputRef = useRef(null);
 
     useEffect(() => {
-        if (amountCents === undefined) {
-            setValue('');
-        } else {
-            setValue(`${amountCents ? amountCents / 100 : 0}`);
-        }
-    }, [amountCents]);
-
-    useEffect(() => {
-        shadowInput.current.innerText = `$${value}`;
+        shadowInput.current.innerText = `$${value}.00`;
     }, [value]);
 
     useEffect(() => {
@@ -48,10 +40,9 @@ export default function ExpenseAmountCell({
             setValue(`${0}`);
             return;
         }
+        const newValueCents = parseFloat(value) * 100;
 
-        const newValue = parseFloat(value) * 100;
-
-        updateNewExpense(parseInt(newValue.toFixed(0)), 'amountCents');
+        updateNewExpense(parseInt(newValueCents.toFixed(0)), 'amountCents');
         setValue(value);
     };
 
@@ -98,17 +89,20 @@ export default function ExpenseAmountCell({
                     style={{
                         width: `${inputWidth}px`
                     }}
+                    intlConfig={{
+                        locale: 'en-US',
+                        currency: 'USD'
+                    }}
                     ref={inputRef}
                     value={value}
-                    decimalsLimit={2}
+                    decimalScale={2}
                     onFocus={handleFocus}
                     onBlur={() => setInputFocused(false)}
                     onValueChange={handleInputChange}
                     onKeyDown={onKeyDown}
-                    prefix="$"
                 />
                 <div className={styles.shadowInput} ref={shadowInput}>
-                    $0
+                    $0.00
                 </div>
             </div>
         </td>

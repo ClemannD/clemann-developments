@@ -75,8 +75,6 @@ export function Button({
             onBlur={onBlur}
             onKeyDown={(event: any) => {
                 if (event.key === 'Enter') {
-                    console.log('ButtonENter');
-
                     clickHandler(event);
                     event.stopPropagation();
                 }
