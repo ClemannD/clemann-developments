@@ -14,6 +14,7 @@ import { MonthPageContext } from './month-page.context';
 import MonthPaymentMethodsBreakdownSection from './month-payment-methods-breakdown.section';
 import MonthSplitBreakdownSection from './month-split-breakdown.section';
 import MonthTagsBreakdownSection from './month-tags-breakdown.section';
+import PasteExpensesSection from './paste-expenses/paste-expenses.section';
 import useMonthSummary from './useMonthSummary.hook';
 
 export default function MonthPage() {
@@ -112,6 +113,9 @@ export default function MonthPage() {
                                 </div>
                                 <div className="col-12 col-sm-6 col-md-3">
                                     <MonthSplitBreakdownSection></MonthSplitBreakdownSection>
+                                </div>
+                                <div className="col-12">
+                                    <PasteExpensesSection></PasteExpensesSection>
                                 </div>
                             </div>
                         ) : (

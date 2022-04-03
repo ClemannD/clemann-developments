@@ -29,14 +29,14 @@ export class ExpenseDto {
     public name: string;
     public day: number;
     public amountCents: number;
-    public split: number;
-    public splitPaid: boolean;
-    public notes: string;
-    public isRecurring: boolean;
-    public paymentMethod: ExpensePaymentMethodDto;
-    public category: ExpenseCategoryDto;
-    public subcategory: ExpenseSubcategoryDto;
-    public tags: ExpenseTagDto[];
+    public split?: number | null;
+    public splitPaid?: boolean;
+    public notes?: string;
+    public isRecurring?: boolean;
+    public paymentMethod?: ExpensePaymentMethodDto;
+    public category?: ExpenseCategoryDto;
+    public subcategory?: ExpenseSubcategoryDto;
+    public tags?: ExpenseTagDto[];
 }
 
 export class MonthDto {
