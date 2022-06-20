@@ -6,7 +6,8 @@
 @import './variables/components/button.scss';
 @import './variables/components/skeleton-loader.scss';
 
-@import './header.scss';
+@import './global-classes/header.scss';
+@import './global-classes/card.scss';
 
 .css-0 {
     span {

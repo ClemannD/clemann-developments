@@ -21,9 +21,7 @@
 .addMonthSection {
     .addMonthBox {
         padding: 2rem;
-        background-color: var(--white);
-        border: 1px solid var(--gray-light);
-        border-radius: 3px;
+
         max-width: 50rem;
     }
 }
@@ -34,9 +32,7 @@
 
 .monthBreakdown {
     padding: 2rem;
-    background-color: var(--white);
-    border: 1px solid var(--gray-light);
-    border-radius: 3px;
+
     margin-bottom: 2rem;
 
     .breakdownHeader {

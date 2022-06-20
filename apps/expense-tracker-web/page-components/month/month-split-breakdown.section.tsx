@@ -10,7 +10,7 @@ export default function MonthSplitBreakdownSection() {
     const { monthSummary } = useContext(MonthPageContext);
 
     return (
-        <div className={styles.monthBreakdown}>
+        <div className={`${styles.monthBreakdown} card`}>
             <h3
                 style={{
                     marginBottom: '2rem'

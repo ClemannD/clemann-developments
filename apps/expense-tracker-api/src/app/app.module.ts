@@ -14,7 +14,7 @@ import { AuthModule } from '../features/auth/auth.module';
 import { ConfigurationModule } from '../features/configuration/configuration.module';
 import { MonthModule } from '../features/month/month.module';
 import { Month } from '../entities/month.entity';
-import { ActiveCategoriesModule } from '../features/active-options/active-options.module';
+import { ActiveOptionsModule } from '../features/active-options/active-options.module';
 import { SummaryModule } from '../features/summary/summary.module';
 
 @Module({
@@ -55,7 +55,7 @@ import { SummaryModule } from '../features/summary/summary.module';
         AuthModule,
         ConfigurationModule,
         MonthModule,
-        ActiveCategoriesModule,
+        ActiveOptionsModule,
         SummaryModule
     ]
 })

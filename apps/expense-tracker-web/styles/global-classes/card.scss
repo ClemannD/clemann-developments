@@ -1,0 +1,14 @@
+.card {
+    background-color: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 3px;
+
+    &.padded {
+        padding: 2rem 2.5rem;
+    }
+
+    .cardTitle {
+        font-weight: 500;
+        color: var(--blue-darker);
+    }
+}

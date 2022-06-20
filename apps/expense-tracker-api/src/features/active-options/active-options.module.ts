@@ -8,6 +8,7 @@ import { ActiveOptionsService } from './active-options.service';
 @Module({
     imports: [TypeOrmModule.forFeature([Account]), AuthModule],
     controllers: [ActiveOptionsController],
-    providers: [ActiveOptionsService]
+    providers: [ActiveOptionsService],
+    exports: [ActiveOptionsService]
 })
-export class ActiveCategoriesModule {}
+export class ActiveOptionsModule {}
