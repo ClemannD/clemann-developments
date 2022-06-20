@@ -1,29 +1,35 @@
+import { useEffect, useState } from 'react';
+import useGetYearSummary from '../../api-services/summary/getYearSummary.service';
 import Layout from '../../components/layout/layout.component';
-import styles from './summary.module.scss';
+import SummaryCategoriesSection from './categories/summary-categories.section';
+import SummaryHeaderSection from './summary-header.section';
+import { SummaryPageContext } from './summary-page.context';
 
 export default function SummaryPage() {
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [isThisYear, setIsThisYear] = useState(false);
+    const getYearSummaryService = useGetYearSummary();
+
+    useEffect((): void => {
+        getYearSummaryService.mutate({ year: currentYear });
+
+        setIsThisYear(currentYear === new Date().getFullYear());
+    }, [currentYear]);
+
     return (
         <Layout>
-            <div className="container">
-                <div className="header">
-                    <div>
-                        <h2>Spending Overview</h2>
-                        <p className="tag">
-                            Welcome back, Today is{' '}
-                            {new Date().toLocaleDateString('en-US', {
-                                weekday: 'long',
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </p>
-                    </div>
-                </div>
+            <SummaryPageContext.Provider
+                value={{
+                    yearSummary: getYearSummaryService.data?.yearSummary,
+                    isThisYear
+                }}
+            >
+                <div className="container">
+                    <SummaryHeaderSection></SummaryHeaderSection>
 
-                <div className={styles.summaryPage}>
-                    This page is under construction. Please check back soon
+                    <SummaryCategoriesSection></SummaryCategoriesSection>
                 </div>
-            </div>
+            </SummaryPageContext.Provider>
         </Layout>
     );
 }

@@ -109,7 +109,7 @@
         }
         td {
             font-size: 1.4rem;
-            height: 4.5rem;
+            height: var(--table-body-row-height);
             border-collapse: collapse;
             white-space: nowrap;
             padding-right: 3rem;

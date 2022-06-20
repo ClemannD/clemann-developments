@@ -1,0 +1,24 @@
+.chartCard {
+    padding: 2rem 2.5rem 1rem;
+
+    width: 100%;
+    height: auto;
+
+    .chartHeader {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .chartHeaderRight {
+            text-align: right;
+
+            .totalAmount {
+                color: var(--blue-darker);
+            }
+
+            p {
+                color: var(--blue-pale);
+            }
+        }
+    }
+}

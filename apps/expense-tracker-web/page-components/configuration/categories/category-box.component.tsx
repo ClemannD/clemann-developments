@@ -50,11 +50,11 @@ export default function CategoryBox({
 
     return (
         <div
-            className={styles.categoryBox}
+            className={`${styles.categoryBox} card`}
             style={{ opacity: categoryDto.active ? 1 : 0.5 }}
         >
             <div className={styles.categoryHeader}>
-                <h4>{categoryDto.name}</h4>
+                <h5>{categoryDto.name}</h5>
 
                 <div className={styles.categoryControls}>
                     <ColorChip

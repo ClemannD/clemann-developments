@@ -4,20 +4,23 @@ import { Account } from '../../entities/account.entity';
 import { AuthModule } from '../auth/auth.module';
 import { SummaryController } from './summary.controller';
 import { SummaryService } from './summary.service';
-
+import { Month } from '../../entities/month.entity';
+import { Expense } from '../../entities/expense.entity';
+import { ActiveOptionsModule } from '../active-options/active-options.module';
 @Module({
     imports: [
         TypeOrmModule.forFeature([
-            // Expense,
+            Expense,
             // RecurringExpense,
-            // Month,
+            Month,
             Account
             // Category,
             // Subcategory,
             // Tag,
             // PaymentMethod
         ]),
-        AuthModule
+        AuthModule,
+        ActiveOptionsModule
     ],
     controllers: [SummaryController],
     providers: [SummaryService]

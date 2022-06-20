@@ -10,7 +10,7 @@ export default function MonthCategoryBreakdownSection() {
     const { monthSummary } = useContext(MonthPageContext);
 
     return (
-        <div className={styles.monthBreakdown}>
+        <div className={`${styles.monthBreakdown} card`}>
             <h3>Categories</h3>
 
             <div className={styles.breakdownHeader}>

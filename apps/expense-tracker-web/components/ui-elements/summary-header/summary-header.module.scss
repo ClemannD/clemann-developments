@@ -10,7 +10,7 @@
 
         h4 {
             font-weight: 400;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
 
             @include respond-to('medium') {
@@ -19,13 +19,13 @@
         }
 
         .value {
-            font-weight: 500;
+            font-weight: 400;
             color: var(--primary-color);
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
 
             &.large {
-                font-size: 5rem;
+                font-size: 4rem;
             }
 
             @include respond-to('medium') {

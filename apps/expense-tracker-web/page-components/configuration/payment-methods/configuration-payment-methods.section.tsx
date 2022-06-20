@@ -24,7 +24,7 @@ export default function ConfigurationPaymentMethodsSection() {
                     fetchPaymentMethods={fetchPaymentMethods}
                 />
             </div>
-            <div className={styles.paymentMethodsBox}>
+            <div className={`${styles.paymentMethodsBox} card`}>
                 {getPaymentMethods.data?.paymentMethods.map((paymentMethod) => (
                     <PaymentMethodPill
                         key={paymentMethod.paymentMethodId}

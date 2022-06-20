@@ -22,7 +22,7 @@ export default function ConfigurationTagsSection() {
 
                 <CreateTagButton fetchTags={fetchTags} />
             </div>
-            <div className={styles.tagsBox}>
+            <div className={`${styles.tagsBox} card`}>
                 {getTags.data?.tags.map((tag) => (
                     <TagPill
                         key={tag.tagId}

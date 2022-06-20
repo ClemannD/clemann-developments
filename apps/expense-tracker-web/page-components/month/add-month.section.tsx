@@ -33,7 +33,7 @@ export default function AddMonthSection() {
             >
                 Create Month
             </h3>
-            <div className={styles.addMonthBox}>
+            <div className={`${styles.addMonthBox} card`}>
                 <p
                     className="larger"
                     style={{

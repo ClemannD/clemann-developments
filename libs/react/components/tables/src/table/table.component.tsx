@@ -110,12 +110,23 @@ export function Table({
 export type ColumnProps = {
     data?: string | number;
     minWidth?: string;
+    alignRight?: boolean;
     children?: any;
 };
 
-export const Column = ({ data, minWidth, children }: ColumnProps) => {
+export const Column = ({
+    data,
+    minWidth,
+    alignRight = false,
+    children
+}: ColumnProps) => {
     return (
-        <td style={{ minWidth: minWidth || 'auto' }}>
+        <td
+            style={{
+                minWidth: minWidth || 'auto',
+                textAlign: alignRight ? 'right' : 'left'
+            }}
+        >
             {children || data || '—'}
         </td>
     );
