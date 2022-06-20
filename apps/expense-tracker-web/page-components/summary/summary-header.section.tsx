@@ -8,6 +8,12 @@ import { SummaryPageContext } from './summary-page.context';
 import styles from './summary.module.scss';
 
 export default function SummaryHeaderSection() {
+    const centsToUsdString = (cents: number) =>
+        (cents / 100).toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        });
+
     const [summaryHeaderDataPoints, setSummaryHeaderDataPoints] = useState<
         SummaryHeaderDataPoint[]
     >([]);
@@ -20,33 +26,50 @@ export default function SummaryHeaderSection() {
 
     useEffect(() => {
         if (yearSummary) {
+            const nonZeroMonths = yearSummary.monthTotalsCents.filter(
+                (monthTotal) => monthTotal > 0
+            );
+
+            const nonZeroMonthsTotal = nonZeroMonths.reduce(
+                (acc, monthTotal) => acc + monthTotal,
+                0
+            );
+
+            const highestMonth = nonZeroMonths.reduce(
+                (acc, monthTotal) => (monthTotal > acc ? monthTotal : acc),
+                0
+            );
+
+            const lowestMonth = nonZeroMonths.reduce(
+                (acc, monthTotal) => (monthTotal < acc ? monthTotal : acc),
+                Infinity
+            );
+
             const dataPoints: SummaryHeaderDataPoint[] = [
                 {
                     label: 'Year to Date',
-                    value: !!yearSummary.yearTotalCents
-                        ? (yearSummary.yearTotalCents / 100).toLocaleString(
-                              'en-US',
-                              {
-                                  style: 'currency',
-                                  currency: 'USD'
-                              }
-                          )
+                    value: yearSummary
+                        ? centsToUsdString(yearSummary.yearTotalCents)
                         : null,
                     subLabel: `${getDayOfYear()}/365 Days`,
                     isLarge: true
                 },
                 {
-                    label: 'This Month',
-                    value: !!yearSummary.yearTotalCents
-                        ? (yearSummary.yearTotalCents / 100).toLocaleString(
-                              'en-US',
-                              {
-                                  style: 'currency',
-                                  currency: 'USD'
-                              }
+                    label: 'Monthly Average',
+                    value: yearSummary
+                        ? centsToUsdString(
+                              nonZeroMonthsTotal / nonZeroMonths.length
                           )
                         : null,
-                    subLabel: `${getDayOfMonth()}/30 Days`
+                    subLabel: `Over ${nonZeroMonths.length} months`
+                },
+                {
+                    label: 'Highest Month',
+                    value: yearSummary ? centsToUsdString(highestMonth) : null
+                },
+                {
+                    label: 'Lowest Month',
+                    value: yearSummary ? centsToUsdString(lowestMonth) : null
                 }
             ];
 

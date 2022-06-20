@@ -69,7 +69,6 @@ export default function YearSpendChart({
     const options = {
         maintainAspectRatio: false,
         interaction: {
-            mode: 'index',
             axis: 'yAxes'
         },
         layout: {
@@ -105,5 +104,5 @@ export default function YearSpendChart({
         return <Loading></Loading>;
     }
 
-    return <Bar data={data} options={options} />;
+    return <Bar data={data} options={options as any} />;
 }
