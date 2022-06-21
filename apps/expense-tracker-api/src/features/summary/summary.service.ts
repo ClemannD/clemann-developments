@@ -100,9 +100,7 @@ export class SummaryService {
             return (
                 total +
                 month.expenses.reduce((total, expense) => {
-                    return total + expense.split
-                        ? expense.amountCents / expense.split
-                        : expense.amountCents;
+                    return total + this._getExpenseCents(expense);
                 }, 0)
             );
         }, 0);
