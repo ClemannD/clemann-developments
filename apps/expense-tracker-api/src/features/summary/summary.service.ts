@@ -42,13 +42,12 @@ export class SummaryService {
     }
 
     private _getYearMonthTotalsCents(months: Month[]): number[] {
-        console.log('months', months);
         const monthTotalOrZero = (monthNumber: number): number => {
             return (
                 months
                     .find((month) => month.month === monthNumber)
                     ?.expenses.reduce((acc, expense) => {
-                        return acc + expense.amountCents;
+                        return acc + this._getExpenseCents(expense);
                     }, 0) || 0
             );
         };
@@ -67,9 +66,9 @@ export class SummaryService {
                     ?.expenses.filter(
                         (expense) => expense.category?.categoryId === categoryId
                     )
-                    .reduce((acc, expense) => {
-                        return acc + expense.amountCents;
-                    }, 0) || 0
+                    ?.reduce((acc, expense) => {
+                        return acc + this._getExpenseCents(expense);
+                    }, 0) ?? 0
             );
         };
 
@@ -88,8 +87,8 @@ export class SummaryService {
                             expense.subcategory?.subcategoryId === subcategoryId
                     )
                     .reduce((acc, expense) => {
-                        return acc + expense.amountCents;
-                    }, 0) || 0
+                        return acc + this._getExpenseCents(expense);
+                    }, 0) ?? 0
             );
         };
 
@@ -101,7 +100,9 @@ export class SummaryService {
             return (
                 total +
                 month.expenses.reduce((total, expense) => {
-                    return total + expense.amountCents;
+                    return total + expense.split
+                        ? expense.amountCents / expense.split
+                        : expense.amountCents;
                 }, 0)
             );
         }, 0);
@@ -177,5 +178,13 @@ export class SummaryService {
         ).sort((a, b) => {
             return a.month - b.month;
         });
+    }
+
+    private _getExpenseCents(expense: Expense): number {
+        return !expense.amountCents
+            ? 0
+            : expense.split
+            ? expense.amountCents / expense.split
+            : expense.amountCents;
     }
 }

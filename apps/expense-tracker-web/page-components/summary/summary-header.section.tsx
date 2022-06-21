@@ -1,3 +1,8 @@
+import {
+    Button,
+    ButtonAppearance
+} from '@clemann-developments/react/components/interaction/button';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import { useContext, useEffect, useState } from 'react';
 import ChartCard from '../../components/charts/chart-card/chart-card.component';
 import YearSpendChart from '../../components/charts/year-spend-chart/year-spend-chart.component';
@@ -18,69 +23,74 @@ export default function SummaryHeaderSection() {
         SummaryHeaderDataPoint[]
     >([]);
 
-    const { yearSummary, isThisYear } = useContext(SummaryPageContext);
+    const { yearSummary, isThisYear, currentYear, setCurrentYear } =
+        useContext(SummaryPageContext);
 
     const getDayOfYear = () =>
         new Date().getDate() + new Date().getMonth() * 30 + 1;
-    const getDayOfMonth = () => new Date().getDate();
 
     useEffect(() => {
-        if (yearSummary) {
-            const nonZeroMonths = yearSummary.monthTotalsCents.filter(
+        const nonZeroMonths =
+            yearSummary?.monthTotalsCents.filter(
                 (monthTotal) => monthTotal > 0
-            );
+            ) || [];
 
-            const nonZeroMonthsTotal = nonZeroMonths.reduce(
-                (acc, monthTotal) => acc + monthTotal,
-                0
-            );
+        const nonZeroMonthsTotal = nonZeroMonths.reduce(
+            (acc, monthTotal) => acc + monthTotal,
+            0
+        );
 
-            const highestMonth = nonZeroMonths.reduce(
-                (acc, monthTotal) => (monthTotal > acc ? monthTotal : acc),
-                0
-            );
+        const highestMonth = nonZeroMonths.length
+            ? nonZeroMonths.reduce(
+                  (acc, monthTotal) => (monthTotal > acc ? monthTotal : acc),
+                  0
+              )
+            : 0;
 
-            const lowestMonth = nonZeroMonths.reduce(
-                (acc, monthTotal) => (monthTotal < acc ? monthTotal : acc),
-                Infinity
-            );
+        const lowestMonth = nonZeroMonths.length
+            ? nonZeroMonths.reduce(
+                  (acc, monthTotal) => (monthTotal < acc ? monthTotal : acc),
+                  Infinity
+              )
+            : 0;
 
-            const dataPoints: SummaryHeaderDataPoint[] = [
-                {
-                    label: 'Year to Date',
-                    value: yearSummary
-                        ? centsToUsdString(yearSummary.yearTotalCents)
-                        : null,
-                    subLabel: `${getDayOfYear()}/365 Days`,
-                    isLarge: true
-                },
-                {
-                    label: 'Monthly Average',
-                    value: yearSummary
-                        ? centsToUsdString(
-                              nonZeroMonthsTotal / nonZeroMonths.length
-                          )
-                        : null,
-                    subLabel: `Over ${nonZeroMonths.length} months`
-                },
-                {
-                    label: 'Highest Month',
-                    value: yearSummary ? centsToUsdString(highestMonth) : null
-                },
-                {
-                    label: 'Lowest Month',
-                    value: yearSummary ? centsToUsdString(lowestMonth) : null
-                }
-            ];
+        const dataPoints: SummaryHeaderDataPoint[] = [
+            {
+                label: 'Year to Date',
+                value: yearSummary
+                    ? centsToUsdString(yearSummary.yearTotalCents)
+                    : null,
+                subLabel: `${getDayOfYear()}/365 Days`,
+                isLarge: true
+            },
+            {
+                label: 'Monthly Average',
+                value: yearSummary
+                    ? centsToUsdString(
+                          nonZeroMonths.length
+                              ? nonZeroMonthsTotal / nonZeroMonths.length
+                              : 0
+                      )
+                    : null,
+                subLabel: `Over ${nonZeroMonths.length} months`
+            },
+            {
+                label: 'Highest Month',
+                value: yearSummary ? centsToUsdString(highestMonth) : null
+            },
+            {
+                label: 'Lowest Month',
+                value: yearSummary ? centsToUsdString(lowestMonth) : null
+            }
+        ];
 
-            setSummaryHeaderDataPoints(dataPoints);
-        }
+        setSummaryHeaderDataPoints(dataPoints);
     }, [yearSummary]);
     return (
         <>
             <div className="header">
                 <div>
-                    <h2>2022 Spending Overview</h2>
+                    <h2>{currentYear} Spending Overview</h2>
                     <p className="tag">
                         Welcome back, Today is{' '}
                         <b>
@@ -94,7 +104,39 @@ export default function SummaryHeaderSection() {
                     </p>
                 </div>
 
-                <div className={styles.headerActions}></div>
+                <div className={styles.headerActions}>
+                    <Button
+                        appearance={ButtonAppearance.Secondary}
+                        style={{
+                            marginRight: '1rem'
+                        }}
+                        clickHandler={() => {
+                            setCurrentYear(currentYear - 1);
+                        }}
+                    >
+                        <ChevronLeftIcon></ChevronLeftIcon>
+                    </Button>
+
+                    <Button
+                        appearance={ButtonAppearance.Secondary}
+                        style={{
+                            marginRight: '1rem'
+                        }}
+                        clickHandler={() => {
+                            setCurrentYear(new Date().getFullYear());
+                        }}
+                    >
+                        Current Year
+                    </Button>
+                    <Button
+                        appearance={ButtonAppearance.Secondary}
+                        clickHandler={() => {
+                            setCurrentYear(currentYear + 1);
+                        }}
+                    >
+                        <ChevronRightIcon></ChevronRightIcon>
+                    </Button>
+                </div>
             </div>
 
             <SummaryHeader dataPoints={summaryHeaderDataPoints} />
@@ -103,7 +145,9 @@ export default function SummaryHeaderSection() {
                 <ChartCard
                     chartTitle="Monthly Totals"
                     totalTitle={isThisYear ? 'YTD' : 'Total'}
-                    totalCents={yearSummary?.yearTotalCents}
+                    totalCents={
+                        yearSummary ? yearSummary.yearTotalCents ?? 0 : null
+                    }
                 >
                     <YearSpendChart
                         monthTotalsCents={yearSummary?.monthTotalsCents}

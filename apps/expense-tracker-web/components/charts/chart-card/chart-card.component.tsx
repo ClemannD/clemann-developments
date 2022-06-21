@@ -35,8 +35,8 @@ export default function ChartCard({
                             <SkeletonLoader
                                 style={{
                                     width: '5rem',
-                                    height: '1.5rem',
-                                    margin: '0.5rem 0'
+                                    height: '1.4rem',
+                                    margin: '0rem 0'
                                 }}
                             />
                         )}
