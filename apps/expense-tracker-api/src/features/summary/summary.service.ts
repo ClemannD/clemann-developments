@@ -1,5 +1,6 @@
 import {
     CategoryYearSummaryDto,
+    TagYearSummaryDto,
     YearSummaryDto
 } from '@clemann-developments/dtos/expense-tracker-dtos';
 import { Injectable } from '@nestjs/common';
@@ -29,15 +30,21 @@ export class SummaryService {
         const monthsForYear = await this._getMonthsForYear(accountId, year);
         const monthTotalsCents = this._getYearMonthTotalsCents(monthsForYear);
         const yearTotalCents = this._getYearTotalCents(monthsForYear);
+        const categorySummaries = await this._getCategoryYearSummaries(
+            monthsForYear,
+            accountId
+        );
+        const tagSummaries = await this._getTagYearSummaries(
+            monthsForYear,
+            accountId
+        );
 
         return {
             year,
             monthTotalsCents,
             yearTotalCents,
-            categorySummaries: await this._getCategoryYearSummaries(
-                monthsForYear,
-                accountId
-            )
+            categorySummaries,
+            tagSummaries
         };
     }
 
@@ -74,6 +81,24 @@ export class SummaryService {
 
         return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(monthTotalOrZero);
     }
+
+    private _getTagMonthTotalsCents(months: Month[], tagId: string): number[] {
+        const monthTotalOrZero = (monthNumber: number): number => {
+            return (
+                months
+                    .find((month) => month.month === monthNumber)
+                    ?.expenses.filter((expense) =>
+                        expense.tags?.some((tag) => tag.tagId === tagId)
+                    )
+                    ?.reduce((acc, expense) => {
+                        return acc + this._getExpenseCents(expense);
+                    }, 0) ?? 0
+            );
+        };
+
+        return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(monthTotalOrZero);
+    }
+
     private _getSubcategoryMonthTotalsCents(
         months: Month[],
         subcategoryId: string
@@ -149,6 +174,34 @@ export class SummaryService {
                             };
                         }
                     )
+                };
+            })
+            .sort((a, b) => b.totalCents - a.totalCents);
+    }
+
+    private async _getTagYearSummaries(
+        months: Month[],
+        accountId: string
+    ): Promise<TagYearSummaryDto[]> {
+        const activeTags = await this._activeOptionsService.getActiveTags(
+            accountId
+        );
+
+        return activeTags
+            .map((tag) => {
+                const tagMonthTotalsCents = this._getTagMonthTotalsCents(
+                    months,
+                    tag.tagId
+                );
+
+                return {
+                    tagId: tag.tagId,
+                    name: tag.name,
+                    totalCents: tagMonthTotalsCents.reduce(
+                        (total, monthTotal) => total + monthTotal,
+                        0
+                    ),
+                    monthTotalsCents: tagMonthTotalsCents
                 };
             })
             .sort((a, b) => b.totalCents - a.totalCents);

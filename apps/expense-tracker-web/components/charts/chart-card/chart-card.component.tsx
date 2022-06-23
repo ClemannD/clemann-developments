@@ -23,24 +23,60 @@ export default function ChartCard({
                 </div>
                 {totalTitle && (
                     <div className={styles.chartHeaderRight}>
-                        {totalCents !== null ? (
-                            <div className={`${styles.totalAmount} tableLabel`}>
-                                {(totalCents / 100).toLocaleString('en-US', {
-                                    style: 'currency',
-                                    currency: 'USD',
-                                    currencyDisplay: 'symbol'
-                                })}
-                            </div>
-                        ) : (
-                            <SkeletonLoader
-                                style={{
-                                    width: '5rem',
-                                    height: '1.4rem',
-                                    margin: '0rem 0'
-                                }}
-                            />
-                        )}
-                        <p className="body">YTD</p>
+                        <div>
+                            {totalCents !== null ? (
+                                <div
+                                    className={`${styles.totalAmount} tableLabel`}
+                                >
+                                    {(totalCents / 100 / 12).toLocaleString(
+                                        'en-US',
+                                        {
+                                            style: 'currency',
+                                            currency: 'USD',
+                                            currencyDisplay: 'symbol'
+                                        }
+                                    )}
+                                </div>
+                            ) : (
+                                <SkeletonLoader
+                                    style={{
+                                        width: '5rem',
+                                        height: '1.4rem',
+                                        margin: '0rem 0'
+                                    }}
+                                />
+                            )}
+                            <p className="body">AVG</p>
+                        </div>
+                        <div
+                            style={{
+                                marginLeft: '3rem'
+                            }}
+                        >
+                            {totalCents !== null ? (
+                                <div
+                                    className={`${styles.totalAmount} tableLabel`}
+                                >
+                                    {(totalCents / 100).toLocaleString(
+                                        'en-US',
+                                        {
+                                            style: 'currency',
+                                            currency: 'USD',
+                                            currencyDisplay: 'symbol'
+                                        }
+                                    )}
+                                </div>
+                            ) : (
+                                <SkeletonLoader
+                                    style={{
+                                        width: '5rem',
+                                        height: '1.4rem',
+                                        margin: '0rem 0'
+                                    }}
+                                />
+                            )}
+                            <p className="body">YTD</p>
+                        </div>
                     </div>
                 )}
             </div>

@@ -10,6 +10,9 @@
         margin-bottom: 1rem;
 
         .chartHeaderRight {
+            display: flex;
+            justify-content: space-between;
+
             text-align: right;
 
             .totalAmount {

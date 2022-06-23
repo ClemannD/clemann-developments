@@ -1,3 +1,10 @@
+export class TagYearSummaryDto {
+    public tagId: string;
+    public name: string;
+    public totalCents: number;
+    public monthTotalsCents: number[];
+}
+
 export class SubcategoryYearSummaryDto {
     public subcategoryId: string;
     public name: string;
@@ -19,6 +26,7 @@ export class YearSummaryDto {
     public yearTotalCents: number;
     public monthTotalsCents: number[];
     public categorySummaries?: CategoryYearSummaryDto[];
+    public tagSummaries?: TagYearSummaryDto[];
 }
 
 export class GetYearSummaryRequest {

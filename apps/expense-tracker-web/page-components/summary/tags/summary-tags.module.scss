@@ -1,0 +1,12 @@
+.summaryTags {
+    padding-top: 4rem;
+    .summaryTagsPicker {
+        padding-top: 1rem;
+
+        .summaryTagsPickerList {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+        }
+    }
+}

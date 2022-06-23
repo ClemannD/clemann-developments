@@ -5,6 +5,7 @@ import Layout from '../../components/layout/layout.component';
 import SummaryCategoriesSection from './categories/summary-categories.section';
 import SummaryHeaderSection from './summary-header.section';
 import { SummaryPageContext } from './summary-page.context';
+import SummaryTagsSection from './tags/summary-tags.section';
 
 export default function SummaryPage() {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -20,7 +21,6 @@ export default function SummaryPage() {
     }, [currentYear]);
 
     useEffect((): void => {
-        console.log('getYearSummaryService.data', getYearSummaryService.data);
         if (getYearSummaryService.data) {
             setYearSummary(getYearSummaryService.data.yearSummary);
         }
@@ -36,10 +36,15 @@ export default function SummaryPage() {
                     isThisYear
                 }}
             >
-                <div className="container">
-                    <SummaryHeaderSection></SummaryHeaderSection>
-
-                    <SummaryCategoriesSection></SummaryCategoriesSection>
+                <div
+                    className="container"
+                    style={{
+                        paddingBottom: '20rem'
+                    }}
+                >
+                    <SummaryHeaderSection />
+                    <SummaryCategoriesSection />
+                    <SummaryTagsSection />
                 </div>
             </SummaryPageContext.Provider>
         </Layout>
