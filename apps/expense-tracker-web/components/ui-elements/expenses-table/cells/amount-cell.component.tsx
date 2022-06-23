@@ -18,7 +18,7 @@ export default function ExpenseAmountCell({
 
     const shadowInput = useRef(null);
     const [value, setValue] = useState(
-        `${amountCents ? amountCents / 100 : 0}`
+        amountCents ? `${amountCents / 100}` : ''
     );
     const [inputWidth, setInputWidth] = useState();
     const [inputFocused, setInputFocused] = useState(false);
@@ -27,6 +27,10 @@ export default function ExpenseAmountCell({
     useEffect(() => {
         shadowInput.current.innerText = `$${value}.00`;
     }, [value]);
+
+    useEffect(() => {
+        setValue(amountCents ? `${amountCents / 100}` : '');
+    }, [amountCents]);
 
     useEffect(() => {
         const shadowInputWidth = shadowInput.current.clientWidth + 6;
@@ -65,6 +69,9 @@ export default function ExpenseAmountCell({
             ) {
                 event.stopPropagation();
             }
+        }
+        if (event.key === 'Enter') {
+            inputRef.current.value = '';
         }
     };
 
