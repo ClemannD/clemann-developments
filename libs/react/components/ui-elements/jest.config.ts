@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+/* eslint-disable */
+export default {
     displayName: 'react-components-ui-elements',
     preset: '../../../../jest.preset.js',
     transform: {

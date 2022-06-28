@@ -1,5 +1,5 @@
 {
-  "root": "libs/nest/common-auth0",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/nest/common-auth0/src",
   "projectType": "library",
   "targets": {
@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/nest/common-auth0"],
       "options": {
-        "jestConfig": "libs/nest/common-auth0/jest.config.js",
+        "jestConfig": "libs/nest/common-auth0/jest.config.ts",
         "passWithNoTests": true
       }
     }

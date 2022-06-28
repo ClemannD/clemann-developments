@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/hooks/use-window-dimensions",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/hooks/use-window-dimensions/src",
   "projectType": "library",
   "tags": [],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/hooks/use-window-dimensions"],
       "options": {
-        "jestConfig": "libs/react/hooks/use-window-dimensions/jest.config.js",
+        "jestConfig": "libs/react/hooks/use-window-dimensions/jest.config.ts",
         "passWithNoTests": true
       }
     }

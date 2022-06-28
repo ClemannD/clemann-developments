@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/forms",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/forms/src",
   "projectType": "library",
   "tags": [],
@@ -15,7 +15,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/forms"],
       "options": {
-        "jestConfig": "libs/react/forms/jest.config.js",
+        "jestConfig": "libs/react/forms/jest.config.ts",
         "passWithNoTests": true
       }
     }

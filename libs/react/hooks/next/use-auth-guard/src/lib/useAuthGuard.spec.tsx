@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { useRouter } from 'next/router';
 import { useAuthGuard } from './useAuthGuard';
 

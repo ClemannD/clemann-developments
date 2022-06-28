@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/components/tables",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/components/tables/src",
   "projectType": "library",
   "tags": [],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/components/tables"],
       "options": {
-        "jestConfig": "libs/react/components/tables/jest.config.js",
+        "jestConfig": "libs/react/components/tables/jest.config.ts",
         "passWithNoTests": true
       }
     }

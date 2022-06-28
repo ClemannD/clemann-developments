@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/components/ui-elements",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/components/ui-elements/src",
   "projectType": "library",
   "tags": [],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/components/ui-elements"],
       "options": {
-        "jestConfig": "libs/react/components/ui-elements/jest.config.js",
+        "jestConfig": "libs/react/components/ui-elements/jest.config.ts",
         "passWithNoTests": true
       }
     }

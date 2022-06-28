@@ -22,5 +22,6 @@
     "setscore-web": "apps/setscore-web",
     "setscore-web-e2e": "apps/setscore-web-e2e",
     "theme": "libs/theme"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+/* eslint-disable */
+export default {
     displayName: 'node-typeorm-find-paginated-and-sort',
     preset: '../../../../jest.preset.js',
     globals: {

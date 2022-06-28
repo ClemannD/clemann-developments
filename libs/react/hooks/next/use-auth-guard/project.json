@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/hooks/next/use-auth-guard",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/hooks/next/use-auth-guard/src",
   "projectType": "library",
   "tags": [],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/hooks/next/use-auth-guard"],
       "options": {
-        "jestConfig": "libs/react/hooks/next/use-auth-guard/jest.config.js",
+        "jestConfig": "libs/react/hooks/next/use-auth-guard/jest.config.ts",
         "passWithNoTests": true
       }
     }
