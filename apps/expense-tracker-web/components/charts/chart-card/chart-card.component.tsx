@@ -7,11 +7,13 @@ export default function ChartCard({
     totalTitle,
     totalCents,
     height = '35rem',
+    isThisYear = false,
     children
 }: {
     chartTitle: string;
     totalTitle?: string;
     totalCents?: number | null;
+    isThisYear?: boolean;
     height?: string;
     children: ReactNode;
 }) {
@@ -28,14 +30,17 @@ export default function ChartCard({
                                 <div
                                     className={`${styles.totalAmount} tableLabel`}
                                 >
-                                    {(totalCents / 100 / 12).toLocaleString(
-                                        'en-US',
-                                        {
-                                            style: 'currency',
-                                            currency: 'USD',
-                                            currencyDisplay: 'symbol'
-                                        }
-                                    )}
+                                    {(
+                                        totalCents /
+                                        100 /
+                                        (isThisYear
+                                            ? new Date().getMonth()
+                                            : 12)
+                                    ).toLocaleString('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        currencyDisplay: 'symbol'
+                                    })}
                                 </div>
                             ) : (
                                 <SkeletonLoader

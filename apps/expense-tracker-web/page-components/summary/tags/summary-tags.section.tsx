@@ -34,6 +34,11 @@ export default function SummaryTagsSection() {
         }
     }, [yearSummary]);
 
+    const getCurrentMonth = () => {
+        if (isThisYear) {
+            return new Date().getMonth();
+        }
+    };
     return (
         <div className={styles.summaryTags}>
             <h3>Tag Breakdown</h3>
@@ -74,6 +79,7 @@ export default function SummaryTagsSection() {
                                 chartTitle={selectedTag.name}
                                 totalTitle={isThisYear ? 'YTD' : 'Total'}
                                 totalCents={selectedTag.totalCents}
+                                isThisYear={isThisYear}
                                 height="25rem"
                             >
                                 <YearSpendChart

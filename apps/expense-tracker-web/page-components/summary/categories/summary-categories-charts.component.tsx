@@ -36,6 +36,7 @@ export default function SummaryCategoriesCharts({
                         <ChartCard
                             chartTitle={selectedCategory.name}
                             totalTitle={isThisYear ? 'YTD' : 'Total'}
+                            isThisYear={isThisYear}
                             totalCents={selectedCategory.totalCents}
                             height="25rem"
                         >
@@ -60,6 +61,7 @@ export default function SummaryCategoriesCharts({
                                     <ChartCard
                                         chartTitle={subcategorySummary.name}
                                         totalTitle="Total"
+                                        isThisYear={isThisYear}
                                         totalCents={
                                             subcategorySummary.totalCents
                                         }

@@ -145,6 +145,7 @@ export default function SummaryHeaderSection() {
                 <ChartCard
                     chartTitle="Monthly Totals"
                     totalTitle={isThisYear ? 'YTD' : 'Total'}
+                    isThisYear={isThisYear}
                     totalCents={
                         yearSummary ? yearSummary.yearTotalCents ?? 0 : null
                     }
