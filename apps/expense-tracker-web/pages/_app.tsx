@@ -1,9 +1,16 @@
 import { Auth0Provider } from '@auth0/auth0-react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import App from '../page-components/app';
 import '../styles/styles.scss';
+
+declare module 'react-query/types/react/QueryClientProvider' {
+    interface QueryClientProviderProps {
+        children?: ReactNode;
+    }
+}
 
 const queryClient = new QueryClient();
 
