@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+/* eslint-disable */
+export default {
     displayName: 'react-hooks-use-window-dimensions',
     preset: '../../../../jest.preset.js',
     globals: {

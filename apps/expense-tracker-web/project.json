@@ -1,5 +1,5 @@
 {
-  "root": "apps/expense-tracker-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/expense-tracker-web",
   "projectType": "application",
   "targets": {
@@ -38,7 +38,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/expense-tracker-web"],
       "options": {
-        "jestConfig": "apps/expense-tracker-web/jest.config.js",
+        "jestConfig": "apps/expense-tracker-web/jest.config.ts",
         "passWithNoTests": true
       }
     },

@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/hooks/use-modal",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/hooks/use-modal/src",
   "projectType": "library",
   "tags": ["react"],
@@ -15,7 +15,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/hooks/use-modal"],
       "options": {
-        "jestConfig": "libs/react/hooks/use-modal/jest.config.js",
+        "jestConfig": "libs/react/hooks/use-modal/jest.config.ts",
         "passWithNoTests": true
       }
     }

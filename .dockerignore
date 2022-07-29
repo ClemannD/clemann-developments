@@ -1,0 +1,11 @@
+node_modules
+tmp
+
+.vscode
+.vercel
+.circleci
+.gitignore
+.cz-config.js
+.env.local
+.ormconfig.json
+.editorconfig

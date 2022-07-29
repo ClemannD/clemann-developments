@@ -1,15 +1,16 @@
 {
-  "root": "apps/expense-tracker-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/expense-tracker-api/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/expense-tracker-api",
         "main": "apps/expense-tracker-api/src/main.ts",
         "tsConfig": "apps/expense-tracker-api/tsconfig.app.json",
+        "generatePackageJson": true,
         "assets": ["apps/expense-tracker-api/src/assets"]
       },
       "configurations": {
@@ -27,7 +28,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "expense-tracker-api:build"
       }
@@ -43,7 +44,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/expense-tracker-api"],
       "options": {
-        "jestConfig": "apps/expense-tracker-api/jest.config.js",
+        "jestConfig": "apps/expense-tracker-api/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -57,40 +58,44 @@
         ]
       }
     },
-    "deploy-development": {
+    "build-docker": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
           {
-            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
-          },
-          {
-            "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-dev"
+            "command": "docker build -t dclemann/clemann-developments:expense-tracker-api-latest -f ./apps/expense-tracker-api/Dockerfile . --build-arg NODE_ENV=production"
           }
         ]
       }
     },
-    "deploy-staging": {
+    "deploy": {
       "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": [
-          {
-            "command": "echo 'No Staging environment'"
-          }
-        ]
-      }
-    },
-    "deploy-production": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": [
-          {
-            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
-          },
-          {
-            "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/heroku.deploy.sh expense-tracker-api expense-tracker-api-prod"
-          }
-        ]
+      "configurations": {
+        "development": {
+          "commands": [
+            {
+              "command": "doppler run -c dev --token $DOPPLER_ACCESS_TOKEN_DEV -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
+            }
+          ]
+        },
+        "staging": {
+          "commands": [
+            {
+              "command": "echo 'No Staging environment'"
+            }
+          ]
+        },
+        "production": {
+          "parallel": false,
+          "commands": [
+            {
+              "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/scripts/migrations/expense-tracker-api.run-migrations.sh"
+            },
+            {
+              "command": "doppler run -c prod --token $DOPPLER_ACCESS_TOKEN_PROD -- ./tools/deployers/expense-tracker/remote-api-deployer.sh"
+            }
+          ]
+        }
       }
     }
   },

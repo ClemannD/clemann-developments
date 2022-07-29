@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+/* eslint-disable */
+export default {
     displayName: 'react-forms',
     preset: '../../../jest.preset.js',
     transform: {

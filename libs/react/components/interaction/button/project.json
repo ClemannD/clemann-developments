@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/components/interaction/button",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/components/interaction/button/src",
   "projectType": "library",
   "tags": ["react"],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/components/interaction/button"],
       "options": {
-        "jestConfig": "libs/react/components/interaction/button/jest.config.js",
+        "jestConfig": "libs/react/components/interaction/button/jest.config.ts",
         "passWithNoTests": true
       }
     }

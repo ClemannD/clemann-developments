@@ -1,4 +1,7 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+/* eslint-disable */
+export default {
     displayName: 'expense-tracker-api',
     preset: '../../jest.preset.js',
     globals: {

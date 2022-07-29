@@ -9,7 +9,7 @@ export class AuthUserGuard implements CanActivate {
         const request = context.switchToHttp().getRequest();
 
         const user = await this._authService.getOrCreateUserFromAuthProvider(
-            request.user.sub,
+            request.user?.sub,
             request.headers.authorization
         );
 

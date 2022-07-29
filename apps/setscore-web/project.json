@@ -1,8 +1,7 @@
 {
-  "root": "apps/setscore-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/setscore-web",
   "projectType": "application",
-
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
@@ -23,7 +22,6 @@
         "dev": true,
         "port": 3000
       },
-
       "configurations": {
         "production": {
           "buildTarget": "setscore-web:build:production",

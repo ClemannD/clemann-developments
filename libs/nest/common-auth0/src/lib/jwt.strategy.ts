@@ -1,7 +1,7 @@
-import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Inject, Injectable } from '@nestjs/common';
-import { passportJwtSecret } from 'jwks-rsa';
 import { PassportStrategy } from '@nestjs/passport';
+import { passportJwtSecret } from 'jwks-rsa';
+import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Auth0ModuleOptions } from './auth0.module';
 
 @Injectable()

@@ -1,5 +1,5 @@
 {
-  "root": "libs/react/hooks/use-scroll-position",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react/hooks/use-scroll-position/src",
   "projectType": "library",
   "tags": [],
@@ -17,7 +17,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/react/hooks/use-scroll-position"],
       "options": {
-        "jestConfig": "libs/react/hooks/use-scroll-position/jest.config.js",
+        "jestConfig": "libs/react/hooks/use-scroll-position/jest.config.ts",
         "passWithNoTests": true
       }
     }
