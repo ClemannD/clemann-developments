@@ -1,19 +1,36 @@
 @import 'libs/theme/src/mixins.scss';
 
-.headerActions {
-    display: flex;
-    align-items: center;
-
-    .button {
-        margin-right: 1rem;
+.summaryHeader {
+    .intro {
+        @include respond-to('medium') {
+            margin: 1rem 0;
+            h2 {
+                margin-bottom: 0.2rem;
+            }
+            .introTag {
+                font-size: 1.4rem !important;
+            }
+        }
     }
 
-    @include respond-to('medium') {
-        margin-top: 1rem;
+    .headerActions {
+        display: flex;
+        align-items: center;
+
+        .button {
+            margin-right: 1rem;
+        }
+
+        @include respond-to('medium') {
+            margin-top: 1rem;
+        }
     }
 }
-
 .yearTotalsSection {
     margin-top: 4.5rem;
     margin-bottom: 5rem;
+    @include respond-to('small') {
+        margin-top: 2.5rem;
+        margin-bottom: 3rem;
+    }
 }

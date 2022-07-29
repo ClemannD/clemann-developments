@@ -16,6 +16,12 @@
 
         .navbarLogo {
             margin-right: 5rem;
+            transition: opacity var(--ease-out-quart);
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.8;
+            }
         }
 
         .navbarLinks {

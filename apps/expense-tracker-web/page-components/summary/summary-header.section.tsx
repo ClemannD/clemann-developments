@@ -72,15 +72,18 @@ export default function SummaryHeaderSection() {
                               : 0
                       )
                     : null,
-                subLabel: `Over ${nonZeroMonths.length} months`
+                subLabel: `Over ${nonZeroMonths.length} months`,
+                hideOnMobile: true
             },
             {
                 label: 'Highest Month',
-                value: yearSummary ? centsToUsdString(highestMonth) : null
+                value: yearSummary ? centsToUsdString(highestMonth) : null,
+                hideOnMobile: true
             },
             {
                 label: 'Lowest Month',
-                value: yearSummary ? centsToUsdString(lowestMonth) : null
+                value: yearSummary ? centsToUsdString(lowestMonth) : null,
+                hideOnMobile: true
             }
         ];
 
@@ -88,10 +91,10 @@ export default function SummaryHeaderSection() {
     }, [yearSummary]);
     return (
         <>
-            <div className="header">
-                <div>
+            <div className={`header ${styles.summaryHeader}`}>
+                <div className={styles.intro}>
                     <h2>{currentYear} Spending Overview</h2>
-                    <p className="tag">
+                    <p className={`tag ${styles.introTag}`}>
                         Welcome back, Today is{' '}
                         <b>
                             {new Date().toLocaleDateString('en-US', {

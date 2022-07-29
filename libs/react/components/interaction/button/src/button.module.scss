@@ -15,6 +15,10 @@
     transition: background-color var(--ease-out-quart),
         opacity var(--ease-out-quart);
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     // @include respond-to('medium') {
     //     height: 3.5rem;
     // }

@@ -28,9 +28,11 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
         >
             <div className="container">
                 <div className={styles.navbarContent}>
-                    <div className={styles.navbarLogo}>
-                        <LogoWithBackground height={40} />
-                    </div>
+                    <Link href={'/summary'}>
+                        <div className={styles.navbarLogo}>
+                            <LogoWithBackground height={40} />
+                        </div>
+                    </Link>
 
                     {showLinks && (
                         <>
