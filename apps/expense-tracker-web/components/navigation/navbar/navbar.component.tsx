@@ -28,7 +28,7 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
         >
             <div className="container">
                 <div className={styles.navbarContent}>
-                    <Link href={'/summary'}>
+                    <Link href={'/overview'}>
                         <div className={styles.navbarLogo}>
                             <LogoWithBackground height={40} />
                         </div>
@@ -39,12 +39,12 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                             <div className={styles.navbarLinks}>
                                 <div
                                     className={`${styles.navbarLink} ${
-                                        router.pathname === '/summary'
+                                        router.pathname === '/overview'
                                             ? styles.active
                                             : ''
                                     }`}
                                 >
-                                    <Link href={'/summary'}>Summary</Link>
+                                    <Link href={'/summary'}>Overview</Link>
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${
@@ -57,14 +57,12 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${
-                                        router.pathname === '/configuration'
+                                        router.pathname === '/intake'
                                             ? styles.active
                                             : ''
                                     }`}
                                 >
-                                    <Link href={'/configuration'}>
-                                        Configuration
-                                    </Link>
+                                    <Link href={'/intake'}>Intake</Link>
                                 </div>
                             </div>
                         </>
@@ -78,6 +76,11 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
 
                         {settingsOpen && (
                             <div className={styles.navbarSettings}>
+                                <div className={styles.navbarSettingsItem}>
+                                    <Link href={'/configuration'}>
+                                        Configuration
+                                    </Link>
+                                </div>
                                 <div className={styles.navbarSettingsItem}>
                                     <Link href={'/logout'}>Logout</Link>
                                 </div>
