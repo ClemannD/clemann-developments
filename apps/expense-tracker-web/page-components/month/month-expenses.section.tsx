@@ -1,5 +1,8 @@
 import { ExpenseDto } from '@clemann-developments/dtos/expense-tracker-dtos';
+import { Button } from '@clemann-developments/react/components/interaction/button';
+import { Input } from '@clemann-developments/react/forms';
 import { useEventBus } from '@clemann-developments/react/hooks/use-event-bus';
+import { Form, Formik } from 'formik';
 import { useContext, useEffect, useState } from 'react';
 import useCreateOrUpdateExpense from '../../api-services/month/createOrUpdateExpense.service';
 import useDeleteExpense from '../../api-services/month/deleteExpense.service';
@@ -48,6 +51,7 @@ export default function MonthExpensesSection({}: {}) {
                 setCachedExpenses={setCachedExpenses}
                 saveExpense={saveExpense}
                 deleteExpense={deleteExpense}
+                showPasteSection
             ></ExpensesTable>
         </div>
     );

@@ -3,6 +3,7 @@ import {
     ButtonAppearance,
     ButtonSize
 } from '@clemann-developments/react/components/interaction/button';
+import { DataBox } from '@clemann-developments/react/components/ui-elements';
 import {
     Modal,
     ModalFooter,
@@ -17,7 +18,6 @@ import {
 } from '../../../api-services/entities/userToLeague.entity';
 import useEditPlayer from '../../../api-services/manager/players/editPlayer.service';
 import useRemovePlayer from '../../../api-services/manager/players/removePlayer.service';
-import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 
 export default function RemoveDeactivatePlayerModal({

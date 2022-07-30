@@ -1,3 +1,4 @@
+import { DataBox } from '@clemann-developments/react/components/ui-elements';
 import {
     useModal,
     Modal,
@@ -8,7 +9,6 @@ import { toast } from 'react-toastify';
 import useRemoveUserFromLeague from '../../../../api-services/admin/leagues/removeUserFromLeague.service';
 import { League } from '../../../../api-services/entities/league.entity';
 import { User } from '../../../../api-services/entities/user.entity';
-import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';
 
 export default function RemoveUserFromLeagueModal({

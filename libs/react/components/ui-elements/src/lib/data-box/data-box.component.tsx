@@ -1,6 +1,6 @@
 import styles from './data-box.module.scss';
 
-export default function DataBox({
+export function DataBox({
     style,
     children
 }: {

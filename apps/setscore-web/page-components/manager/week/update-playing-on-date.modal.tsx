@@ -1,3 +1,4 @@
+import { DataBox } from '@clemann-developments/react/components/ui-elements';
 import { DatePickerField } from '@clemann-developments/react/forms';
 import {
     Modal,
@@ -7,7 +8,6 @@ import {
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import useUpdateWeekPlayingOnDate from '../../../api-services/manager/week/updateWeekPlayingOnDate.service';
-import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../components/ui-elements/data-point/data-point.component';
 
 export default function UpdatePlayingOnDateModal(props: {

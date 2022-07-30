@@ -12,13 +12,13 @@ import {
 import {
     ExternalLinkIcon,
     MinusCircleIcon,
-    XCircleIcon,
     XIcon
 } from '@heroicons/react/outline';
 import { CheckCircleIcon } from '@heroicons/react/solid';
 import { useContext, useState } from 'react';
 import { ExpenseTableContext } from '../../expense-table.context';
 import styles from '../../expenses-table.module.scss';
+import ShareExpenseModal from './share-expense.modal';
 
 export default function ExpenseControlsCell({
     expense,
@@ -53,6 +53,16 @@ export default function ExpenseControlsCell({
     const handleClearClick = async () => {
         await clearChanges();
         setDeleteButtonFocused(false);
+    };
+    const handleShareClick = async () => {
+        showModal(
+            <ShareExpenseModal
+                expense={expense}
+                onConfirm={async () => {
+                    closeModal();
+                }}
+            />
+        );
     };
     const handleDeleteClick = async () => {
         showModal(
@@ -131,7 +141,7 @@ export default function ExpenseControlsCell({
                         <Button
                             id={`expense-table-cell-${rowIndex}-10`}
                             appearance={ButtonAppearance.Icon}
-                            clickHandler={handleClearClick}
+                            clickHandler={handleShareClick}
                             className={`${styles.noOutline} ${styles.opaque}`}
                             onFocus={handleShareFocus}
                             onBlur={() => setShareButtonFocused(false)}

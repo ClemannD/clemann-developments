@@ -1,4 +1,5 @@
 import {
+    DataBox,
     Pill,
     PillColor
 } from '@clemann-developments/react/components/ui-elements';
@@ -12,7 +13,6 @@ import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { CourtDto } from '../../../api-services/manager/models';
 import useUpdateCourtOrder from '../../../api-services/manager/week/updateCourtOrder.service';
-import DataBox from '../../../components/ui-elements/data-box/data-box.component';
 import styles from './update-court-order.module.scss';
 
 export default function UpdateCourtOrderModal({

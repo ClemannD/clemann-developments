@@ -14,6 +14,7 @@ export type ModalFooterProps = {
     onCancelClick?: () => void;
     okButtonType?: 'button' | 'submit';
     hideOkButton?: boolean;
+    hideCancelButton?: boolean;
     isDangerButton?: boolean;
     isSubmitting?: boolean;
     okButtonDisabled?: boolean;
@@ -26,6 +27,7 @@ export function ModalFooter({
     onCancelClick,
     okButtonType = 'button',
     hideOkButton = false,
+    hideCancelButton = false,
     isDangerButton = false,
     isSubmitting = false,
     okButtonDisabled = false
@@ -35,26 +37,28 @@ export function ModalFooter({
 
     return (
         <div className={styles.modalFooter}>
-            <div
-                style={{
-                    marginRight: hideOkButton ? '0' : '2rem',
-                    width: hideOkButton ? '100%' : 'auto'
-                }}
-            >
-                <Button
-                    size={
-                        hideOkButton
-                            ? ButtonSize.Block
-                            : mediumBelow
-                            ? ButtonSize.Small
-                            : ButtonSize.Medium
-                    }
-                    appearance={ButtonAppearance.Secondary}
-                    clickHandler={onCancelClick || closeModal}
+            {!hideCancelButton && (
+                <div
+                    style={{
+                        marginRight: hideOkButton ? '0' : '2rem',
+                        width: hideOkButton ? '100%' : 'auto'
+                    }}
                 >
-                    {cancelButtonText}
-                </Button>
-            </div>
+                    <Button
+                        size={
+                            hideOkButton
+                                ? ButtonSize.Block
+                                : mediumBelow
+                                ? ButtonSize.Small
+                                : ButtonSize.Medium
+                        }
+                        appearance={ButtonAppearance.Secondary}
+                        clickHandler={onCancelClick || closeModal}
+                    >
+                        {cancelButtonText}
+                    </Button>
+                </div>
+            )}
 
             {!hideOkButton && (
                 <Button

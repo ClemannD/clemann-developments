@@ -1,4 +1,7 @@
-import { Loading } from '@clemann-developments/react/components/ui-elements';
+import {
+    DataBox,
+    Loading
+} from '@clemann-developments/react/components/ui-elements';
 import { Select } from '@clemann-developments/react/forms';
 import {
     useModal,
@@ -15,7 +18,6 @@ import useListUsers from '../../../../api-services/admin/users/listUsers.service
 import { League } from '../../../../api-services/entities/league.entity';
 import { LeagueMemberType } from '../../../../api-services/entities/userToLeague.entity';
 import LeagueMemberTypeSelect from '../../../../components/forms/league-member-type-select/league-member-type-select.component';
-import DataBox from '../../../../components/ui-elements/data-box/data-box.component';
 import DataPoint from '../../../../components/ui-elements/data-point/data-point.component';
 
 export default function AddUserToLeagueModal({
