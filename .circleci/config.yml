@@ -385,17 +385,17 @@ workflows:
           filters:
             branches:
               only: main
-      - production-approval:
-          name: Production Approval (expense-tracker-web)
-          type: approval
-          requires:
-            - Deploy Development (expense-tracker-web)
+      # - production-approval:
+      #     name: Production Approval (expense-tracker-web)
+      #     type: approval
+      #     requires:
+      #       - Deploy Development (expense-tracker-web)
       - deploy:
           name: Deploy Production (expense-tracker-web)
           application: 'expense-tracker-web'
           environment: 'production'
-          requires:
-            - Production Approval (expense-tracker-web)
+          # requires:
+          #   - Production Approval (expense-tracker-web)
 
   expense-tracker-api-pipeline:
     jobs:
