@@ -138,16 +138,18 @@ export default function ExpenseControlsCell({
                             <MinusCircleIcon />
                         </Button>
                     ) : (
-                        <Button
-                            id={`expense-table-cell-${rowIndex}-10`}
-                            appearance={ButtonAppearance.Icon}
-                            clickHandler={handleShareClick}
-                            className={`${styles.noOutline} ${styles.opaque}`}
-                            onFocus={handleShareFocus}
-                            onBlur={() => setShareButtonFocused(false)}
-                        >
-                            <ExternalLinkIcon />
-                        </Button>
+                        !hideDelete && (
+                            <Button
+                                id={`expense-table-cell-${rowIndex}-10`}
+                                appearance={ButtonAppearance.Icon}
+                                clickHandler={handleShareClick}
+                                className={`${styles.noOutline} ${styles.opaque}`}
+                                onFocus={handleShareFocus}
+                                onBlur={() => setShareButtonFocused(false)}
+                            >
+                                <ExternalLinkIcon />
+                            </Button>
+                        )
                     )}
                 </div>
 

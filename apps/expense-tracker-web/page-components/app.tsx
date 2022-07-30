@@ -41,7 +41,10 @@ export default function App({ children }) {
                             style={{
                                 overflow: modalContext.modalContent
                                     ? 'hidden'
-                                    : 'initial'
+                                    : 'initial',
+                                height: modalContext.modalContent
+                                    ? '100vh'
+                                    : 'auto'
                             }}
                         >
                             {children}
