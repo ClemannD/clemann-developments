@@ -375,5 +375,14 @@
         .noOutline {
             outline: none !important;
         }
+
+        .opaque {
+            opacity: 0.3;
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+            }
+        }
     }
 }

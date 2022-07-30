@@ -5,7 +5,7 @@ import { EventBusActionTypes } from '../../../constants/event-bus-action-types';
 import styles from './expenses-table.module.scss';
 import ExpenseAmountCell from './cells/amount-cell.component';
 import ExpenseCategoryCell from './cells/category-cell.component';
-import ExpenseControlsCell from './cells/controls-cell.component';
+import ExpenseControlsCell from './cells/controls-cell/controls-cell.component';
 import ExpenseDateCell from './cells/date-cell.component';
 import ExpenseItemCell from './cells/item-cell.component';
 import ExpensePaymentMethodCell from './cells/payment-method-cell.component';
@@ -186,6 +186,7 @@ export default function ExpensesTableRow({
                     updateNewExpense={updateNewExpense}
                 />
                 <ExpenseControlsCell
+                    expense={newExpense}
                     hasChanges={hasChanges}
                     hideDelete={hideDelete}
                     rowIndex={rowIndex}

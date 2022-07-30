@@ -11,7 +11,7 @@ export function useExpenseRowKeyHandler(saveChanges: () => Promise<void>) {
             await saveChanges();
             expenseTableContext.focusCell(
                 expenseTableContext.focusedRowIndex + 1,
-                expenseTableContext.focusedColumnIndex
+                0
             );
         }
     };

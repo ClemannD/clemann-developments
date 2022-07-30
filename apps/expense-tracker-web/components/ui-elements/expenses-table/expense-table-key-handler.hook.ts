@@ -88,7 +88,7 @@ export function useExpenseTableKeyHandler(rowLength = 0) {
             let prevElementColumnIndex = focusedColumnIndex - 1;
 
             if (prevElementColumnIndex < 0) {
-                prevElementColumnIndex = 10;
+                prevElementColumnIndex = 11;
             }
 
             let prevElement = document.getElementById(
@@ -97,7 +97,7 @@ export function useExpenseTableKeyHandler(rowLength = 0) {
 
             while (!prevElement) {
                 if (prevElementColumnIndex === 0) {
-                    prevElementColumnIndex = 10;
+                    prevElementColumnIndex = 11;
                 } else {
                     prevElementColumnIndex--;
                 }
@@ -110,18 +110,20 @@ export function useExpenseTableKeyHandler(rowLength = 0) {
         }
 
         if (event.key === 'ArrowRight') {
-            if (focusedColumnIndex === 10) {
+            if (focusedColumnIndex === 11) {
                 document
                     .getElementById(`expense-table-cell-${focusedRowIndex}-0`)
                     ?.focus();
             } else {
                 let nextElementColumnIndex = focusedColumnIndex + 1;
+                console.log('nextElementColumnIndex', nextElementColumnIndex);
                 let nextElement = document.getElementById(
                     `expense-table-cell-${focusedRowIndex}-${nextElementColumnIndex}`
                 );
 
                 while (!nextElement) {
-                    if (nextElementColumnIndex === 10) {
+                    console.log('nextElement', nextElement);
+                    if (nextElementColumnIndex === 11) {
                         nextElementColumnIndex = 0;
                     } else {
                         nextElementColumnIndex++;
@@ -129,6 +131,7 @@ export function useExpenseTableKeyHandler(rowLength = 0) {
                     nextElement = document.getElementById(
                         `expense-table-cell-${focusedRowIndex}-${nextElementColumnIndex}`
                     );
+                    console.log('nextElement2', nextElement);
                 }
 
                 nextElement.focus();
@@ -136,7 +139,7 @@ export function useExpenseTableKeyHandler(rowLength = 0) {
         }
 
         if (event.key === 'Enter') {
-            focusCell(focusedRowIndex + 1, focusedColumnIndex);
+            focusCell(focusedRowIndex + 1, 0);
         }
     };
 
