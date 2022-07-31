@@ -44,7 +44,7 @@ export default function Navbar({ showLinks = true }: { showLinks?: boolean }) {
                                             : ''
                                     }`}
                                 >
-                                    <Link href={'/summary'}>Overview</Link>
+                                    <Link href={'/overview'}>Overview</Link>
                                 </div>
                                 <div
                                     className={`${styles.navbarLink} ${
