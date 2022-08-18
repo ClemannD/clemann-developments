@@ -412,11 +412,11 @@ workflows:
       #     filters:
       #       branches:
       #         only: main
-      - production-approval:
-          name: Production Approval (expense-tracker-api)
-          type: approval
-          requires:
-            - Build and push Image (expense-tracker-api)
+      # - production-approval:
+      #     name: Production Approval (expense-tracker-api)
+      #     type: approval
+      #     requires:
+      #       - Build and push Image (expense-tracker-api)
       - deploy-docker:
           name: Deploy Production (expense-tracker-api)
           application: 'expense-tracker-api'
@@ -424,4 +424,5 @@ workflows:
           ssh_host: 'expense-tracker.clemann.app'
           ssh_fingerprint: '57:5d:90:1f:12:7f:fc:a6:d9:59:34:f2:18:51:60:aa'
           requires:
-            - Production Approval (expense-tracker-api)
+            - Build and push Image (expense-tracker-api)
+            # - Production Approval (expense-tracker-api)

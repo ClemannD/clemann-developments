@@ -12,7 +12,7 @@ export default function HomePage() {
 
     useEffect(() => {
         if (registrationChecked) {
-            router.push('/summary');
+            router.push('/overview');
         }
     }, [registrationChecked]);
 
