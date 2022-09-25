@@ -297,8 +297,8 @@ jobs:
       - install-dependencies
       - set-shas:
           application-name: << parameters.application >>
-      - cancel-non-affected:
-          application: << parameters.application >>
+      # - cancel-non-affected:
+      #     application: << parameters.application >>
       - install_doppler
       - run:
           name: Deploy << parameters.environment >>
