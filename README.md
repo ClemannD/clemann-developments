@@ -4,91 +4,48 @@
 
 This project was generated using [Nx](https://nx.dev).
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+I wanted to experiment with using a Mono Repo for some of my personal projects that use the same frameworks. The `lib` folder contains resources shared across applications.
 
-🔎 **Smart, Fast and Extensible Build System**
+## Projects
 
-## Adding capabilities to your workspace
+### Spendly (expense-tracker)
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+https://spendly-app.vercel.app/
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+A web app for tracking personal expenses and spending, with strong catigorization features and charts for tracking spending over time.
 
-Below are our core plugins:
+**Note: I personally use this app, as well as some close friends and family. It is live for anyone to use, but if you are sensitive about your data, you do so at your own risk, as there are indoubtedly some security holes that I have not patched up, this being a side project.**
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+#### Application stack:
+- NextJS (Frontend)
+- NestJS (Backend)
+- Auth0 (Auth)
+- Vercel (Frontend deployment)
+- Digital Ocean (Backend deployment)
+- Supabase (Database)
+- CircleCI (CI/CD)
+- Doppler (Secrets management)
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+#### Screenshots:
 
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@clemann-developments/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+<img width="1489" alt="Screen Shot 2022-12-06 at 8 42 02 AM" src="https://user-images.githubusercontent.com/17599322/205928090-e10a5ae9-4f35-430e-9a00-fae7cfcdfba9.png">
 
 
+<img width="1498" alt="Screen Shot 2022-12-06 at 8 45 41 AM" src="https://user-images.githubusercontent.com/17599322/205928811-d5ccd891-f820-41ee-a6f3-2ae715b8fa5f.png">
 
-## ☁ Nx Cloud
+### SetScore
 
-### Distributed Computation Caching & Distributed Task Execution
+One of my first projects I started building when I was still in school was a simple web page for my father's Tennis Doubles League to report their scores. That project has had many iterations, and the one in this repo is the latest version of that. 
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+This iteration is still a work in progress, and is not live at this time.
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+#### Application stack:
+- NextJS (Frontend)
+- NestJS (Backend)
+- Auth0 (Auth)
+- Vercel (Frontend deployment)
+- Heroku (Backend deployment) (Not anymore, since it is no longer free)
+- Heroku Postgres (Backend deployment) (Not anymore, since it is no longer free)
+- CircleCI (CI/CD)
+- Doppler (Secrets management)
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
